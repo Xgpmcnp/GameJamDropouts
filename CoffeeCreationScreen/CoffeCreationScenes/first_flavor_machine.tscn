@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6kgf03wtfwmf"]
+
+[ext_resource type="Script" uid="uid://b0nnxsjwfgjqs" path="res://CoffeeCreationScreen/CoffeeCreationScripts/first_flavor_machine.gd" id="1_kiscm"]
+[ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="3_ercid"]
+[ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="3_x12yb"]
+[ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="4_6u183"]
+
+[node name="FirstFlavorMachine" type="Node2D"]
+script = ExtResource("1_kiscm")
+
+[node name="FirstFlavorBack" type="TextureButton" parent="."]
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 45.0
+texture_normal = ExtResource("3_ercid")
+
+[node name="FirstFlavorLabel" type="Label" parent="."]
+offset_left = 164.0
+offset_top = 33.0
+offset_right = 248.0
+offset_bottom = 58.0
+text = "Pumpkin"
+
+[node name="FirstFlavorForward" type="TextureButton" parent="."]
+offset_left = 270.0
+offset_top = 9.0
+offset_right = 387.0
+offset_bottom = 91.0
+texture_normal = ExtResource("3_x12yb")
+
+[node name="FirstFlavorPour" type="TextureButton" parent="."]
+offset_left = 168.0
+offset_top = 109.0
+offset_right = 250.0
+offset_bottom = 226.0
+texture_normal = ExtResource("4_6u183")
+
+[connection signal="pressed" from="FirstFlavorBack" to="." method="_on_first_flavor_back_pressed"]
+[connection signal="pressed" from="FirstFlavorForward" to="." method="_on_first_flavor_forward_pressed"]
+[connection signal="pressed" from="FirstFlavorPour" to="." method="_on_first_flavor_pour_pressed"]

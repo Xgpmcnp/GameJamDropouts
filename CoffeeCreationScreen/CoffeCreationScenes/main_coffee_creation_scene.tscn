@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://drwqanvf6iry2"]
+
+[ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/first_flavor_machine.tscn" id="1_o7735"]
+[ext_resource type="PackedScene" uid="uid://optt72fc6d1s" path="res://CoffeeCreationScreen/CoffeCreationScenes/second_flavor_machine.tscn" id="2_awan7"]
+
+[node name="MainCoffeeCreationScene" type="Node2D"]
+
+[node name="FirstFlavorMachine" parent="." instance=ExtResource("1_o7735")]
+position = Vector2(-1, 12)
+
+[node name="SecondFlavorMachine" parent="." instance=ExtResource("2_awan7")]
+position = Vector2(344, -12)
