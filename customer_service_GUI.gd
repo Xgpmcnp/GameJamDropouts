@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 	if score_timer >= score_interval:
 		current_score += 1
 		score_timer -= score_interval
-		sanity_bar.value -= 10
 	score_label.text = str(current_score)
 
 func _on_menu_editing_pressed() -> void:
@@ -34,3 +33,6 @@ func _on_drink_creation_pressed() -> void:
 func _on_skill_tree_pressed() -> void:
 	print("You clicked the Skill Tree Button")
 	
+func _on_player_health_changed(new_value: Variant) -> void:
+	sanity_bar.value = new_value
+	print("Sanity Bar value is: " + str(sanity_bar.value))
