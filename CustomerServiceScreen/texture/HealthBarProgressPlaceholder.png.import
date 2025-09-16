@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blhwquxfbkg77"
-path="res://.godot/imported/heart_frame-removebg-preview.png-a3e46e9ecc2baf218f7b9bd5d1ae5c8b.ctex"
+uid="uid://d1nwkn25r5ls2"
+path="res://.godot/imported/HealthBarProgressPlaceholder.png-b613aefdf5191be939ede4d0cc220bc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/heart_frame-removebg-preview.png"
-dest_files=["res://.godot/imported/heart_frame-removebg-preview.png-a3e46e9ecc2baf218f7b9bd5d1ae5c8b.ctex"]
+source_file="res://CustomerServiceScreen/texture/HealthBarProgressPlaceholder.png"
+dest_files=["res://.godot/imported/HealthBarProgressPlaceholder.png-b613aefdf5191be939ede4d0cc220bc8.ctex"]
 
 [params]
 

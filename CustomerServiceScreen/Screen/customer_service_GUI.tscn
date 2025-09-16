@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://td5fxgjpepik"]
 
-[ext_resource type="Script" uid="uid://dt2j1cx2lk35g" path="res://customer_service_GUI.gd" id="1_bgrba"]
-[ext_resource type="Texture2D" uid="uid://blhwquxfbkg77" path="res://texture/heart_frame-removebg-preview.png" id="2_ifaw8"]
-[ext_resource type="Texture2D" uid="uid://d1nwkn25r5ls2" path="res://texture/HealthBar.png" id="3_tj5qr"]
+[ext_resource type="Script" uid="uid://dt2j1cx2lk35g" path="res://CustomerServiceScreen/Script/customer_service_GUI.gd" id="1_bgrba"]
+[ext_resource type="Texture2D" uid="uid://blhwquxfbkg77" path="res://CustomerServiceScreen/texture/heart_frame-placeholder.png" id="2_ifaw8"]
+[ext_resource type="Texture2D" uid="uid://d1nwkn25r5ls2" path="res://CustomerServiceScreen/texture/HealthBarProgressPlaceholder.png" id="3_tj5qr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urgjv"]
 corner_radius_top_left = 16
@@ -26,6 +26,10 @@ anchor_left = 0.719
 anchor_top = 0.24
 anchor_right = 0.959
 anchor_bottom = 0.756
+offset_left = 1.71204
+offset_top = -28.52
+offset_right = 1.71204
+offset_bottom = -28.52
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
@@ -40,19 +44,19 @@ text = "Skill Tree"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
-text = "Menu Editing"
+text = "Editing the menu"
 
 [node name="Shop" type="Button" parent="InteractButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
-text = "Shop"
+text = "Go Shopping"
 
 [node name="DrinkCreation" type="Button" parent="InteractButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
-text = "Drink Creation"
+text = "Brew coffee"
 
 [node name="Setting" type="Button" parent="."]
 layout_mode = 1
@@ -64,33 +68,53 @@ anchor_bottom = 0.037
 offset_left = -46.0
 offset_bottom = 44.0
 grow_horizontal = 0
-text = "setting"
+text = "Settings"
 
 [node name="StatusContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
+anchor_left = 0.01
 anchor_top = 0.046
-anchor_right = 0.093
+anchor_right = 0.065
 anchor_bottom = 0.046
 offset_right = 409.0
 offset_bottom = 87.0
 
-[node name="SanityBar" type="TextureProgressBar" parent="StatusContainer"]
+[node name="SanityContainer" type="HBoxContainer" parent="StatusContainer"]
 layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StatusContainer/SanityContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Composure"
+fit_content = true
+vertical_alignment = 1
+
+[node name="SanityBar" type="TextureProgressBar" parent="StatusContainer/SanityContainer"]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 value = 100.0
 texture_over = ExtResource("2_ifaw8")
 texture_progress = ExtResource("3_tj5qr")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="StatusContainer"]
+[node name="MoneyContainer" type="HBoxContainer" parent="StatusContainer"]
 layout_mode = 2
 
-[node name="StaticScoreLabel" type="Label" parent="StatusContainer/HBoxContainer"]
+[node name="StaticMoneyLabel" type="RichTextLabel" parent="StatusContainer/MoneyContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Score: "
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.5
+text = "Fund: "
+fit_content = true
 
-[node name="ScoreLabel" type="Label" parent="StatusContainer/HBoxContainer"]
+[node name="MoneyValueLabel" type="Label" parent="StatusContainer/MoneyContainer"]
+custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="InteractButtonContainer/SkillTree" to="." method="_on_skill_tree_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/MenuEditing" to="." method="_on_menu_editing_pressed"]

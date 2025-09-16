@@ -3,8 +3,8 @@ extends Control
 var current_score: int = 0
 var score_timer: float = 0.0
 var score_interval: float = 1.0  # increase every 1 second
-@onready var sanity_bar: TextureProgressBar = $StatusContainer/SanityBar
-@onready var score_label: Label = $StatusContainer/HBoxContainer/ScoreLabel
+@onready var sanity_bar: TextureProgressBar = $StatusContainer/SanityContainer/SanityBar
+@onready var money_value: Label = $StatusContainer/MoneyContainer/MoneyValueLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	if score_timer >= score_interval:
 		current_score += 1
 		score_timer -= score_interval
-	score_label.text = str(current_score)
+	money_value.text = str(current_score) + "$"
 
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
