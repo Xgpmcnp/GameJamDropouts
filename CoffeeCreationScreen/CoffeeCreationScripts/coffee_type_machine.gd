@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var coffee_cup: Sprite2D = $"../CoffeeCup"
 @onready var coffee_type_label: Label = $CoffeeTypeLabel
 var coffee_type_options = ["Latte", "Mocha", "Americano"]
 var curr_index = 0
@@ -30,4 +31,5 @@ func _on_coffee_type_forward_pressed() -> void:
 		coffee_type_label.text = coffee_type_options[curr_index]
 
 func _on_coffee_type_pour_pressed() -> void:
-	print("coffee type poured")
+	coffee_cup.set_coffee_type(coffee_type_label.text)
+	

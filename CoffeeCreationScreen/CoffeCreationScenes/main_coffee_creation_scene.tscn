@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=5 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/first_flavor_machine.tscn" id="1_o7735"]
 [ext_resource type="PackedScene" uid="uid://optt72fc6d1s" path="res://CoffeeCreationScreen/CoffeCreationScenes/second_flavor_machine.tscn" id="2_awan7"]
+[ext_resource type="PackedScene" uid="uid://bh8oixxu54w6s" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_type_machine.tscn" id="3_7ey1p"]
+[ext_resource type="PackedScene" uid="uid://ebncpslt0akj" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_cup.tscn" id="4_d48ii"]
 
 [node name="MainCoffeeCreationScene" type="Node2D"]
 
@@ -10,3 +12,9 @@ position = Vector2(-1, 12)
 
 [node name="SecondFlavorMachine" parent="." instance=ExtResource("2_awan7")]
 position = Vector2(344, -12)
+
+[node name="CoffeeTypeMachine" parent="." instance=ExtResource("3_7ey1p")]
+position = Vector2(859, 24)
+
+[node name="CoffeeCup" parent="." instance=ExtResource("4_d48ii")]
+position = Vector2(162, 428)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ebncpslt0akj"]
+
+[ext_resource type="Texture2D" uid="uid://cirpwx6k3xvrn" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/CupImageTemp.png" id="1_3knv6"]
+[ext_resource type="Script" uid="uid://da2ftngm8ied8" path="res://CoffeeCreationScreen/CoffeeCreationScripts/coffee_cup.gd" id="2_81enc"]
+
+[node name="CoffeeCup" type="Sprite2D"]
+position = Vector2(-27.25, 70.25)
+scale = Vector2(0.777551, 0.601983)
+texture = ExtResource("1_3knv6")
+script = ExtResource("2_81enc")

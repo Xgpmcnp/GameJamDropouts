@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@onready var coffee_cup: Sprite2D = $"../CoffeeCup"
 @onready var first_flavor_label: Label = $FirstFlavorLabel
 var first_flavor_options = ["Pumpkin", "Vanilla", "Lavendar"]
 var curr_index = 0
@@ -32,4 +32,5 @@ func _on_first_flavor_forward_pressed() -> void:
 		
 # Triggers pouring animation and moves to next step
 func _on_first_flavor_pour_pressed() -> void:
-	print("First flavor poured")
+	coffee_cup.set_first_flavor(first_flavor_label.text)
+	
