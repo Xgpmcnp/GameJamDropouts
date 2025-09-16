@@ -5,6 +5,7 @@ extends Node2D
 var coffee_type_options = ["Latte", "Mocha", "Americano"]
 var curr_index = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -31,5 +32,6 @@ func _on_coffee_type_forward_pressed() -> void:
 		coffee_type_label.text = coffee_type_options[curr_index]
 
 func _on_coffee_type_pour_pressed() -> void:
-	coffee_cup.set_coffee_type(coffee_type_label.text)
+	if coffee_cup.fill_level == 2:
+		coffee_cup.set_coffee_type(coffee_type_label.text)
 	

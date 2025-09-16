@@ -20,7 +20,7 @@ offset_right = 330.0
 offset_bottom = 47.0
 texture_normal = ExtResource("2_b55sc")
 
-[node name="CoffeeTypePour" type="TextureButton" parent="."]
+[node name="CoffeeTypePour" type="TextureButton" parent="." groups=["PourButtons"]]
 offset_left = 140.0
 offset_top = 92.0
 offset_right = 180.0

@@ -29,7 +29,7 @@ offset_right = 387.0
 offset_bottom = 91.0
 texture_normal = ExtResource("3_x12yb")
 
-[node name="FirstFlavorPour" type="TextureButton" parent="."]
+[node name="FirstFlavorPour" type="TextureButton" parent="." groups=["PourButtons"]]
 offset_left = 168.0
 offset_top = 109.0
 offset_right = 250.0

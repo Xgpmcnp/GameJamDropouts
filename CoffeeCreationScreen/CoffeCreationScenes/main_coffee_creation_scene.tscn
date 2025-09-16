@@ -18,3 +18,7 @@ position = Vector2(859, 24)
 
 [node name="CoffeeCup" parent="." instance=ExtResource("4_d48ii")]
 position = Vector2(162, 428)
+
+[node name="ServeButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

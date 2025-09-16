@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var coffee_cup: Sprite2D = $"../CoffeeCup"
 @onready var second_flavor_label: Label = $SecondFlavorLabel
+
+
+
 var second_flavor_options = ["Spice", "Matcha", "Caramom"]
 var curr_index = 0
 # Called when the node enters the scene tree for the first time.
@@ -33,4 +36,5 @@ func _on_second_flavor_forward_pressed() -> void:
 	
 # Triggers pouring animation and moves to next step
 func _on_second_flavor_pour_pressed() -> void:
-	coffee_cup.set_second_flavor(second_flavor_label.text)
+	if coffee_cup.fill_level == 1:
+		coffee_cup.set_second_flavor(second_flavor_label.text)
