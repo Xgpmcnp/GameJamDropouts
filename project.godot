@@ -14,3 +14,7 @@ config/name="DropoutsGameJam"
 run/main_scene="uid://drwqanvf6iry2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
