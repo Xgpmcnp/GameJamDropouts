@@ -1,39 +1,39 @@
 [gd_scene load_steps=5 format=3 uid="uid://bh8oixxu54w6s"]
 
-[ext_resource type="Script" uid="uid://brf04yuhteuvd" path="res://CoffeeCreationScreen/CoffeeCreationScripts/coffee_type_machine.gd" id="1_b55sc"]
+[ext_resource type="Script" uid="uid://brf04yuhteuvd" path="res://CoffeeCreationScreen/CoffeeCreationScripts/preparation_method.gd" id="1_b55sc"]
 [ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="1_cv7wn"]
 [ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="2_b55sc"]
 [ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="3_0dfiq"]
 
-[node name="CoffeeTypeMachine" type="Node2D"]
+[node name="PreparationMethodSelection" type="Node2D"]
 script = ExtResource("1_b55sc")
 
-[node name="CoffeeTypeBack" type="TextureButton" parent="."]
+[node name="MethodBack" type="TextureButton" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_cv7wn")
 
-[node name="CoffeeTypeForward" type="TextureButton" parent="."]
+[node name="MethodForward" type="TextureButton" parent="."]
 offset_left = 290.0
 offset_top = 7.0
 offset_right = 330.0
 offset_bottom = 47.0
 texture_normal = ExtResource("2_b55sc")
 
-[node name="CoffeeTypePour" type="TextureButton" parent="." groups=["PourButtons"]]
+[node name="MethodPour" type="TextureButton" parent="." groups=["PourButtons"]]
 offset_left = 140.0
 offset_top = 92.0
 offset_right = 180.0
 offset_bottom = 132.0
 texture_normal = ExtResource("3_0dfiq")
 
-[node name="CoffeeTypeLabel" type="Label" parent="."]
+[node name="MethodLabel" type="Label" parent="."]
 offset_left = 143.0
 offset_top = 8.0
 offset_right = 234.0
 offset_bottom = 70.0
 text = "Latte"
 
-[connection signal="pressed" from="CoffeeTypeBack" to="." method="_on_coffee_type_back_pressed"]
-[connection signal="pressed" from="CoffeeTypeForward" to="." method="_on_coffee_type_forward_pressed"]
-[connection signal="pressed" from="CoffeeTypePour" to="." method="_on_coffee_type_pour_pressed"]
+[connection signal="pressed" from="MethodBack" to="." method="_on_method_back_pressed"]
+[connection signal="pressed" from="MethodForward" to="." method="_on_method_forward_pressed"]
+[connection signal="pressed" from="MethodPour" to="." method="_on_method_pour_pressed"]

@@ -1,8 +1,9 @@
 extends Node2D
 
 @onready var coffee_cup: Sprite2D = $"../CoffeeCup"
-@onready var coffee_type_label: Label = $CoffeeTypeLabel
-var coffee_type_options = ["Latte", "Mocha", "Americano"]
+@onready var method_label: Label = $MethodLabel
+
+var preparation_method_options = ["Latte", "Mocha", "Americano"]
 var curr_index = 0
 
 
@@ -16,22 +17,22 @@ func _process(delta: float) -> void:
 	pass
 
 # Go back to previous coffee type, pass if the type is already "Latte"
-func _on_coffee_type_back_pressed() -> void:
+func _on_method_back_pressed() -> void:
 	if curr_index == 0:
 		pass
 	else:
 		curr_index -= 1
-		coffee_type_label.text = coffee_type_options[curr_index]
+		method_label.text = preparation_method_options[curr_index]
 
 # Go to next coffee type, pass if already at the last flavor
-func _on_coffee_type_forward_pressed() -> void:
-	if curr_index == coffee_type_options.size() - 1:
+func _on_method_forward_pressed() -> void:
+	if curr_index == preparation_method_options.size() - 1:
 		pass
 	else:
 		curr_index += 1
-		coffee_type_label.text = coffee_type_options[curr_index]
+		method_label.text = preparation_method_options[curr_index]
 
-func _on_coffee_type_pour_pressed() -> void:
+func _on_method_pour_pressed() -> void:
 	if coffee_cup.fill_level == 2:
-		coffee_cup.set_coffee_type(coffee_type_label.text)
+		coffee_cup.set_preparation_method(method_label.text)
 	

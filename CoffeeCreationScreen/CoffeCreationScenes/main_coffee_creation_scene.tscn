@@ -1,24 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=9 format=3 uid="uid://drwqanvf6iry2"]
 
-[ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/first_flavor_machine.tscn" id="1_o7735"]
-[ext_resource type="PackedScene" uid="uid://optt72fc6d1s" path="res://CoffeeCreationScreen/CoffeCreationScenes/second_flavor_machine.tscn" id="2_awan7"]
-[ext_resource type="PackedScene" uid="uid://bh8oixxu54w6s" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_type_machine.tscn" id="3_7ey1p"]
+[ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
+[ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
+[ext_resource type="PackedScene" uid="uid://optt72fc6d1s" path="res://CoffeeCreationScreen/CoffeCreationScenes/extras_selection.tscn" id="2_awan7"]
+[ext_resource type="PackedScene" uid="uid://bh8oixxu54w6s" path="res://CoffeeCreationScreen/CoffeCreationScenes/preparation_method_selection.tscn" id="3_7ey1p"]
 [ext_resource type="PackedScene" uid="uid://ebncpslt0akj" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_cup.tscn" id="4_d48ii"]
+[ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="6_cs5si"]
+[ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="6_pd2mq"]
+[ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="7_cs5si"]
 
 [node name="MainCoffeeCreationScene" type="Node2D"]
+script = ExtResource("1_63yc2")
 
-[node name="FirstFlavorMachine" parent="." instance=ExtResource("1_o7735")]
-position = Vector2(-1, 12)
+[node name="FlavorSelection" parent="." instance=ExtResource("1_o7735")]
 
-[node name="SecondFlavorMachine" parent="." instance=ExtResource("2_awan7")]
-position = Vector2(344, -12)
+[node name="ExtrasSelection" parent="." instance=ExtResource("2_awan7")]
+position = Vector2(348, -19)
 
-[node name="CoffeeTypeMachine" parent="." instance=ExtResource("3_7ey1p")]
-position = Vector2(859, 24)
+[node name="PreparationMethodSelection" parent="." instance=ExtResource("3_7ey1p")]
+position = Vector2(860, 14)
 
 [node name="CoffeeCup" parent="." instance=ExtResource("4_d48ii")]
 position = Vector2(162, 428)
 
 [node name="ServeButton" type="TextureButton" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 904.0
+offset_top = 420.0
+offset_right = 1021.0
+offset_bottom = 537.0
+texture_normal = ExtResource("6_pd2mq")
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 711.0
+offset_top = 429.0
+offset_right = 828.0
+offset_bottom = 511.0
+texture_normal = ExtResource("7_cs5si")
+
+[node name="Options" type="TextureButton" parent="."]
+offset_left = 826.0
+offset_top = 517.0
+offset_right = 908.0
+offset_bottom = 634.0
+texture_normal = ExtResource("6_cs5si")
+
+[connection signal="pressed" from="ServeButton" to="." method="_on_serve_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
