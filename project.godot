@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DropoutsGameJam"
-run/main_scene="uid://th3nm1864cdr"
+run/main_scene="uid://drwqanvf6iry2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
