@@ -20,6 +20,7 @@ const dialog_lines: Array[String] = [
 func _ready() -> void:
 	process_current_line()
 	start_dialog()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if dialog_active:
