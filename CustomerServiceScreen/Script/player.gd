@@ -1,5 +1,5 @@
 extends Node2D
-@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player_sprite: AnimatedSprite2D = $%AvatarFrame
 var health: float = 100
 var timer := 0.0
 signal health_changed(new_value)
@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 		take_damage(10)
 
 func take_damage(amount):
-	var old_health = health
 	health -= amount
 	health_changed.emit(health)
 	_update_sprite()
