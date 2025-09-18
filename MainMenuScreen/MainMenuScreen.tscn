@@ -1,0 +1,233 @@
+[gd_scene load_steps=24 format=3 uid="uid://drx6jwawafnq4"]
+
+[ext_resource type="Texture2D" uid="uid://mpoqfxilwjva" path="res://MainMenuScreen/Assets/disintegrating_squirrel.png" id="1_unulq"]
+[ext_resource type="Script" uid="uid://40cgmmjlu8l4" path="res://MainMenuScreen/main_menu_screen.gd" id="1_vc4ah"]
+[ext_resource type="FontFile" uid="uid://djqkmj83inw0t" path="res://MainMenuScreen/Fonts/Sabaling-6Rv2v.otf" id="2_vc4ah"]
+[ext_resource type="FontFile" uid="uid://db3faghk8qpul" path="res://MainMenuScreen/Fonts/ChocoChici-2OMyW.ttf" id="3_7f08v"]
+[ext_resource type="AudioStream" uid="uid://d2wgxwjwvrww6" path="res://MainMenuScreen/Audio/Not Bad Afternoon.mp3" id="5_ym1y7"]
+[ext_resource type="Texture2D" uid="uid://dx1qrhx5u54dl" path="res://MainMenuScreen/Assets/613.jpg" id="6_ym1y7"]
+[ext_resource type="Script" uid="uid://bb1nu00bsei63" path="res://MainMenuScreen/AudioSlider.gd" id="7_kj861"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym1y7"]
+texture = ExtResource("1_unulq")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unulq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym1y7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kj861"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k43q4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vc4ah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gv8ib"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h0cs0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dsriq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7f08v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_04kd7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aeynl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu360"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj861"]
+texture = ExtResource("6_ym1y7")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ym1y7"]
+color = Color(0.733333, 0.462745, 0.25098, 1)
+thickness = 14
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kj861"]
+color = Color(0.495553, 0.175085, 0.00868091, 1)
+thickness = 14
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vc4ah")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -575.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ym1y7")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -43.0
+offset_right = 137.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Start Shift" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.404511, 0.404511, 0.404511, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.733333, 0.462745, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_unulq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ym1y7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kj861")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k43q4")
+text = "Start Shift"
+
+[node name="Options" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.403922, 0.403922, 0.403922, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.733333, 0.462745, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vc4ah")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gv8ib")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h0cs0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dsriq")
+text = "Options"
+
+[node name="Credits" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.403922, 0.403922, 0.403922, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.733333, 0.462745, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7f08v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_04kd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
+text = "Credits"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -200.0
+offset_right = 170.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_7f08v")
+theme_override_font_sizes/font_size = 80
+text = "Pour Some Love"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ym1y7")
+autoplay = true
+bus = &"Music"
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -255.5
+offset_right = 466.0
+offset_bottom = 255.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kj861")
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 0
+offset_right = 932.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 40
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -90.5
+offset_right = 40.0
+offset_bottom = -54.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.403922, 0.403922, 0.403922, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.733333, 0.462745, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7f08v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_04kd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
+text = "Back"
+
+[node name="Audio control" type="HSlider" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.5
+offset_top = -218.0
+offset_right = 355.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_ym1y7")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_kj861")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_kj861")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("7_kj861")
+audio_bus_name = "Master"
+
+[node name="Credits" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="MainButtons/Start Shift" to="." method="_on_Start_Shift_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainButtons/Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
+[connection signal="value_changed" from="Options/Audio control" to="Options/Audio control" method="_on_value_changed"]
