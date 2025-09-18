@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://s66untgrfycf" path="res://CustomerServiceScreen/texture/BackGroundPlaceholder.png" id="1_0ev6u"]
 [ext_resource type="PackedScene" uid="uid://td5fxgjpepik" path="res://CustomerServiceScreen/Screen/customer_service_GUI.tscn" id="1_0m4uw"]
-[ext_resource type="Script" uid="uid://cilbtep7f2y48" path="res://CustomerServiceScreen/Script/player.gd" id="2_0ev6u"]
+[ext_resource type="Script" uid="uid://7ag8xgn8apos" path="res://CustomerServiceScreen/Script/player.gd" id="2_0ev6u"]
 [ext_resource type="Texture2D" uid="uid://dwfrn2y3027va" path="res://CustomerServiceScreen/texture/table_placeholder.png" id="2_ov8q5"]
 [ext_resource type="Texture2D" uid="uid://dj7ldvstp2x48" path="res://CustomerServiceScreen/texture/annoyed_placeholder1.png" id="3_1oxsr"]
 [ext_resource type="Texture2D" uid="uid://l7j60ljw1mhj" path="res://CustomerServiceScreen/texture/nine_path_panel_interior.png" id="3_ov8q5"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bqydad5o4oaoi" path="res://CustomerServiceScreen/texture/happy_placeholder2.png" id="8_hd5lr"]
 [ext_resource type="Texture2D" uid="uid://cp0cfoclsejft" path="res://CustomerServiceScreen/texture/stress_placeholder1.png" id="9_llfs1"]
 [ext_resource type="Texture2D" uid="uid://3tqt46sxfa0d" path="res://CustomerServiceScreen/texture/stress_placeholder2.png" id="10_7ph5a"]
-[ext_resource type="PackedScene" uid="uid://bdnm1uernnh0i" path="res://CustomerServiceScreen/Screen/dialog_ui.tscn" id="13_pshui"]
+[ext_resource type="PackedScene" uid="uid://cgrie3xb0bya5" path="res://CustomerServiceScreen/Screen/dialog_ui.tscn" id="13_pshui"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pg8p4"]
 animations = [{

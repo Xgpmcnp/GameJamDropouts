@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 		take_damage(10)
 
 func take_damage(amount):
+	var old_health = health
 	health -= amount
 	health_changed.emit(health)
 	_update_sprite()
