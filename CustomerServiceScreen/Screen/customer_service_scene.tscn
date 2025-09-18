@@ -26,3 +26,5 @@ position = Vector2(-8, -15)
 
 [node name="DialogUI" parent="GUI" instance=ExtResource("13_pshui")]
 unique_name_in_owner = true
+
+[connection signal="health_changed" from="Character/Player" to="GUI/CustomerServiceGUI" method="_on_player_health_changed"]
