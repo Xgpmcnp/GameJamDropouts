@@ -9,6 +9,7 @@ var flavor_options = ["Pumpkin", "Vanilla", "Grape"]
 var extras_options = ["Spice", "Mint", "Lemon"]
 var preparation_method_options = ["Latte", "Soda", "Mocha"]
 
+
 # Variables to represent the current index of the arrays(which option is currently chosen)
 var curr_flavor_idx = 0
 var curr_extras_idx = 0
@@ -35,6 +36,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+# Function to full reset everything selected on coffee creation
+func reset_selected_options() -> void:
+	curr_flavor_idx = 0
+	curr_extras_idx = 0
+	curr_preparation_method_idx = 0
 #-------------------------------------------------------------------
 #  FUNCTIONS FOR FLAVORS/EXTRAS/PREP METHODS BELOW
 #-------------------------------------------------------------------
@@ -93,6 +100,9 @@ func assess_drink()-> bool:
 		curr_composure -= pow(2, curr_psl_combo)
 		curr_psl_combo += 1
 		
+		# Print to terminal all values to ensure things are behaving right:
+		print("Player now has " + str(current_funds) + " in funds and "
+		+ str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
 		return true
 	else:
 		# Update funds
@@ -107,8 +117,26 @@ func assess_drink()-> bool:
 			
 		curr_psl_combo = 0
 		
-		return false
-	# Print to terminal all values to ensure things are behaving right:
-	print("Player now has " + str(current_funds) + " in funds and "
+		# Print to terminal all values to ensure things are behaving right:
+		print("Player now has " + str(current_funds) + " in funds and "
 		+ str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
-		
+		return false
+
+#-------------------------------------------------------------------
+#  FUNCTIONS FOR SCENE TRANSITIONS BELOW
+#-------------------------------------------------------------------
+# Open options modal
+func open_options():
+	print("options opened")
+
+# Go to main menu
+func goto_main_menu():
+	print("Going to main menu")
+
+# Go to customer service
+func goto_customer_service_menu():
+	print("Going to service menu")
+
+# Open Shop
+func open_shop():
+	print("Go to shop")
