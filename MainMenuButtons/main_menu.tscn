@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=3 uid="uid://8chr7xy6g00y"]
+
+[ext_resource type="Script" uid="uid://7pssb6u8b5u8" path="res://MainMenuButtons/main_menu.gd" id="1_bis7l"]
+[ext_resource type="Texture2D" uid="uid://t3qbcyhwhq2v" path="res://texture/cafe_stock.png" id="2_c1pl5"]
+[ext_resource type="FontFile" uid="uid://r0hsd0o8oynw" path="res://Fonts/BananaLatteDemo-OGAgA.ttf" id="3_cgc4x"]
+[ext_resource type="FontFile" uid="uid://ccmcy0mu5e0a8" path="res://Fonts/CakeFantasyDemo-0vzwR.ttf" id="4_8668l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8668l"]
+texture = ExtResource("2_c1pl5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dem3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axvlm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5qs2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_06oj5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdx2d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsy7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_646yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_211iw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wv82q"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bis7l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8668l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -81.0
+offset_right = 235.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_cgc4x")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dem3i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_axvlm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_o5qs2")
+text = "Play"
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxEmpty_06oj5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cdx2d")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wsy7i")
+text = "Credits"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxEmpty_646yr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_211iw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wv82q")
+text = "Options"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = -258.0
+offset_right = 242.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_8668l")
+theme_override_font_sizes/font_size = 60
+text = "Pour Some Love"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_options_pressed"]
