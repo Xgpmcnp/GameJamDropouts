@@ -21,10 +21,8 @@ func _process(delta: float) -> void:
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
 
-
 func _on_shop_pressed() -> void:
 	print("You clicked the Shop Button")
-
 
 func _on_drink_creation_pressed() -> void:
 	print("You clicked the Drink Creation Button")

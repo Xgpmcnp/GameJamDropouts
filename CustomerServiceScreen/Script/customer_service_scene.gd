@@ -3,6 +3,7 @@ extends Node2D
 @onready var dialog_ui: Control = %DialogUI
 
 var dialog_index: int = 0
+var dialog_active := false
 
 const dialog_lines: Array[String] = [
 	"Hero: Where am I? This place feels strange...",
@@ -18,17 +19,29 @@ const dialog_lines: Array[String] = [
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_current_line()
-
+	start_dialog()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if dialog_active:
+		check_dialog_input()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("next_line"):
+func start_dialog():
+	dialog_active = true
+	dialog_ui.visible = true
+	dialog_index = 0
+	process_current_line()
+		
+func end_dialog():
+	dialog_active = false
+	dialog_ui.visible = false
+
+func check_dialog_input():
+	if Input.is_action_just_pressed("next_line"):
 		if(dialog_index < len(dialog_lines) - 1):
 			dialog_index += 1
 			process_current_line()
-		
+		else:
+			dialog_ui.visible = false
 	
 func extract_line(line: String) -> Dictionary:
 	var line_info := line.split(":", false, 2) # split into max 2 parts
