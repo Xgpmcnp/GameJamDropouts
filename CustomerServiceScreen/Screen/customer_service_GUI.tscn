@@ -93,6 +93,7 @@ fit_content = true
 vertical_alignment = 1
 
 [node name="SanityBar" type="TextureProgressBar" parent="StatusContainer/SanityContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -112,6 +113,7 @@ text = "Fund: "
 fit_content = true
 
 [node name="MoneyValueLabel" type="Label" parent="StatusContainer/MoneyContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
