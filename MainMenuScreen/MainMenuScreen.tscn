@@ -1,15 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://drx6jwawafnq4"]
+[gd_scene load_steps=26 format=3 uid="uid://drx6jwawafnq4"]
 
-[ext_resource type="Texture2D" uid="uid://mpoqfxilwjva" path="res://MainMenuScreen/Assets/disintegrating_squirrel.png" id="1_unulq"]
 [ext_resource type="Script" uid="uid://40cgmmjlu8l4" path="res://MainMenuScreen/main_menu_screen.gd" id="1_vc4ah"]
+[ext_resource type="Texture2D" uid="uid://cn4wihuj84rxt" path="res://MainMenuScreen/Assets/hq720.jpg" id="2_k43q4"]
 [ext_resource type="FontFile" uid="uid://djqkmj83inw0t" path="res://MainMenuScreen/Fonts/Sabaling-6Rv2v.otf" id="2_vc4ah"]
 [ext_resource type="FontFile" uid="uid://db3faghk8qpul" path="res://MainMenuScreen/Fonts/ChocoChici-2OMyW.ttf" id="3_7f08v"]
-[ext_resource type="AudioStream" uid="uid://d2wgxwjwvrww6" path="res://MainMenuScreen/Audio/Not Bad Afternoon.mp3" id="5_ym1y7"]
+[ext_resource type="AudioStream" uid="uid://baofcb45vl83q" path="res://MainMenuScreen/Audio/LONG Caramel Frhappy loop V3.mp3" id="5_k43q4"]
+[ext_resource type="Texture2D" uid="uid://d1wu6ke3nsauk" path="res://MainMenuScreen/Assets/IMG_7173.png" id="6_kj861"]
 [ext_resource type="Texture2D" uid="uid://dx1qrhx5u54dl" path="res://MainMenuScreen/Assets/613.jpg" id="6_ym1y7"]
 [ext_resource type="Script" uid="uid://bb1nu00bsei63" path="res://MainMenuScreen/AudioSlider.gd" id="7_kj861"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym1y7"]
-texture = ExtResource("1_unulq")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gv8ib"]
+texture = ExtResource("2_k43q4")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unulq"]
 
@@ -35,7 +36,7 @@ texture = ExtResource("1_unulq")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu360"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kj861"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsriq"]
 texture = ExtResource("6_ym1y7")
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ym1y7"]
@@ -45,6 +46,9 @@ thickness = 14
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_kj861"]
 color = Color(0.495553, 0.175085, 0.00868091, 1)
 thickness = 14
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k43q4"]
+texture = ExtResource("6_kj861")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -63,7 +67,7 @@ offset_left = -575.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_ym1y7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_gv8ib")
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
 visible = false
@@ -143,9 +147,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MainMenuBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ym1y7")
+stream = ExtResource("5_k43q4")
+volume_db = -10.306
 autoplay = true
-bus = &"Music"
 
 [node name="Options" type="Panel" parent="."]
 layout_mode = 1
@@ -160,7 +164,7 @@ offset_right = 466.0
 offset_bottom = 255.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_kj861")
+theme_override_styles/panel = SubResource("StyleBoxTexture_dsriq")
 
 [node name="Label" type="Label" parent="Options"]
 layout_mode = 0
@@ -221,13 +225,112 @@ script = ExtResource("7_kj861")
 audio_bus_name = "Master"
 
 [node name="Credits" type="Panel" parent="."]
-visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.0
+offset_top = -255.5
+offset_right = 466.0
+offset_bottom = 255.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k43q4")
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -441.5
+offset_top = 36.5
+offset_right = 441.5
+offset_bottom = 76.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 45
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -441.5
+offset_top = -109.5
+offset_right = 441.5
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="Label3" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Game Director: Xgpmcnp"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Programming - RoseTea, BasilQuesadilla, Mai Kiên"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Art: Fio"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Music & SFX: Sashraa"
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Credits"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -90.5
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -54.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.403922, 0.403922, 0.403922, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.733333, 0.462745, 0.25098, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7f08v")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_04kd7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
+text = "Back"
 
 [connection signal="pressed" from="MainButtons/Start Shift" to="." method="_on_Start_Shift_pressed"]
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="MainButtons/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
 [connection signal="value_changed" from="Options/Audio control" to="Options/Audio control" method="_on_value_changed"]
+[connection signal="pressed" from="Credits/Back" to="." method="_on_back_options_pressed"]
