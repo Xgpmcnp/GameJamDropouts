@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="2_deu8v"]
 [ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="3_oqq70"]
 
-[node name="ExtrasSelection" type="Node2D"]
+[node name="ExtrasSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_deu8v")
 
 [node name="ExtrasBack" type="TextureButton" parent="."]

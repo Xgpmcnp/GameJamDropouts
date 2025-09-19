@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var coffee_cup: Sprite2D = $"../CoffeeCup"
 @onready var method_label: Label = $MethodLabel
