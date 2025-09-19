@@ -16,8 +16,7 @@ func _process(delta: float) -> void:
 func _on_serve_button_pressed() -> void:
 	if coffee_cup.fill_level == 3:
 		print("Coffee is served")
-		Global.assess_drink()
-		Global.goto_customer_service_menu()
+		Global.goto_customer_service_menu(false)
 		
 # Go back to main menu, reset the full cup
 func _on_back_button_pressed() -> void:

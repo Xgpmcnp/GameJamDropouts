@@ -30,7 +30,9 @@ var curr_psl_combo = 0 # How many PSLs have been made in a row.
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var root = get_tree().get_root()
+	
+	current_scene = root.get_child(-1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -125,6 +127,26 @@ func assess_drink()-> bool:
 #-------------------------------------------------------------------
 #  FUNCTIONS FOR SCENE TRANSITIONS BELOW
 #-------------------------------------------------------------------
+
+# The function used for screen loading
+func goto_screen(path):
+	deferred_goto_scene.call_deferred(path)
+	
+func deferred_goto_scene(path):
+	# It is now safe to remove the current scene.
+	current_scene.free()
+	# Load the new scene.
+	var s = ResourceLoader.load(path)
+
+	# Instance the new scene.
+	current_scene = s.instantiate()
+
+	# Add it to the active scene, as child of root.
+	get_tree().root.add_child(current_scene)
+
+	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
+	get_tree().current_scene = current_scene
+	
 # Open options modal
 func open_options():
 	print("options opened")
@@ -133,9 +155,17 @@ func open_options():
 func goto_main_menu():
 	print("Going to main menu")
 
-# Go to customer service
-func goto_customer_service_menu():
-	print("Going to service menu")
+# Go to customer service menu, isGoingBack determines if we need to clear current choices
+# or not
+func goto_customer_service_menu(isGoingBack: bool):
+	if isGoingBack:
+		self.reset_selected_options()
+	self.goto_screen("res://CustomerServiceScreen/Screen/customer_service_GUI.tscn")
+
+# Go to coffee creation menu
+func goto_coffee_creation():
+	self.goto_screen("res://CoffeeCreationScreen/CoffeCreationScenes/main_coffee_creation_scene.tscn")
+	pass
 
 # Open Shop
 func open_shop():
