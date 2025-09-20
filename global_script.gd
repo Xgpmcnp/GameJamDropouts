@@ -188,8 +188,14 @@ func open_main_menu_creation():
 	print("open main menu creation")
 
 #-------------------------------------------------------------------
-#  FUNCTIONS FOR UPDATING VARIABLES
+#  FUNCTIONS FOR UPDATING VARIABLES/getting their values
 #-------------------------------------------------------------------
+
+func get_funds()->float:
+	return current_funds
+
+func get_composure()->float:
+	return curr_composure
 
 func update_composure_on_item_buy():
 	curr_composure += ((100-curr_composure)/2) + 1

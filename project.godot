@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
+
 buses/default_bus_layout=""
 
 [autoload]
@@ -24,4 +25,5 @@ DialogueSystem="*res://CustomerServiceScreen/Script/dialogue_system.gd"
 Global="*res://global_script.gd"
 
 [display]
+
 buses/default_bus_layout=""

@@ -5,6 +5,7 @@ extends Control
 #var score_interval: float = 1.0  # increase every 1 second
 @onready var sanity_bar: TextureProgressBar = $%SanityBar
 @onready var money_value: Label = $%MoneyValueLabel
+@onready var sanity_label: RichTextLabel = $StatusContainer/SanityContainer/RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +18,8 @@ func _process(delta: float) -> void:
 			#current_score += 1
 			#score_timer -= score_interval
 		#money_value.text = str(current_score) + "$"
-		pass
+		money_value.text = str(Global.get_funds())
+		_on_player_health_changed()
 		
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
@@ -35,6 +37,7 @@ func _on_skill_tree_pressed() -> void:
 func _on_setting_pressed() -> void:
 	print("You clicked the Setting Button")
 	
-func _on_player_health_changed(new_value: Variant) -> void:
-	sanity_bar.value = new_value
-	print("Sanity Bar value is: " + str(sanity_bar.value))
+func _on_player_health_changed() -> void:
+	var curr_composure = Global.get_composure()
+	sanity_label.text = "Composure " + str(curr_composure)
+	sanity_bar.value = curr_composure

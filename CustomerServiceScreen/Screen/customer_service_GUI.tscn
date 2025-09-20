@@ -88,7 +88,8 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
-text = "Composure"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Composure: 100"
 fit_content = true
 vertical_alignment = 1
 
@@ -109,6 +110,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Fund: "
 fit_content = true
 
@@ -117,6 +119,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="InteractButtonContainer/SkillTree" to="." method="_on_skill_tree_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/MenuEditing" to="." method="_on_menu_editing_pressed"]
