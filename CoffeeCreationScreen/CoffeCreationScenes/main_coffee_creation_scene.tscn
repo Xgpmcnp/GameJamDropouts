@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=19 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
@@ -6,15 +6,25 @@
 [ext_resource type="Texture2D" uid="uid://s0bvplxiuv3i" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_bkgd.png" id="2_nk5qd"]
 [ext_resource type="PackedScene" uid="uid://bh8oixxu54w6s" path="res://CoffeeCreationScreen/CoffeCreationScenes/preparation_method_selection.tscn" id="3_7ey1p"]
 [ext_resource type="PackedScene" uid="uid://ebncpslt0akj" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_cup.tscn" id="4_d48ii"]
-[ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="6_cs5si"]
-[ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="6_pd2mq"]
-[ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="7_cs5si"]
+[ext_resource type="Texture2D" uid="uid://chhwpnl6ujoc5" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_portrait_back.png" id="6_2gil1"]
+[ext_resource type="Texture2D" uid="uid://bgx164jmnt5ki" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_portrait_frame.png" id="7_hye44"]
+[ext_resource type="Texture2D" uid="uid://b7gvmmkn10v10" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_back_button.png" id="8_hpjs6"]
 [ext_resource type="Texture2D" uid="uid://cd4gnmsvcofm2" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_coaster.png" id="9_g7cab"]
+[ext_resource type="Texture2D" uid="uid://dwayd5rsiwurl" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_settings_button.png" id="9_odjlt"]
 [ext_resource type="Texture2D" uid="uid://d3n7wktxtcrwp" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_belt.png" id="10_ay4q3"]
+[ext_resource type="Texture2D" uid="uid://g7pkr8acl55d" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_serve_button.png" id="10_letru"]
 [ext_resource type="Texture2D" uid="uid://dpudbwijs0gb3" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_frame.png" id="11_jj17i"]
+[ext_resource type="Script" uid="uid://ctio8av5k5yb2" path="res://CoffeeCreationScreen/CoffeCreationScenes/path_follow_2d.gd" id="15_okhig"]
+[ext_resource type="FontFile" uid="uid://dgb7xatipfjbu" path="res://CoffeeCreationScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="19_hye44"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxlfk"]
 texture = ExtResource("2_nk5qd")
+
+[sub_resource type="Curve2D" id="Curve2D_jj17i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 4.59564, 9.65234, 0, 0, 0, 0, 1415.45, 4.82617, 0, 0, 0, 0, 2720.61, 4.82617, 0, 0, 0, 0, 4016.58, -9.65234)
+}
+point_count = 4
 
 [node name="MainCoffeeCreationScene" type="Control"]
 layout_mode = 3
@@ -44,33 +54,49 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qxlfk")
 
 [node name="ServeButton" type="TextureButton" parent="Control"]
-visible = false
 layout_mode = 0
-offset_left = 904.0
-offset_top = 420.0
-offset_right = 1021.0
-offset_bottom = 537.0
-texture_normal = ExtResource("6_pd2mq")
+offset_left = 948.0
+offset_top = 294.0
+offset_right = 1460.0
+offset_bottom = 531.0
+scale = Vector2(0.23, 0.23)
+texture_normal = ExtResource("10_letru")
+texture_pressed = ExtResource("10_letru")
+texture_hover = ExtResource("10_letru")
 
 [node name="BackButton" type="TextureButton" parent="Control"]
-visible = false
 layout_mode = 0
-offset_left = 711.0
-offset_top = 429.0
-offset_right = 828.0
-offset_bottom = 511.0
-texture_normal = ExtResource("7_cs5si")
+offset_left = 950.0
+offset_top = 57.0
+offset_right = 1462.0
+offset_bottom = 369.0
+scale = Vector2(0.23, 0.23)
+texture_normal = ExtResource("8_hpjs6")
+texture_pressed = ExtResource("8_hpjs6")
+texture_hover = ExtResource("8_hpjs6")
 
 [node name="Options" type="TextureButton" parent="Control"]
-visible = false
 layout_mode = 0
-offset_left = 826.0
-offset_top = 517.0
-offset_right = 908.0
-offset_bottom = 634.0
-texture_normal = ExtResource("6_cs5si")
+offset_left = 958.0
+offset_top = 9.0
+offset_right = 1395.0
+offset_bottom = 171.0
+scale = Vector2(0.23, 0.23)
+texture_normal = ExtResource("9_odjlt")
+texture_pressed = ExtResource("9_odjlt")
+texture_hover = ExtResource("9_odjlt")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Portrait" type="Sprite2D" parent="Node2D"]
+position = Vector2(1008, 211)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("6_2gil1")
+
+[node name="PortraitFrame" type="Sprite2D" parent="Node2D"]
+position = Vector2(1008, 211)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("7_hye44")
 
 [node name="Coaster" type="Sprite2D" parent="Node2D"]
 position = Vector2(1005, 575)
@@ -86,10 +112,6 @@ texture = ExtResource("10_ay4q3")
 position = Vector2(433.24, 583.12)
 scale = Vector2(0.28, 0.28)
 texture = ExtResource("11_jj17i")
-
-[node name="CoffeeCup" parent="Node2D" instance=ExtResource("4_d48ii")]
-position = Vector2(148, 488)
-scale = Vector2(0.217598, 0.207203)
 
 [node name="ExtrasSelection" parent="Node2D" instance=ExtResource("2_awan7")]
 offset_left = 292.0
@@ -107,6 +129,64 @@ offset_bottom = 42.0
 offset_left = -1.0
 offset_top = 40.0
 offset_bottom = 40.0
+
+[node name="BackLabel" type="Label" parent="Node2D"]
+offset_left = 962.0
+offset_top = 77.0
+offset_right = 1055.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.584314, 0.345098, 0.12549, 1)
+theme_override_fonts/font = ExtResource("19_hye44")
+theme_override_font_sizes/font_size = 35
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsLabel" type="Label" parent="Node2D"]
+offset_left = 964.0
+offset_top = 16.0
+offset_right = 1057.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.584314, 0.345098, 0.12549, 1)
+theme_override_fonts/font = ExtResource("19_hye44")
+theme_override_font_sizes/font_size = 18
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ServeLabel" type="Label" parent="Node2D"]
+offset_left = 953.0
+offset_top = 304.0
+offset_right = 1061.0
+offset_bottom = 335.0
+theme_override_colors/font_color = Color(0.584314, 0.345098, 0.12549, 1)
+theme_override_fonts/font = ExtResource("19_hye44")
+theme_override_font_sizes/font_size = 30
+text = "Serve"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoffeeCup" parent="Node2D" instance=ExtResource("4_d48ii")]
+visible = false
+z_as_relative = false
+position = Vector2(148, 488)
+scale = Vector2(0.217598, 0.207203)
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+position = Vector2(148, 488)
+scale = Vector2(0.217598, 0.207203)
+curve = SubResource("Curve2D_jj17i")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
+position = Vector2(4.59564, 9.65234)
+rotation = -0.00342072
+script = ExtResource("15_okhig")
+
+[node name="CoffeeCup2" parent="Node2D/Path2D/PathFollow2D" instance=ExtResource("4_d48ii")]
+z_as_relative = false
+position = Vector2(-4.56262, -9.66772)
+rotation = 0.00342072
+scale = Vector2(1, 1)
 
 [connection signal="pressed" from="Control/ServeButton" to="." method="_on_serve_button_pressed"]
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

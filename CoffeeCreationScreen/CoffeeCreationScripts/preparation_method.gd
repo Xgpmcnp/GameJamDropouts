@@ -33,7 +33,6 @@ func _on_method_forward_pressed() -> void:
 		method_label.text = preparation_method_options[curr_index]
 
 func _on_method_pour_pressed() -> void:
-	print("Amogus")
 	if coffee_cup.fill_level == 2:
 		coffee_cup.set_preparation_method(method_label.text)
 		

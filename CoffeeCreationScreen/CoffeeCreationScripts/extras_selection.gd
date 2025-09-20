@@ -35,7 +35,6 @@ func _on_extras_forward_pressed() -> void:
 	
 # Triggers pouring animation and moves to next step
 func _on_extras_pour_pressed() -> void:
-	print("Xg is the best")
 	if coffee_cup.fill_level == 1:
 		coffee_cup.set_extra(extras_label.text)
 	
