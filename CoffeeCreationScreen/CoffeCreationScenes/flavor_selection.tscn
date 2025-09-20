@@ -1,76 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6kgf03wtfwmf"]
+[gd_scene load_steps=5 format=3 uid="uid://b6kgf03wtfwmf"]
 
 [ext_resource type="Script" uid="uid://b0nnxsjwfgjqs" path="res://CoffeeCreationScreen/CoffeeCreationScripts/flavor_selection.gd" id="1_kiscm"]
-[ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="2_djvuu"]
-[ext_resource type="Texture2D" uid="uid://cecsyohf0yrtc" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_D.png" id="2_x4qaj"]
-[ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="4_djvuu"]
-[ext_resource type="Texture2D" uid="uid://h6ko5ll1nimy" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_L.png" id="5_djvuu"]
-[ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_x4qaj"]
+[ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="3_ercid"]
+[ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="3_x12yb"]
+[ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="4_6u183"]
 
-[node name="FlavorSelection" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="FlavorSelection" type="Node2D"]
 script = ExtResource("1_kiscm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(147, 133)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_djvuu")
-
-[node name="FlavorPour" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 271.0
-offset_right = 292.0
-offset_bottom = 484.0
-scale = Vector2(0.28, 0.28)
-texture_normal = ExtResource("2_x4qaj")
-texture_pressed = ExtResource("2_x4qaj")
-texture_hover = ExtResource("2_x4qaj")
-
 [node name="FlavorBack" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 3.0
-offset_top = 169.0
-offset_right = 216.0
-offset_bottom = 331.0
-scale = Vector2(0.28, 0.28)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("2_djvuu")
-texture_pressed = ExtResource("2_djvuu")
-texture_hover = ExtResource("2_djvuu")
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 45.0
+texture_normal = ExtResource("3_ercid")
 
 [node name="FlavorForward" type="TextureButton" parent="."]
-layout_mode = 2
-offset_left = 228.0
-offset_top = 169.0
-offset_right = 441.0
-offset_bottom = 331.0
-scale = Vector2(0.28, 0.28)
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("4_djvuu")
-texture_pressed = ExtResource("4_djvuu")
-texture_hover = ExtResource("4_djvuu")
+offset_left = 270.0
+offset_top = 9.0
+offset_right = 387.0
+offset_bottom = 91.0
+texture_normal = ExtResource("3_x12yb")
+
+[node name="FlavorPour" type="TextureButton" parent="." groups=["PourButtons"]]
+offset_left = 168.0
+offset_top = 109.0
+offset_right = 250.0
+offset_bottom = 226.0
+texture_normal = ExtResource("4_6u183")
 
 [node name="FlavorLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 111.0
-offset_top = 184.0
-offset_right = 181.0
-offset_bottom = 207.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("6_x4qaj")
-theme_override_font_sizes/font_size = 36
+offset_left = 164.0
+offset_top = 33.0
+offset_right = 248.0
+offset_bottom = 58.0
 text = "Pumpkin"
 
-[connection signal="pressed" from="FlavorPour" to="." method="_on_flavor_pour_pressed"]
 [connection signal="pressed" from="FlavorBack" to="." method="_on_flavor_back_pressed"]
 [connection signal="pressed" from="FlavorForward" to="." method="_on_flavor_forward_pressed"]
+[connection signal="pressed" from="FlavorPour" to="." method="_on_flavor_pour_pressed"]

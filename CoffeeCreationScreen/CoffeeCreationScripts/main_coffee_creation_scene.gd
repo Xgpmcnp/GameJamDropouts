@@ -1,6 +1,6 @@
-extends Control
+extends Node2D
 
-@onready var coffee_cup: Sprite2D = $Node2D/CoffeeCup
+@onready var coffee_cup: Sprite2D = $CoffeeCup
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

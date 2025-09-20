@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @onready var coffee_cup: Sprite2D = $"../CoffeeCup"
 @onready var extras_label: Label = $ExtrasLabel
@@ -7,11 +7,6 @@ extends Control
 # If true, buttons cannot be pressed anymore
 var lock_machine: bool
 
-<<<<<<< HEAD
-=======
-var extras_options = ["Spice", "Matcha", "Caramom"]
-var curr_index = 0
->>>>>>> ImplementAssetsCoffeeCreation
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Machine can't be interacted with by default
