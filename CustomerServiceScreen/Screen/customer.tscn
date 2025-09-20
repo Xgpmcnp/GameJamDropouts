@@ -1,33 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl13143eonr01"]
+[gd_scene load_steps=3 format=3 uid="uid://cl13143eonr01"]
 
 [ext_resource type="Script" uid="uid://rm21076x70uf" path="res://CustomerServiceScreen/Script/customer.gd" id="1_u5kxn"]
-[ext_resource type="Texture2D" uid="uid://0h3gn78kekfb" path="res://CustomerServiceScreen/texture/slime-idle1.png" id="2_l8cfn"]
-[ext_resource type="Texture2D" uid="uid://w2rvlh63tdij" path="res://CustomerServiceScreen/texture/slime-idle2.png" id="3_l275c"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_baqgh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_l8cfn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l275c")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_l8cfn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l275c")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://dgvpjsccfeuxh" path="res://CustomerServiceScreen/texture/CustomerA.tres" id="2_qy2le"]
 
 [node name="Customer" type="Node2D"]
 script = ExtResource("1_u5kxn")
@@ -35,5 +9,5 @@ script = ExtResource("1_u5kxn")
 [node name="CustomerSprites" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(558, 397)
-sprite_frames = SubResource("SpriteFrames_baqgh")
-animation = &"idle"
+sprite_frames = ExtResource("2_qy2le")
+animation = &"talking"

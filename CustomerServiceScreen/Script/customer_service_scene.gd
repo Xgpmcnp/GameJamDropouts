@@ -1,26 +1,17 @@
 extends Node2D
 @onready var player: Node2D = %Player
 @onready var dialog_ui: Control = %DialogUI
+@onready var customer: Node2D = %Customer
 
 var dialog_index: int = 0
 var dialog_active := false
-
-const dialog_lines: Array[String] = [
-	"Hero: Where am I? This place feels strange...",
-	"Guide: Welcome, traveler. You’ve entered the Forgotten Woods.",
-	"Hero: Who are you? Can I trust you?",
-	"Guide: Trust is earned, not given. But I can show you the way.",
-	"Villain: Hah! You think you can escape my domain?",
-	"Hero: I’m not afraid of you!",
-	"Guide: Careful, hero… his power is greater than you imagine.",
-	"Villain: Enough talk. Face me, if you dare!"
-]
-
+var current_customer_name: String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_on_customer_enter()
 	process_current_line()
 	start_dialog()
-	
+	#dialog_ui.animation_done.connect(_on_animation_done)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if dialog_active:
@@ -38,35 +29,27 @@ func end_dialog():
 
 func check_dialog_input():
 	if Input.is_action_just_pressed("next_line"):
-		if(dialog_index < len(dialog_lines) - 1):
-			dialog_index += 1
-			process_current_line()
+		if dialog_ui.animate_text:
+			dialog_ui.skip_text_animation()
 		else:
-			dialog_ui.visible = false
+			if(dialog_index < len(DialogueSystem.dialog_lines) - 1):
+				dialog_index += 1
+				process_current_line()
+			else:
+				dialog_ui.visible = false
 	
-func extract_line(line: String) -> Dictionary:
-	var line_info := line.split(":", false, 2) # split into max 2 parts
-	if line_info.size() < 2:
-		push_error("Invalid line format, missing ':' → " + line)
-		return {}
-	
-	#Extract the info and remove trailing space
-	var speaker_name := line_info[0].strip_edges()
-	var dialog := line_info[1].strip_edges()
-	
-	#Check for the value of speaker_name and dialog to make sure they are not empty
-	if speaker_name == "" or dialog == "":
-		push_error("Invalid line format, empty speaker or dialog → " + line)
-		return {}
-	
-	return {
-		"speaker_name": speaker_name,
-		"dialog": dialog
-	}
-
+# After extract Name, Dialog for both the Player and Customer, the text will be displayed and can be process
+# by either left mouse click, or hit Enter or Space
 func process_current_line():
-	var line = dialog_lines[dialog_index]
-	var line_info: Dictionary = extract_line(line)
-	dialog_ui.speaker_name.text = line_info["speaker_name"]
-	dialog_ui.dialog_line.text = line_info["dialog"]
-	
+	var line = DialogueSystem.dialog_lines[dialog_index]
+	var line_info: Dictionary = DialogueSystem.extract_line(line)
+	var character_name = Character.get_enum_from_string(line_info["speaker_name"])
+	dialog_ui.change_line(character_name, line_info["dialog"])
+	customer.load_character(character_name)
+
+func _on_animation_done():
+	customer.hide_sprite()
+
+func _on_customer_enter():
+	#customer.display_sprite()
+	current_customer_name = "CustomerA"

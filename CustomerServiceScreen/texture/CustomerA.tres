@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dgvpjsccfeuxh"]
+
+[ext_resource type="Texture2D" uid="uid://ba0uqaputylmf" path="res://CustomerServiceScreen/texture/playerGrey_up1.png" id="1_ifmxa"]
+[ext_resource type="Texture2D" uid="uid://rh3fsfra4vkb" path="res://CustomerServiceScreen/texture/playerGrey_up2.png" id="2_20v0g"]
+[ext_resource type="Texture2D" uid="uid://6hdiohfq4fwi" path="res://CustomerServiceScreen/texture/playerGrey_walk1.png" id="3_a2bog"]
+[ext_resource type="Texture2D" uid="uid://b16bpk33q551e" path="res://CustomerServiceScreen/texture/playerGrey_walk2.png" id="4_hnnk4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ifmxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_20v0g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a2bog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hnnk4")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]
