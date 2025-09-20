@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://drx6jwawafnq4"]
+[gd_scene load_steps=32 format=3 uid="uid://drx6jwawafnq4"]
 
 [ext_resource type="Script" uid="uid://40cgmmjlu8l4" path="res://MainMenuScreen/main_menu_screen.gd" id="1_vc4ah"]
 [ext_resource type="FontFile" uid="uid://djqkmj83inw0t" path="res://MainMenuScreen/Fonts/Sabaling-6Rv2v.otf" id="2_vc4ah"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dx1qrhx5u54dl" path="res://MainMenuScreen/Assets/613.jpg" id="6_ym1y7"]
 [ext_resource type="Script" uid="uid://bb1nu00bsei63" path="res://MainMenuScreen/AudioSlider.gd" id="7_kj861"]
 [ext_resource type="Script" uid="uid://bp5hx8umqx3ge" path="res://MainMenuScreen/moving_effects.gd" id="8_04kd7"]
-[ext_resource type="Texture2D" uid="uid://c3trp7xfwok0a" path="res://MainMenuScreen/Assets/plain_coffee_mug.PNG" id="8_k43q4"]
-[ext_resource type="Texture2D" uid="uid://ch3qsg4ww6rxw" path="res://MainMenuScreen/Assets/psl_png.png" id="10_dsriq"]
-[ext_resource type="Texture2D" uid="uid://bbxt286f04q0t" path="res://MainMenuScreen/Assets/image-removebg-preview (2).png" id="10_h0cs0"]
+[ext_resource type="Texture2D" uid="uid://brhbm4va7clvc" path="res://MainMenuScreen/Assets/plain_coffee_mug.PNG" id="8_k43q4"]
+[ext_resource type="Texture2D" uid="uid://cuy30ppbc2u3i" path="res://MainMenuScreen/Assets/blue_square.png" id="9_aeynl"]
+[ext_resource type="Texture2D" uid="uid://d0d7u55ebj5qn" path="res://MainMenuScreen/Assets/grey_circle.png" id="10_tu360"]
+[ext_resource type="Texture2D" uid="uid://dnr7wab6jx1em" path="res://MainMenuScreen/Assets/green_pyramid.png" id="11_5a4v3"]
 
 [sub_resource type="Gradient" id="Gradient_gv8ib"]
 colors = PackedColorArray(0.61045, 0.344818, 0.0332173, 1, 0.642971, 0.461664, 0.0205553, 1)
@@ -55,6 +56,9 @@ thickness = 14
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k43q4"]
 texture = ExtResource("6_kj861")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_04kd7"]
+distance = -3.0
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -336,8 +340,8 @@ text = "Back"
 
 [node name="PlainCoffeeMug" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-37, 174)
-scale = Vector2(0.636137, 0.616359)
+position = Vector2(-41, 136)
+scale = Vector2(0.468234, 0.47875)
 texture = ExtResource("8_k43q4")
 
 [node name="MovingEffects" type="Control" parent="."]
@@ -355,265 +359,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_04kd7")
 
-[node name="cup" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -557.0
-offset_top = -303.0
-offset_right = -515.0
-offset_bottom = -254.0
-texture = ExtResource("10_dsriq")
-expand_mode = 1
+[node name="Coffee Mug" type="TextureRect" parent="MovingEffects"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="glass" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -516.0
-offset_top = -260.0
-offset_right = -474.0
-offset_bottom = -225.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
+[node name="Fancy Drink" type="TextureRect" parent="MovingEffects"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="blueSquare3" type="TextureRect" parent="MovingEffects"]
+[node name="blueSquare" type="TextureRect" parent="MovingEffects"]
 z_index = -2
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -478.0
-offset_top = -215.0
-offset_right = -436.0
-offset_bottom = -180.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
+offset_left = -534.0
+offset_top = -301.0
+offset_right = -355.0
+offset_bottom = -120.0
+texture = ExtResource("9_aeynl")
 
-[node name="blueSquare6" type="TextureRect" parent="MovingEffects"]
-z_index = -2
+[node name="greyCircle" type="TextureRect" parent="MovingEffects"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -556.0
-offset_top = -213.0
-offset_right = -514.0
-offset_bottom = -178.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = -527.0
+offset_right = 119.0
+offset_bottom = -326.0
+texture = ExtResource("10_tu360")
 
-[node name="blueSquare9" type="TextureRect" parent="MovingEffects"]
-z_index = -2
+[node name="greenTriangle" type="TextureRect" parent="MovingEffects"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = -0.475
+anchor_top = 0.25
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = -305.0
-offset_right = -434.0
-offset_bottom = -270.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
+offset_left = -261.0
+offset_top = -540.0
+offset_right = -101.0
+offset_bottom = -349.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_5a4v3")
 
-[node name="blueSquare4" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -517.0
-offset_top = -166.0
-offset_right = -475.0
-offset_bottom = -131.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1070, 640)
 
-[node name="blueSquare5" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -477.0
-offset_top = -122.0
-offset_right = -435.0
-offset_bottom = -87.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare7" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -439.0
-offset_top = -77.0
-offset_right = -397.0
-offset_bottom = -42.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare8" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -517.0
-offset_top = -75.0
-offset_right = -475.0
-offset_bottom = -40.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare10" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -437.0
-offset_top = -167.0
-offset_right = -395.0
-offset_bottom = -132.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare11" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -428.0
-offset_top = -348.0
-offset_right = -386.0
-offset_bottom = -313.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare12" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -388.0
-offset_top = -304.0
-offset_right = -346.0
-offset_bottom = -269.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare13" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -259.0
-offset_right = -308.0
-offset_bottom = -224.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare14" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -428.0
-offset_top = -257.0
-offset_right = -386.0
-offset_bottom = -222.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare15" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.0
-offset_top = -349.0
-offset_right = -306.0
-offset_bottom = -314.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare16" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -390.0
-offset_top = -212.0
-offset_right = -348.0
-offset_bottom = -177.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare17" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -168.0
-offset_right = -308.0
-offset_bottom = -133.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare18" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -312.0
-offset_top = -123.0
-offset_right = -270.0
-offset_bottom = -88.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare19" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -390.0
-offset_top = -121.0
-offset_right = -348.0
-offset_bottom = -86.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
-
-[node name="blueSquare20" type="TextureRect" parent="MovingEffects"]
-z_index = -2
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -310.0
-offset_top = -213.0
-offset_right = -268.0
-offset_bottom = -178.0
-texture = ExtResource("10_h0cs0")
-expand_mode = 1
+[node name="ItemLoop" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-983, -200)
+scale = Vector2(10, 1)
+shape = SubResource("WorldBoundaryShape2D_04kd7")
+one_way_collision_margin = 78.7
+debug_color = Color(0.962686, 0, 0.503134, 0.42)
 
 [connection signal="pressed" from="MainButtons/Start Shift" to="." method="_on_Start_Shift_pressed"]
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
