@@ -179,7 +179,7 @@ curve = SubResource("Curve2D_jj17i")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
 position = Vector2(4.59564, 9.65234)
-rotation = -0.00342072
+rotation = -0.00342073
 script = ExtResource("15_okhig")
 
 [node name="CoffeeCup2" parent="Node2D/Path2D/PathFollow2D" instance=ExtResource("4_d48ii")]

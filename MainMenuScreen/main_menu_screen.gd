@@ -9,7 +9,7 @@ func _ready():
 	credits.visible = false
 
 func _on_Start_Shift_pressed():
-	Global.goto_customer_service_menu(false)
+	Global.goto_customer_service_menu(false, false)
 
 
 func _on_Options_pressed():

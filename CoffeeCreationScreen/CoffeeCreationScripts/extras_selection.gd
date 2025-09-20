@@ -1,17 +1,15 @@
 extends Control
 
-@onready var coffee_cup: Sprite2D = $"../CoffeeCup"
+@onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var extras_label: Label = $ExtrasLabel
-@onready var preparation_method_selection: Node2D = $"../PreparationMethodSelection"
+@onready var preparation_method_selection: Control = $"../PreparationMethodSelection"
 
 # If true, buttons cannot be pressed anymore
 var lock_machine: bool
 
-<<<<<<< HEAD
-=======
 var extras_options = ["Spice", "Matcha", "Caramom"]
 var curr_index = 0
->>>>>>> ImplementAssetsCoffeeCreation
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Machine can't be interacted with by default

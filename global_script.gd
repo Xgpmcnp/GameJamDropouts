@@ -97,6 +97,7 @@ func get_curr_preparation_method() -> String:
 # Updates funds and composure when player serves a drink
 # returns a bool to indicate if its a PSL or not(for purposes of customer reaction_
 func assess_drink()-> bool:
+	print("Player currently has " + str(current_funds) + " in funds and " + str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
 	# Check if the player is serving a PSL
 	if (flavor_options[curr_flavor_idx] == "Pumpkin" and 
 	extras_options[curr_extras_idx] == "Spice" and 
@@ -167,10 +168,13 @@ func goto_main_menu():
 
 # Go to customer service menu, isGoingBack determines if we need to clear current choices
 # or not
-func goto_customer_service_menu(isGoingBack: bool):
+func goto_customer_service_menu(isGoingBack: bool, isAssessing: bool):
 	if isGoingBack:
 		self.reset_selected_options()
-	self.goto_screen("res://CustomerServiceScreen/Screen/customer_service_GUI.tscn")
+	if isAssessing:
+		self.assess_drink()
+	
+	self.goto_screen("res://CustomerServiceScreen/Screen/customer_service_scene.tscn")
 
 # Go to coffee creation menu
 func goto_coffee_creation():
