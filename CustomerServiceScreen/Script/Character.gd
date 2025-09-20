@@ -12,7 +12,7 @@ const CHARACTER_DETAILS: Dictionary = {
 		"sprite_frames": preload("res://CustomerServiceScreen/texture/CustomerA.tres")
 	},
 		Name.CUSTOMERB:{
-		"name": "CustomerA",
+		"name": "CustomerB",
 		"sprite_frames": preload("res://CustomerServiceScreen/texture/CustomerB.tres")
 	},
 	
