@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 DialogueSystem="*res://CustomerServiceScreen/Script/dialogue_system.gd"
 Global="*res://global_script.gd"
 
-
 [display]
 
 window/stretch/mode="viewport"

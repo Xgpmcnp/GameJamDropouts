@@ -1,5 +1,7 @@
 extends Node
 
+var dialog_index: int = 0
+
 const dialog_lines: Array[String] = [
 	"CustomerA: Where am I? This place feels strange...",
 	"Hero: Welcome, traveler. You’ve entered the Forgotten Woods.",
