@@ -18,9 +18,8 @@ func _process(delta: float) -> void:
 		else:
 			animate_text = false
 			
-func change_line(character_name: Character.Name, line: String):
-	var speaker: String = "SaiGon"  # Default name
-
+func change_line(speakername: String, character_name: Character.Name, line: String):
+	var speaker: String = speakername  # In cass of the name not assign in the Character class
 	if Character.CHARACTER_DETAILS.has(character_name):
 		speaker = Character.CHARACTER_DETAILS[character_name]["name"]
 
