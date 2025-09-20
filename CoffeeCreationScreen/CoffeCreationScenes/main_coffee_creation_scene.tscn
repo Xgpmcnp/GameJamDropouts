@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d3n7wktxtcrwp" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_belt.png" id="10_ay4q3"]
 [ext_resource type="Texture2D" uid="uid://g7pkr8acl55d" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_serve_button.png" id="10_letru"]
 [ext_resource type="Texture2D" uid="uid://dpudbwijs0gb3" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_frame.png" id="11_jj17i"]
-[ext_resource type="Script" uid="uid://ctio8av5k5yb2" path="res://CoffeeCreationScreen/CoffeCreationScenes/path_follow_2d.gd" id="15_okhig"]
+[ext_resource type="Script" path="res://CoffeeCreationScreen/CoffeCreationScenes/path_follow_2d.gd" id="15_okhig"]
 [ext_resource type="FontFile" uid="uid://dgb7xatipfjbu" path="res://CoffeeCreationScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="19_hye44"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxlfk"]
@@ -179,7 +179,7 @@ curve = SubResource("Curve2D_jj17i")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
 position = Vector2(4.59564, 9.65234)
-rotation = -0.00342072
+rotation = -0.00342073
 script = ExtResource("15_okhig")
 
 [node name="CoffeeCup2" parent="Node2D/Path2D/PathFollow2D" instance=ExtResource("4_d48ii")]
