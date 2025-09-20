@@ -1,8 +1,8 @@
 extends Control
 
-var current_score: int = 0
-var score_timer: float = 0.0
-var score_interval: float = 1.0  # increase every 1 second
+#var current_score: int = 0
+#var score_timer: float = 0.0
+#var score_interval: float = 1.0  # increase every 1 second
 @onready var sanity_bar: TextureProgressBar = $%SanityBar
 @onready var money_value: Label = $%MoneyValueLabel
 
@@ -12,12 +12,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	score_timer += delta
-	if score_timer >= score_interval:
-		current_score += 1
-		score_timer -= score_interval
-	money_value.text = str(current_score) + "$"
-
+		#score_timer += delta
+		#if score_timer >= score_interval:
+			#current_score += 1
+			#score_timer -= score_interval
+		#money_value.text = str(current_score) + "$"
+		pass
+		
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
 

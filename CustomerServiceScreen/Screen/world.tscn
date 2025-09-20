@@ -1,16 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b05rtcd60rmmo"]
+[gd_scene load_steps=2 format=3 uid="uid://b05rtcd60rmmo"]
 
-[ext_resource type="Texture2D" uid="uid://s66untgrfycf" path="res://CustomerServiceScreen/texture/BackGroundPlaceholder.png" id="1_ml6up"]
-[ext_resource type="Texture2D" uid="uid://dwfrn2y3027va" path="res://CustomerServiceScreen/texture/table_placeholder.png" id="2_igca8"]
+[ext_resource type="Texture2D" uid="uid://bogq7ovb6pk10" path="res://CustomerServiceScreen/texture/customer_service_bkgd.png" id="1_ml6up"]
 
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576.5, 322.5)
-scale = Vector2(1.64143, 1.6075)
+position = Vector2(575.5, 323.5)
+scale = Vector2(0.28825, 0.215)
 texture = ExtResource("1_ml6up")
-
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(576, 514.75)
-scale = Vector2(5.76, 1.40476)
-texture = ExtResource("2_igca8")

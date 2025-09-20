@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s66untgrfycf"
-path="res://.godot/imported/BackGroundPlaceholder.png-e9c7578d6caf2e440b6721a4ea72a42f.ctex"
+uid="uid://btw1qlswbyixw"
+path="res://.godot/imported/customer_service_screen_dialogue_box.png-1f843930dc286fdb05624a8e9fefa467.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CustomerServiceScreen/texture/BackGroundPlaceholder.png"
-dest_files=["res://.godot/imported/BackGroundPlaceholder.png-e9c7578d6caf2e440b6721a4ea72a42f.ctex"]
+source_file="res://CustomerServiceScreen/customer_service_screen_dialogue_box.png"
+dest_files=["res://.godot/imported/customer_service_screen_dialogue_box.png-1f843930dc286fdb05624a8e9fefa467.ctex"]
 
 [params]
 

@@ -5,39 +5,117 @@ var dialog_index: int = 0
 var customer_name: String = "default"
 # Stores the current dialog lines after formatting
 var current_dialog: Array[String] = []
+# Store the current state of serving
+var drink_ready: bool = false
 
-const conversation: Array = [
+const conversation_at_state_76_100: Array = [
 	[
-		"{customer}: Where am I? This place feels strange...",
-		"Hero: Welcome, traveler. You’ve entered the Forgotten Woods.",
-		"{customer}: Who are you? Can I trust you?",
-		"Hero: Trust is earned, not given. But I can show you the way."
+		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
+		"Customer: I'll have your finest pumpkin spice latte, please.",
+		"Saigon: Of course, coming right up!"
 	],
 	[
-		"{customer}: Hah! You think you can escape my domain?",
-		"Hero: I’m not afraid of you!",
-		"{customer}: Careful, hero… his power is greater than you imagine.",
-		"Villain: Enough talk. Face me, if you dare!"
+		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
+		"Customer: Pumpkin Spice Latte.",
+		"Saigon: ..Certainly, I'm on it!"
 	],
 	[
-		"Hero: The path ahead is dangerous, {customer}.",
-		"{customer}: Danger is nothing new to me.",
-		"Hero: Then walk with courage.",
-		"Narrator: And so their journey continued..."
+		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
+		"Customer: Oh, love the menu! I'll have something different today.. How about a pumpkin spice latte?",
+		"Saigon: Of course!",
+		"Saigon's thoughts: ...THAT'S DIFFERENT? Where are you the other days!"
 	],
 	[
-		"{customer}: This village feels… empty.",
-		"Hero: War has taken its toll.",
-		"{customer}: We must bring hope back to these people.",
-		"Hero: Then let’s begin with a single step."
-	],
-	[
-		"{customer}: Do you believe we can win this battle?",
-		"Hero: Hope is stronger than fear.",
-		"{customer}: Then I’ll stand with you.",
-		"Narrator: A fragile alliance was born that day."
+		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
+		"Customer: I'll have the usual.",
+		"Saigon: Certainly, pumpkin spice latte, on its way",
+		"Saigon's thoughts: ..I have never met this man."
 	]
 ]
+
+const conversation_at_state_51_75: Array = [
+	[
+		"Saigon: Welcome to Pour Some Love! How can I help?",
+		"Customer: I'll have your finest pumpkin spice latte, please.",
+		"Saigon: Of course, right away."
+	],
+	[
+		"Saigon: Welcome to Pour Some Love! What would you like to drink?",
+		"Customer: Pumpkin Spice Latte.",
+		"Saigon: ..Sure, it's on its way."
+	],
+	[
+		"Saigon: Welcome to Pour Some Love! What can I get you?",
+		"Customer: I'll have the usual.",
+		"Saigon: Ah, yes, the usual. Of course."
+	],
+	[
+		"Saigon: Welcome to Pour Some Love! What do you want?",
+		"Customer: What do I want? What kind of question is that? Bit rude..",
+		"Saigon: O-oh, sorry, slip of the tongue. What can we brew together today?",
+		"Customer: That's better. How about a pumpkin spice latte?",
+		"Saigon: ..Certainly.",
+		"Saigon's thoughts: Why so rude?"
+	]
+]
+
+const conversation_at_state_26_50: Array = [
+	[
+		"Saigon: Welcome, how can I help you..?",
+		"Customer: Oh, I'll have a uh, pumpkin spice latte?",
+		"Saigon: Sounds about right."
+	],
+	[
+		"Saigon: Hello and welcome..",
+		"Customer: I'll have a pumpkin spice latte.. but maybe you need it more than me?",
+		"Saigon: No, I'm good, thank you. Yours is coming up."
+	],
+	[
+		"Saigon: Hi, welcome to Pour Some Love.",
+		"Customer: Do you serve pumpkin spice lattes here?",
+		"Saigon: What do you think?",
+		"Customer:..yes?",
+		"Saigon: It's.. on the way.."
+	],
+	[
+		"Saigon: Welcome to.. Pour Some Love.. What can we brew.. together today..",
+		"Customer: You don't seem okay.",
+		"Saigon: I assure you, I am doing.. awesome.",
+		"Customer: Oh, okay! I'll have a pumpkin spice latte, please!",
+		"Saigon's thoughts: I am not okay."
+	]
+]
+
+const conversation_at_state_1_25: Array = [
+	[
+		"Saigon: Welcome..",
+		"Customer: Uhh, are you okay?",
+		"Saigon: Your order, please..",
+		"Customer: Oh, uh, a pumpkin sp-",
+		"Saigon: Pumpkin spice latte, coming right up.."
+	],
+	[
+		"Saigon: ...",
+		"Customer: Pumpkin.",
+		"Saigon: ...",
+		"Customer: Spice.",
+		"Saigon: ...",
+		"Customer: Latte.",
+		"Saigon: ..."
+	],
+	[
+		"Saigon: Here's another..",
+		"Customer: Hello my good madam, I would be in your debt if you could serve me a simple pumpkin spice latte!",
+		"Saigon: ..yes, of course."
+	],
+	[
+		"Saigon: Welcome to Pumpkin Spice Latte..",
+		"Customer: Hi, yes, can I have a Pour Some Love please?",
+		"Saigon: PSL, coming right up"
+	]
+]
+
+
 # Extract SpeakerName, Dialogue from the Customer and Player
 func extract_line(line: String) -> Dictionary:
 	var line_info := line.split(":", false, 2) # split into max 2 parts
@@ -65,7 +143,7 @@ func extract_line(line: String) -> Dictionary:
 func get_current_customer_name(customer: String):
 	customer_name = customer
 	# Pick a random dialog set from the conversation pool
-	var temp_dialog: Array = pick_random_dialog(conversation)
+	var temp_dialog: Array = pick_random_dialog(conversation_at_state_76_100)
 	
 	# Convert to Array[String] explicitly
 	var current_dialog: Array[String] = []
@@ -76,7 +154,6 @@ func get_current_customer_name(customer: String):
 	var variables: Dictionary = {
 		"customer": customer_name
 	}
-	print(variables)
 	format_dialog(current_dialog, variables)
 
 # Formats a dialog set by replacing placeholders with variable values.

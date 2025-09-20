@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwfrn2y3027va"
-path="res://.godot/imported/table_placeholder.png-ad64d347adb49b6b335807b38acb1a8d.ctex"
+uid="uid://b6nicruaiq5op"
+path="res://.godot/imported/customer_service_saigon_portrait_bkgd.png-5f43a34164a6950f839b58fbbe955380.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CustomerServiceScreen/texture/table_placeholder.png"
-dest_files=["res://.godot/imported/table_placeholder.png-ad64d347adb49b6b335807b38acb1a8d.ctex"]
+source_file="res://CustomerServiceScreen/texture/customer_service_saigon_portrait_bkgd.png"
+dest_files=["res://.godot/imported/customer_service_saigon_portrait_bkgd.png-5f43a34164a6950f839b58fbbe955380.ctex"]
 
 [params]
 
