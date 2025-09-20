@@ -1,7 +1,7 @@
-extends Node2D
+extends Control
 
 @onready var coffee_cup: Sprite2D = $"../CoffeeCup"
-@onready var flavor_label: Label = $Label
+@onready var flavor_label: Label = $FlavorLabel
 
 
 
@@ -37,6 +37,7 @@ func _on_flavor_forward_pressed() -> void:
 		
 # Triggers pouring animation and moves to next step
 func _on_flavor_pour_pressed() -> void:
+	print("aaaaa")
 	if coffee_cup.fill_level == 0:
 		coffee_cup.set_flavor(flavor_label.text)
 	

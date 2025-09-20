@@ -21,7 +21,8 @@ position = Vector2(147, 133)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_djvuu")
 
-[node name="FlavorPour" type="TextureButton" parent="." groups=["PourButtons"]]
+[node name="FlavorPour" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 129.0
 offset_top = 271.0
 offset_right = 292.0
@@ -57,7 +58,7 @@ texture_normal = ExtResource("4_djvuu")
 texture_pressed = ExtResource("4_djvuu")
 texture_hover = ExtResource("4_djvuu")
 
-[node name="flavor_label" type="Label" parent="."]
+[node name="FlavorLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 111.0
 offset_top = 184.0

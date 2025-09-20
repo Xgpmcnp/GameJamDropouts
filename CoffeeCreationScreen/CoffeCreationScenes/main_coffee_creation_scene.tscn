@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=14 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
 [ext_resource type="PackedScene" uid="uid://optt72fc6d1s" path="res://CoffeeCreationScreen/CoffeCreationScenes/extras_selection.tscn" id="2_awan7"]
-[ext_resource type="Texture2D" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_bkgd.png" id="2_nk5qd"]
+[ext_resource type="Texture2D" uid="uid://s0bvplxiuv3i" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_bkgd.png" id="2_nk5qd"]
 [ext_resource type="PackedScene" uid="uid://bh8oixxu54w6s" path="res://CoffeeCreationScreen/CoffeCreationScenes/preparation_method_selection.tscn" id="3_7ey1p"]
 [ext_resource type="PackedScene" uid="uid://ebncpslt0akj" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_cup.tscn" id="4_d48ii"]
 [ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="6_cs5si"]
 [ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="6_pd2mq"]
 [ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="7_cs5si"]
-[ext_resource type="Texture2D" uid="uid://dq5kol5o2i2sr" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/to_go_coffee_cup.png" id="7_lgswe"]
 [ext_resource type="Texture2D" uid="uid://cd4gnmsvcofm2" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_coaster.png" id="9_g7cab"]
 [ext_resource type="Texture2D" uid="uid://d3n7wktxtcrwp" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_belt.png" id="10_ay4q3"]
 [ext_resource type="Texture2D" uid="uid://dpudbwijs0gb3" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_frame.png" id="11_jj17i"]
@@ -73,26 +72,14 @@ texture_normal = ExtResource("6_cs5si")
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="ExtrasSelection" parent="Node2D" instance=ExtResource("2_awan7")]
-offset_left = 348.0
-offset_top = -19.0
-offset_right = 348.0
-offset_bottom = -19.0
-
-[node name="PreparationMethodSelection" parent="Node2D" instance=ExtResource("3_7ey1p")]
-offset_left = 860.0
-offset_top = 14.0
-offset_right = 860.0
-offset_bottom = 14.0
-
 [node name="Coaster" type="Sprite2D" parent="Node2D"]
 position = Vector2(1005, 575)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_g7cab")
 
 [node name="ConveyorBelt" type="Sprite2D" parent="Node2D"]
-position = Vector2(431.14, 590.159)
-scale = Vector2(0.28, 0.298835)
+position = Vector2(434.13, 590.159)
+scale = Vector2(0.282142, 0.298835)
 texture = ExtResource("10_ay4q3")
 
 [node name="ConveyorFrame" type="Sprite2D" parent="Node2D"]
@@ -103,7 +90,18 @@ texture = ExtResource("11_jj17i")
 [node name="CoffeeCup" parent="Node2D" instance=ExtResource("4_d48ii")]
 position = Vector2(148, 488)
 scale = Vector2(0.217598, 0.207203)
-texture = ExtResource("7_lgswe")
+
+[node name="ExtrasSelection" parent="Node2D" instance=ExtResource("2_awan7")]
+offset_left = 292.0
+offset_top = 42.0
+offset_right = 292.0
+offset_bottom = 42.0
+
+[node name="PreparationMethodSelection" parent="Node2D" instance=ExtResource("3_7ey1p")]
+offset_left = 584.0
+offset_top = 42.0
+offset_right = 584.0
+offset_bottom = 42.0
 
 [node name="FlavorSelection" parent="Node2D" instance=ExtResource("1_o7735")]
 offset_left = -1.0
