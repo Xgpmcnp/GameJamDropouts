@@ -1,39 +1,71 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh8oixxu54w6s"]
+[gd_scene load_steps=7 format=3 uid="uid://bh8oixxu54w6s"]
 
 [ext_resource type="Script" uid="uid://brf04yuhteuvd" path="res://CoffeeCreationScreen/CoffeeCreationScripts/preparation_method.gd" id="1_b55sc"]
-[ext_resource type="Texture2D" uid="uid://bymxt0dacspup" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/BackArrowTemp.png" id="1_cv7wn"]
-[ext_resource type="Texture2D" uid="uid://cl163073nb40y" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/ForwardArrowTemp.png" id="2_b55sc"]
-[ext_resource type="Texture2D" uid="uid://ck2wkw400ojql" path="res://CoffeeCreationScreen/CoffeeCreationScreenAssets/PourArrowTemp.png" id="3_0dfiq"]
+[ext_resource type="Texture2D" uid="uid://d15hlsxirkgop" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_R.png" id="2_kc5vo"]
+[ext_resource type="Texture2D" uid="uid://cecsyohf0yrtc" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_D.png" id="3_n5dxa"]
+[ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="4_rgkxt"]
+[ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="5_r7uwf"]
+[ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_whh2d"]
 
-[node name="PreparationMethodSelection" type="Node2D"]
+[node name="PreparationMethodSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_b55sc")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(147, 133)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_kc5vo")
+
+[node name="MethodPour" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 271.0
+offset_right = 292.0
+offset_bottom = 484.0
+scale = Vector2(0.28, 0.28)
+texture_normal = ExtResource("3_n5dxa")
+texture_pressed = ExtResource("3_n5dxa")
+texture_hover = ExtResource("3_n5dxa")
+
 [node name="MethodBack" type="TextureButton" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("1_cv7wn")
+layout_mode = 0
+offset_left = 3.0
+offset_top = 169.0
+offset_right = 216.0
+offset_bottom = 331.0
+scale = Vector2(0.28, 0.28)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("4_rgkxt")
+texture_pressed = ExtResource("4_rgkxt")
+texture_hover = ExtResource("4_rgkxt")
 
 [node name="MethodForward" type="TextureButton" parent="."]
-offset_left = 290.0
-offset_top = 7.0
-offset_right = 330.0
-offset_bottom = 47.0
-texture_normal = ExtResource("2_b55sc")
-
-[node name="MethodPour" type="TextureButton" parent="." groups=["PourButtons"]]
-offset_left = 140.0
-offset_top = 92.0
-offset_right = 180.0
-offset_bottom = 132.0
-texture_normal = ExtResource("3_0dfiq")
+layout_mode = 0
+offset_left = 228.0
+offset_top = 169.0
+offset_right = 441.0
+offset_bottom = 331.0
+scale = Vector2(0.28, 0.28)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_r7uwf")
+texture_pressed = ExtResource("5_r7uwf")
+texture_hover = ExtResource("5_r7uwf")
 
 [node name="MethodLabel" type="Label" parent="."]
-offset_left = 143.0
-offset_top = 8.0
-offset_right = 234.0
-offset_bottom = 70.0
+layout_mode = 0
+offset_left = 102.0
+offset_top = 186.0
+offset_right = 193.0
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_whh2d")
+theme_override_font_sizes/font_size = 36
 text = "Latte"
+horizontal_alignment = 1
 
+[connection signal="pressed" from="MethodPour" to="." method="_on_method_pour_pressed"]
 [connection signal="pressed" from="MethodBack" to="." method="_on_method_back_pressed"]
 [connection signal="pressed" from="MethodForward" to="." method="_on_method_forward_pressed"]
-[connection signal="pressed" from="MethodPour" to="." method="_on_method_pour_pressed"]
