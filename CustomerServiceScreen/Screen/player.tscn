@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhue144ad88xe"]
+[gd_scene load_steps=12 format=3 uid="uid://d0cr12y0504x2"]
 
-[ext_resource type="Script" uid="uid://7ag8xgn8apos" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
+[ext_resource type="Script" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
 [ext_resource type="Texture2D" uid="uid://l7j60ljw1mhj" path="res://CustomerServiceScreen/texture/nine_path_panel_interior.png" id="2_xkx15"]
 [ext_resource type="Texture2D" uid="uid://dj7ldvstp2x48" path="res://CustomerServiceScreen/texture/annoyed_placeholder1.png" id="3_5ldr3"]
 [ext_resource type="Texture2D" uid="uid://bb4c6rwjnklow" path="res://CustomerServiceScreen/texture/annoyed_placeholder2.png" id="4_8uf8m"]

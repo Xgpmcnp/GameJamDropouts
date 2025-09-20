@@ -1,14 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://td5fxgjpepik"]
+[gd_scene load_steps=18 format=3 uid="uid://td5fxgjpepik"]
 
 [ext_resource type="Script" uid="uid://dt2j1cx2lk35g" path="res://CustomerServiceScreen/Script/customer_service_GUI.gd" id="1_bgrba"]
 [ext_resource type="Texture2D" uid="uid://blhwquxfbkg77" path="res://CustomerServiceScreen/texture/heart_frame-placeholder.png" id="2_ifaw8"]
 [ext_resource type="Texture2D" uid="uid://d1nwkn25r5ls2" path="res://CustomerServiceScreen/texture/HealthBarProgressPlaceholder.png" id="3_tj5qr"]
+[ext_resource type="Texture2D" uid="uid://ubi4ub7f4m4p" path="res://CustomerServiceScreen/Assets/931629795018678283.webp" id="4_4ux8q"]
+[ext_resource type="Texture2D" uid="uid://dw20cg60tw66q" path="res://CustomerServiceScreen/Assets/maxresdefault.jpg" id="5_ykh0p"]
+[ext_resource type="Texture2D" uid="uid://ddk4t5npk6ash" path="res://CustomerServiceScreen/Assets/Ebb0arZU8AEJeVA.png" id="6_usxta"]
+[ext_resource type="FontFile" uid="uid://dlculfaisv5k3" path="res://CustomerServiceScreen/Font/motion-control/MotionControl-Bold.otf" id="7_ykh0p"]
+[ext_resource type="Texture2D" uid="uid://cambeu6ddar1l" path="res://CustomerServiceScreen/Assets/797676913115136051.png" id="8_usxta"]
+[ext_resource type="Texture2D" uid="uid://dg3mdmimvw4nb" path="res://CustomerServiceScreen/Assets/IMG_5774.jpg" id="9_ijt4c"]
+[ext_resource type="Texture2D" uid="uid://b857n7ohhekg5" path="res://CustomerServiceScreen/Assets/379489887725813766.png" id="9_nk43j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urgjv"]
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nk43j"]
+texture = ExtResource("4_4ux8q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijt4c"]
+texture = ExtResource("5_ykh0p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oagys"]
+texture = ExtResource("6_usxta")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7uvnv"]
+texture = ExtResource("9_ijt4c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_543ip"]
+texture = ExtResource("9_ijt4c")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r8gyq"]
+texture = ExtResource("9_ijt4c")
 
 [node name="CustomerServiceGUI" type="Control"]
 layout_mode = 3
@@ -57,6 +82,45 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
 text = "Brew coffee"
+
+[node name="ReturnToServeCustomer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.719
+anchor_top = 0.24
+anchor_right = 0.959
+anchor_bottom = 0.756
+offset_left = 1.71204
+offset_top = -28.52
+offset_right = 1.71204
+offset_bottom = -28.52
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="RETURN" type="Button" parent="ReturnToServeCustomer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
+text = "RETURN"
+
+[node name="TO" type="Button" parent="ReturnToServeCustomer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
+text = "TO"
+
+[node name="SERVE" type="Button" parent="ReturnToServeCustomer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
+text = "SERVE"
+
+[node name="CUSTOMER" type="Button" parent="ReturnToServeCustomer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_urgjv")
+text = "CUSTOMER"
 
 [node name="Setting" type="Button" parent="."]
 layout_mode = 1
@@ -118,8 +182,416 @@ custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="MenuExpansion" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = -332.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nk43j")
+
+[node name="Logo" type="Panel" parent="MenuExpansion"]
+layout_mode = 0
+offset_right = 407.0
+offset_bottom = 315.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijt4c")
+
+[node name="Shop" type="Panel" parent="MenuExpansion"]
+layout_mode = 0
+offset_left = 406.5
+offset_right = 813.0
+offset_bottom = 630.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oagys")
+
+[node name="Flavors" type="Label" parent="MenuExpansion/Shop"]
+layout_mode = 0
+offset_left = 39.5
+offset_top = 193.0
+offset_right = 106.5
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("7_ykh0p")
+theme_override_font_sizes/font_size = 25
+text = "Flavors"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Extras" type="Label" parent="MenuExpansion/Shop"]
+layout_mode = 0
+offset_left = 176.5
+offset_top = 193.0
+offset_right = 233.5
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("7_ykh0p")
+theme_override_font_sizes/font_size = 25
+text = "Extras"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Preparation" type="Label" parent="MenuExpansion/Shop"]
+layout_mode = 0
+offset_left = 286.5
+offset_top = 193.0
+offset_right = 390.5
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("7_ykh0p")
+theme_override_font_sizes/font_size = 25
+text = "Preparation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prompt" type="Label" parent="MenuExpansion/Shop"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 406.5
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("7_ykh0p")
+theme_override_font_sizes/font_size = 24
+text = "Want to expand your menu?
+Select the Flavor, Extras, and Preparations 
+to use below!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShopDropDown" type="HBoxContainer" parent="MenuExpansion/Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.25
+offset_top = -92.0
+offset_right = 199.75
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Flavors" type="OptionButton" parent="MenuExpansion/Shop/ShopDropDown"]
+layout_mode = 2
+size_flags_horizontal = 3
+fit_to_longest_item = false
+item_count = 10
+popup/item_0/text = "Strawberry"
+popup/item_0/id = 0
+popup/item_1/text = "Caramel"
+popup/item_1/id = 1
+popup/item_2/text = "Matcha"
+popup/item_2/id = 2
+popup/item_3/text = "Grape"
+popup/item_3/id = 3
+popup/item_4/text = "Coconut"
+popup/item_4/id = 4
+popup/item_5/text = "Almond"
+popup/item_5/id = 5
+popup/item_6/text = "Chocolate"
+popup/item_6/id = 6
+popup/item_7/text = "Maple"
+popup/item_7/id = 7
+popup/item_8/text = "Peppermint"
+popup/item_8/id = 8
+popup/item_9/text = "Toffee"
+popup/item_9/id = 9
+
+[node name="Extra" type="OptionButton" parent="MenuExpansion/Shop/ShopDropDown"]
+layout_mode = 2
+size_flags_horizontal = 3
+fit_to_longest_item = false
+item_count = 10
+popup/item_0/text = "Lavender"
+popup/item_0/id = 0
+popup/item_1/text = "Mint"
+popup/item_1/id = 1
+popup/item_2/text = "Ginger"
+popup/item_2/id = 2
+popup/item_3/text = "Cinnamon"
+popup/item_3/id = 3
+popup/item_4/text = "Boba"
+popup/item_4/id = 4
+popup/item_5/text = "Milk"
+popup/item_5/id = 5
+popup/item_6/text = "Honey"
+popup/item_6/id = 6
+popup/item_7/text = "Cardamom"
+popup/item_7/id = 7
+popup/item_8/text = "Lemon"
+popup/item_8/id = 8
+popup/item_9/text = "Basil"
+popup/item_9/id = 9
+
+[node name="Preparation" type="OptionButton" parent="MenuExpansion/Shop/ShopDropDown"]
+layout_mode = 2
+size_flags_horizontal = 3
+fit_to_longest_item = false
+item_count = 10
+popup/item_0/text = "Iced"
+popup/item_0/id = 0
+popup/item_1/text = "Mocha"
+popup/item_1/id = 1
+popup/item_2/text = "Instant Coffee "
+popup/item_2/id = 2
+popup/item_3/text = "Soda"
+popup/item_3/id = 3
+popup/item_4/text = "Frappé"
+popup/item_4/id = 4
+popup/item_5/text = "Doppio"
+popup/item_5/id = 5
+popup/item_6/text = "Cappuccino"
+popup/item_6/id = 6
+popup/item_7/text = "Cortado"
+popup/item_7/id = 7
+popup/item_8/text = "Decaff"
+popup/item_8/id = 8
+popup/item_9/text = "Milkshake"
+popup/item_9/id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuExpansion/Shop"]
+position = Vector2(203.25, 477)
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("8_usxta")
+
+[node name="AddToMenu" type="Button" parent="MenuExpansion/Shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -45.0
+offset_right = 63.5
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ykh0p")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("StyleBoxTexture_7uvnv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_543ip")
+theme_override_styles/normal = SubResource("StyleBoxTexture_r8gyq")
+text = "Add To Menu"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuExpansion"]
+layout_mode = 0
+offset_top = 315.0
+offset_right = 407.0
+offset_bottom = 630.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuExpansion/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect4" type="TextureRect" parent="MenuExpansion/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nk43j")
+
+[node name="Label" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pumpkin Spice Latte"
+
+[node name="Label2" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = -24.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10"
+
+[node name="TextureRect5" type="TextureRect" parent="MenuExpansion/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nk43j")
+
+[node name="Label" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pumpkin Spice Latte"
+
+[node name="Label2" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect5"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = -24.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10"
+
+[node name="TextureRect6" type="TextureRect" parent="MenuExpansion/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nk43j")
+
+[node name="Label" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect6"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pumpkin Spice Latte"
+
+[node name="Label2" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect6"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = -24.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10"
+
+[node name="TextureRect7" type="TextureRect" parent="MenuExpansion/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nk43j")
+
+[node name="Label" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect7"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pumpkin Spice Latte"
+
+[node name="Label2" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect7"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = -24.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10"
+
+[node name="TextureRect8" type="TextureRect" parent="MenuExpansion/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nk43j")
+
+[node name="Label" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect8"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pumpkin Spice Latte"
+
+[node name="Label2" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect8"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = -24.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10"
+
+[node name="TextureRect9" type="TextureRect" parent="MenuExpansion/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_nk43j")
+
+[node name="Label" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect9"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -11.5
+offset_right = 178.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pumpkin Spice Latte"
+
+[node name="Label2" type="Label" parent="MenuExpansion/ScrollContainer/VBoxContainer/TextureRect9"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -11.5
+offset_right = -24.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$10"
+
 [connection signal="pressed" from="InteractButtonContainer/SkillTree" to="." method="_on_skill_tree_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/MenuEditing" to="." method="_on_menu_editing_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/DrinkCreation" to="." method="_on_drink_creation_pressed"]
+[connection signal="pressed" from="ReturnToServeCustomer/RETURN" to="." method="_on_skill_tree_pressed"]
+[connection signal="pressed" from="ReturnToServeCustomer/TO" to="." method="_on_menu_editing_pressed"]
+[connection signal="pressed" from="ReturnToServeCustomer/SERVE" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="ReturnToServeCustomer/CUSTOMER" to="." method="_on_drink_creation_pressed"]
 [connection signal="pressed" from="Setting" to="." method="_on_setting_pressed"]

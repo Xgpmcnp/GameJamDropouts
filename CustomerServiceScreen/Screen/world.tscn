@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b05rtcd60rmmo"]
+[gd_scene load_steps=3 format=3 uid="uid://cc5yeg5hcdljh"]
 
 [ext_resource type="Texture2D" uid="uid://s66untgrfycf" path="res://CustomerServiceScreen/texture/BackGroundPlaceholder.png" id="1_ml6up"]
 [ext_resource type="Texture2D" uid="uid://dwfrn2y3027va" path="res://CustomerServiceScreen/texture/table_placeholder.png" id="2_igca8"]
