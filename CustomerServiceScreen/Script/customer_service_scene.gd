@@ -80,7 +80,6 @@ func _on_customer_enter():
 	var random_key = keys[randi() % keys.size()]
 	# Store the readable name (like "CustomerA")
 	current_customer_name = Character.CHARACTER_DETAILS[random_key]["name"]
-	print(current_customer_name)
 	DialogueSystem.get_current_customer_name(current_customer_name)
 	start_dialog()              # Start dialog sequence
 

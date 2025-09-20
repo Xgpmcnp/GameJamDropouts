@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bhue144ad88xe"]
 
 [ext_resource type="Script" uid="uid://7ag8xgn8apos" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
-[ext_resource type="Texture2D" uid="uid://l7j60ljw1mhj" path="res://CustomerServiceScreen/texture/nine_path_panel_interior.png" id="2_xkx15"]
+[ext_resource type="Texture2D" uid="uid://b6nicruaiq5op" path="res://CustomerServiceScreen/texture/customer_service_saigon_portrait_bkgd.png" id="2_10wag"]
 [ext_resource type="Texture2D" uid="uid://dj7ldvstp2x48" path="res://CustomerServiceScreen/texture/annoyed_placeholder1.png" id="3_5ldr3"]
 [ext_resource type="Texture2D" uid="uid://bb4c6rwjnklow" path="res://CustomerServiceScreen/texture/annoyed_placeholder2.png" id="4_8uf8m"]
 [ext_resource type="Texture2D" uid="uid://u3yfl17vt1ek" path="res://CustomerServiceScreen/texture/depressplaceholder1.png" id="5_vflnw"]
@@ -67,9 +67,9 @@ animations = [{
 script = ExtResource("1_10wag")
 
 [node name="AvatarBG" type="Sprite2D" parent="."]
-position = Vector2(1043, 572)
-scale = Vector2(8.79687, 8.64063)
-texture = ExtResource("2_xkx15")
+position = Vector2(1038, 583)
+scale = Vector2(0.18, 0.178)
+texture = ExtResource("2_10wag")
 
 [node name="AvatarFrame" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

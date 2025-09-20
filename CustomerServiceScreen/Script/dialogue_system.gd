@@ -5,6 +5,8 @@ var dialog_index: int = 0
 var customer_name: String = "default"
 # Stores the current dialog lines after formatting
 var current_dialog: Array[String] = []
+# Store the current state of serving
+var drink_ready: bool = false
 
 const conversation: Array = [
 	[
@@ -76,7 +78,6 @@ func get_current_customer_name(customer: String):
 	var variables: Dictionary = {
 		"customer": customer_name
 	}
-	print(variables)
 	format_dialog(current_dialog, variables)
 
 # Formats a dialog set by replacing placeholders with variable values.
