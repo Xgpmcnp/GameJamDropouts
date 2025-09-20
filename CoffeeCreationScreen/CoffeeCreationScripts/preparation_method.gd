@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var coffee_cup: Sprite2D = $"../CoffeeCup"
 @onready var method_label: Label = $MethodLabel
@@ -48,4 +48,5 @@ func _on_method_pour_pressed() -> void:
 		# Lock this machine
 		lock_machine = true
 		coffee_cup.set_preparation_method(method_label.text)
+		
 	
