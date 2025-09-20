@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvyf4al1c5qh7"
+path="res://.godot/imported/Depresso loop V3.mp3-5103abd2f77783cb819ee4273f499018.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/OST/Depresso loop V3.mp3"
+dest_files=["res://.godot/imported/Depresso loop V3.mp3-5103abd2f77783cb819ee4273f499018.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
