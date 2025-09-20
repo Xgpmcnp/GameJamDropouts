@@ -175,7 +175,6 @@ func goto_customer_service_menu(isGoingBack: bool):
 # Go to coffee creation menu
 func goto_coffee_creation():
 	self.goto_screen("res://CoffeeCreationScreen/CoffeCreationScenes/main_coffee_creation_scene.tscn")
-	pass
 
 # Open Shop
 func open_shop():
