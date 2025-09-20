@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dphdkjh33qq3o"
+path="res://.godot/imported/Pour Some Love - Main Theme FINAL.mp3-939e48cec1118e262d9bce61239f10c0.mp3str"
+
+[deps]
+
+source_file="res://MainMenuScreen/Audio/Pour Some Love - Main Theme FINAL.mp3"
+dest_files=["res://.godot/imported/Pour Some Love - Main Theme FINAL.mp3-939e48cec1118e262d9bce61239f10c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
