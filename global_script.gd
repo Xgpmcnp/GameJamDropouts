@@ -5,9 +5,15 @@ var current_scene = null
 
 # Arrays containing the player's flavor, extras, and preparation method options
 # NOTE: current values are placeholders
-var flavor_options = ["Pumpkin", "Vanilla", "Grape"]
-var extras_options = ["Spice", "Mint", "Lemon"]
-var preparation_method_options = ["Latte", "Soda", "Mocha"]
+var flavor_options = ["Pumpkin"]
+var extras_options = ["Spice"]
+var preparation_method_options = ["Latte"]
+
+var flavor_shop_options = []
+var extras_shop_options = []
+var prepartion_method_shop_options = []
+
+
 
 
 # Variables to represent the current index of the arrays(which option is currently chosen)
@@ -150,6 +156,10 @@ func deferred_goto_scene(path):
 # Open options modal
 func open_options():
 	print("options opened")
+	
+# Open the credits modal
+func open_credits():
+	print("credits opened")
 
 # Go to main menu
 func goto_main_menu():
@@ -169,4 +179,66 @@ func goto_coffee_creation():
 
 # Open Shop
 func open_shop():
-	print("Go to shop")
+	print("Open shop")
+
+func open_main_menu_creation():
+	print("open main menu creation")
+
+#-------------------------------------------------------------------
+#  FUNCTIONS FOR UPDATING VARIABLES
+#-------------------------------------------------------------------
+
+func update_composure_on_item_buy():
+	curr_composure += ((100-curr_composure)/2) + 1
+		
+	# Ensure we don't overcap composure value
+	if curr_composure > 100:
+		curr_composure = 100
+
+func update_funds(amount: float):
+	current_funds += amount
+	
+#-------------------------------------------------------------------
+#  SHOP-SPECIFIC ITEMS BELOW
+#-------------------------------------------------------------------
+func fill_shop_flavor_slot()->String:
+	var option = flavor_shop_options[0]
+	flavor_shop_options.remove_at(0)
+	return option
+
+func fill_shop_extras_slot()->String:
+	var option = extras_shop_options[0]
+	extras_shop_options.remove_at(0)
+	return option
+
+func fill_shop_method_slot()->String:
+	var option = preparation_method_options[0]
+	preparation_method_options.remove_at(0)
+	return option
+
+func update_current_flavor_options(option:String):
+	flavor_options.append(option)
+
+func update_current_extras_options(option:String):
+	extras_options.append(option)
+
+func update_current_preparation_method_options(option:String):
+	preparation_method_options.append(option)
+
+#-------------------------------------------------------------------
+#  FUNCTIONS FOR CONTROLLING AUDIO BELOW
+#-------------------------------------------------------------------
+
+func adjust_game_volume(newVolume: float)->void:
+	# Idk if this will be easy so its gonna be more of a background thing
+	pass
+
+func change_current_track()->void:
+	if curr_composure >= 75:
+		pass
+	elif curr_composure >= 50:
+		pass
+	elif curr_composure >= 25:
+		pass
+	else:
+		pass
