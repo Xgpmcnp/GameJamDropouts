@@ -1,7 +1,6 @@
 extends Control
 @onready var dialog_line: RichTextLabel = %DialogLine
 @onready var speaker_name: RichTextLabel = %SpeakerName
-signal animation_done
 
 const ANIMATION_SPEED: int = 30
 var animate_text : bool = false
@@ -18,7 +17,6 @@ func _process(delta: float) -> void:
 			current_visible_character = dialog_line.visible_characters
 		else:
 			animate_text = false
-			animation_done.emit()
 			
 func change_line(character_name: Character.Name, line: String):
 	var speaker: String = "SaiGon"  # Default name
