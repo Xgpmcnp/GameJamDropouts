@@ -1,17 +1,18 @@
-[gd_scene load_steps=97 format=3 uid="uid://td5fxgjpepik"]
+[gd_scene load_steps=98 format=3 uid="uid://td5fxgjpepik"]
 
 [ext_resource type="Script" uid="uid://dt2j1cx2lk35g" path="res://CustomerServiceScreen/Script/customer_service_GUI.gd" id="1_bgrba"]
-[ext_resource type="Texture2D" uid="uid://blhwquxfbkg77" path="res://CustomerServiceScreen/texture/heart_frame-placeholder.png" id="2_ifaw8"]
 [ext_resource type="FontFile" uid="uid://ds23j7gk67tdi" path="res://CustomerServiceScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="2_thite"]
 [ext_resource type="Texture2D" uid="uid://b5sbwxiwqlnwg" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_menu_editor_box.png" id="2_vvr7b"]
 [ext_resource type="Texture2D" uid="uid://ddp80mb8a2n4r" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_shop_box.png" id="3_thite"]
-[ext_resource type="Texture2D" uid="uid://d1nwkn25r5ls2" path="res://CustomerServiceScreen/texture/HealthBarProgressPlaceholder.png" id="3_tj5qr"]
 [ext_resource type="Texture2D" uid="uid://1qh0jfjynmmo" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_drink_station_box.png" id="4_lcloh"]
 [ext_resource type="Texture2D" uid="uid://cy84th0d6yihu" path="res://CustomerServiceScreen/FioAssets/menu_expansion_screen.png" id="4_v6lls"]
 [ext_resource type="Texture2D" uid="uid://br1gj5h8skiip" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_settings_box.png" id="5_8ha44"]
-[ext_resource type="Texture2D" uid="uid://dw20cg60tw66q" path="res://CustomerServiceScreen/Assets/maxresdefault.jpg" id="5_ykh0p"]
 [ext_resource type="FontFile" uid="uid://dlculfaisv5k3" path="res://CustomerServiceScreen/Font/motion-control/MotionControl-Bold.otf" id="7_ykh0p"]
+[ext_resource type="FontFile" uid="uid://cegk1he73dnvi" path="res://CustomerServiceScreen/Font/mochibop/Mochibop-Demo.ttf" id="8_clsx2"]
+[ext_resource type="Texture2D" uid="uid://csnvgxk4k8e2q" path="res://CustomerServiceScreen/Assets/SanityBarFrame.png" id="9_clsx2"]
+[ext_resource type="Texture2D" uid="uid://cqdb5wppeph50" path="res://CustomerServiceScreen/Assets/SanityBarColor (2).png" id="10_clsx2"]
 [ext_resource type="Texture2D" uid="uid://bsds73dyqqf04" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_main_menu_box.png" id="11_clsx2"]
+[ext_resource type="Texture2D" uid="uid://crkppthqw2j3h" path="res://CustomerServiceScreen/Assets/PSL_LOGO_NEW.png" id="12_clsx2"]
 [ext_resource type="FontFile" uid="uid://fcxkfpf2ht2l" path="res://CustomerServiceScreen/Font/choco-chici-font/ChocoChici-2OMyW.ttf" id="13_udyap"]
 [ext_resource type="Texture2D" uid="uid://3aevfbxx6lps" path="res://CustomerServiceScreen/Assets/IMG_0526.jpg" id="14_27i7e"]
 [ext_resource type="Texture2D" uid="uid://csrx23kce3bv6" path="res://CustomerServiceScreen/FioAssets/shop_menu.png" id="14_v6lls"]
@@ -111,7 +112,7 @@ texture = ExtResource("5_8ha44")
 texture = ExtResource("4_v6lls")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijt4c"]
-texture = ExtResource("5_ykh0p")
+texture = ExtResource("12_clsx2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7uvnv"]
 texture = ExtResource("11_clsx2")
@@ -375,6 +376,7 @@ grow_vertical = 2
 script = ExtResource("1_bgrba")
 
 [node name="InteractButtonContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.719
@@ -510,8 +512,10 @@ anchor_left = 0.01
 anchor_top = 0.046
 anchor_right = 0.065
 anchor_bottom = 0.046
-offset_right = 409.0
-offset_bottom = 87.0
+offset_left = 627.48
+offset_top = 345.192
+offset_right = 1074.12
+offset_bottom = 466.192
 
 [node name="SanityContainer" type="HBoxContainer" parent="StatusContainer"]
 layout_mode = 2
@@ -522,6 +526,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_clsx2")
+theme_override_font_sizes/normal_font_size = 22
 text = "Composure: 100"
 fit_content = true
 vertical_alignment = 1
@@ -530,10 +536,10 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 4
 value = 100.0
-texture_over = ExtResource("2_ifaw8")
-texture_progress = ExtResource("3_tj5qr")
+texture_over = ExtResource("9_clsx2")
+texture_progress = ExtResource("10_clsx2")
 
 [node name="MoneyContainer" type="HBoxContainer" parent="StatusContainer"]
 layout_mode = 2
@@ -544,6 +550,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_clsx2")
+theme_override_font_sizes/normal_font_size = 22
 text = "Fund: "
 fit_content = true
 
@@ -553,6 +561,8 @@ custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_clsx2")
+theme_override_font_sizes/font_size = 22
 
 [node name="MenuExpansion" type="Panel" parent="."]
 layout_mode = 1
@@ -568,7 +578,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_nk43j")
 
 [node name="Logo" type="Panel" parent="MenuExpansion"]
-visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 6.0
@@ -717,6 +726,7 @@ text = "$10 "
 horizontal_alignment = 2
 
 [node name="Shop" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 7.0
 offset_top = 5.0
