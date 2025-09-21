@@ -24,12 +24,19 @@ func change_line(speakername: String, character_name: Character.Name, line: Stri
 		speaker = Character.CHARACTER_DETAILS[character_name]["name"]
 
 	speaker_name.text = speaker
-	
 	dialog_line.text = line
 	current_visible_character = 0
 	dialog_line.visible_characters = 0
 	animate_text = true
 
+func resume_line(speakername: String, character_name: Character.Name, line: String):
+	var speaker: String = speakername  # In cass of the name not assign in the Character class
+	if Character.CHARACTER_DETAILS.has(character_name):
+		speaker = Character.CHARACTER_DETAILS[character_name]["name"]
 
+	speaker_name.text = speaker
+	dialog_line.text = line
+	dialog_line.visible_characters = -1
+	
 func skip_text_animation():
 	dialog_line.visible_ratio = 1

@@ -1,12 +1,15 @@
 extends Node
 
+# Store the current index of ongoing dialog
 var dialog_index: int = 0
+# Store the current indeex of current customer
+var customer_index: int = 0
 # Stores the current customer name
 var customer_name: String = "default"
 # Stores the current dialog lines after formatting
 var current_dialog: Array[String] = []
 # Store the current state of serving
-var drink_ready: bool = false
+var drink_ready: bool = true
 
 const conversation_at_state_76_100: Array = [
 	[
@@ -136,6 +139,16 @@ func extract_line(line: String) -> Dictionary:
 		"speaker_name": speaker_name,
 		"dialog": dialog
 	}
+	
+# Get the current customer index
+func get_current_customer_index(customer_i: int) -> void:
+	customer_index = customer_i
+
+# Get the current line of the dialog	
+func get_current_dialog_speaker_and_dialog() -> Dictionary:
+	var current_line = current_dialog[dialog_index]
+	var current_speaker_and_dialog = extract_line(current_line)
+	return current_speaker_and_dialog
 	
 # Selects a random dialog set for a given customer, 
 # replaces placeholders (like {customer}) with actual values, 

@@ -21,8 +21,7 @@ func _on_serve_button_pressed() -> void:
 		
 # Go back to main menu, reset the full cup
 func _on_back_button_pressed() -> void:
-	Global.reset_selected_options()
-	Global.goto_main_menu()
+	Global.goto_customer_service_menu(true, false)
 	coffee_cup.reset_cup()
 
 # Show options screen
