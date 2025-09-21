@@ -119,7 +119,7 @@ func set_preparation_dropdown() -> void:
 func initialize_main_menu()-> void:
 	for item in Global.new_items_from_player:
 		menu_item_list.text = menu_item_list.text + "\n" + item
-		menu_price_list.text = menu_price_list.text + "n" + "$10"
+		menu_price_list.text = menu_price_list.text + "\n" + "$10"
 
 func _on_menu_editing_pressed() -> void:
 	$"ExMenu-Open".play()
