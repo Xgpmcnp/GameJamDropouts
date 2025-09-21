@@ -1129,6 +1129,7 @@ text = "ALL ITEMS $20"
 [connection signal="pressed" from="ReturnToServeCustomer/TO" to="." method="_on_serve_pressed"]
 [connection signal="pressed" from="ReturnToServeCustomer/CUSTOMER" to="." method="_on_customer_pressed"]
 [connection signal="pressed" from="Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="MenuExpansion/AddToMenu" to="." method="_on_add_to_menu_pressed"]
 [connection signal="pressed" from="Shop/Flavors/Flavor1/BuyFlavor1" to="." method="_on_buy_flavor_1_pressed"]
 [connection signal="pressed" from="Shop/Flavors/Flavor2/BuyFlavor2" to="." method="_on_buy_flavor_2_pressed"]
 [connection signal="pressed" from="Shop/Flavors/Flavor3/BuyFlavor3" to="." method="_on_buy_flavor_3_pressed"]

@@ -9,6 +9,8 @@ var flavor_options = ["Pumpkin"]
 var extras_options = ["Spice"]
 var preparation_method_options = ["Latte"]
 
+var new_items_from_player = []
+
 var flavor_shop_options = ["Strawberry", "Matcha", "Grape", "Coconut", "Almond", "Chocolate", "Maple", "Peppermint", "Toffee"]
 var extras_shop_options = ["Lavender", "Mint", "Ginger", "Cinnamon", "Boba", "Milk", "Honey", "Cardamom", "Lemon", "Basil"]
 var prepartion_method_shop_options = ["Iced", "Mocha", "Instant Coffee", "Soda", "Frappé", "Doppio", "Cappuccino", "Cortado", "Decaff", "Milkshake"]
