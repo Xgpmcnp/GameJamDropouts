@@ -2,6 +2,9 @@ extends Control
 
 @onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var method_label: Label = $MethodLabel
+@onready var method_pour: TextureButton = $MethodPour
+@onready var method_back: TextureButton = $MethodBack
+@onready var method_forward: TextureButton = $MethodForward
 
 # If true, buttons can't be pressed
 var lock_machine: bool
@@ -10,6 +13,9 @@ var lock_machine: bool
 func _ready() -> void:
 	# Machine can't be interacted with by default
 	lock_machine = true
+	method_back.hide()
+	method_forward.hide()
+	method_pour.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,3 +59,7 @@ func _on_method_pour_pressed() -> void:
 		coffee_cup.set_preparation_method(method_label.text)
 	$"../../Coffee-OnTable".play()
 	
+func unhide_options() -> void:
+	method_back.visible = true
+	method_forward.visible = true
+	method_pour.visible = true
