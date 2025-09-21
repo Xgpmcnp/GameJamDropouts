@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 # A variable to contain the current scene
 var current_scene = null

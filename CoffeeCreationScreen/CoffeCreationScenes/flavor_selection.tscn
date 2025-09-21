@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6kgf03wtfwmf"]
+[gd_scene load_steps=9 format=3 uid="uid://b6kgf03wtfwmf"]
 
 [ext_resource type="Script" uid="uid://b0nnxsjwfgjqs" path="res://CoffeeCreationScreen/CoffeeCreationScripts/flavor_selection.gd" id="1_kiscm"]
 [ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="2_djvuu"]
 [ext_resource type="Texture2D" uid="uid://cecsyohf0yrtc" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_D.png" id="2_x4qaj"]
 [ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="4_djvuu"]
+[ext_resource type="AudioStream" uid="uid://ouia2t7pqe2f" path="res://GeneralAssets/SFX/Coffee - Ingedient dispense.mp3" id="4_obacl"]
 [ext_resource type="Texture2D" uid="uid://h6ko5ll1nimy" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_L.png" id="5_djvuu"]
+[ext_resource type="AudioStream" uid="uid://bi11y0aai5epc" path="res://GeneralAssets/SFX/Coffee - Ingedient switch.mp3" id="6_tnbcf"]
 [ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_x4qaj"]
 
 [node name="FlavorSelection" type="Control"]
@@ -32,6 +34,9 @@ texture_normal = ExtResource("2_x4qaj")
 texture_pressed = ExtResource("2_x4qaj")
 texture_hover = ExtResource("2_x4qaj")
 
+[node name="Coffee-IngedientDispense" type="AudioStreamPlayer" parent="FlavorPour"]
+stream = ExtResource("4_obacl")
+
 [node name="FlavorBack" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 3.0
@@ -45,6 +50,9 @@ texture_normal = ExtResource("2_djvuu")
 texture_pressed = ExtResource("2_djvuu")
 texture_hover = ExtResource("2_djvuu")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FlavorBack"]
+stream = ExtResource("6_tnbcf")
+
 [node name="FlavorForward" type="TextureButton" parent="."]
 layout_mode = 2
 offset_left = 228.0
@@ -57,6 +65,9 @@ size_flags_vertical = 0
 texture_normal = ExtResource("4_djvuu")
 texture_pressed = ExtResource("4_djvuu")
 texture_hover = ExtResource("4_djvuu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="FlavorForward"]
+stream = ExtResource("6_tnbcf")
 
 [node name="FlavorLabel" type="Label" parent="."]
 layout_mode = 0

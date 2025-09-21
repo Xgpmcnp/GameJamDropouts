@@ -1,7 +1,10 @@
 extends Node2D
 @onready var player: Node2D = %Player
-@onready var dialog_ui: Control = %DialogUI
+@onready var dialog_ui: = %DialogUI
 @onready var customer: Node2D = %Customer
+@onready var dialog_box: PanelContainer = $DialogBox
+@onready var speaker_box: PanelContainer = $SpeakerBox
+
 
 # === State variables ===
 var customer_active := false     # True if a customer is currently in dialog
@@ -14,7 +17,7 @@ var current_customer_name: String  # Stores the name of the current customer
 func _ready() -> void:
 	_reset_customer_timer()      # Initialize first customer spawn timer
 	customer.hide_sprite()       # Hide the customer by default
-	dialog_ui.visible = false    # Hide dialog UI at game start	
+	dialog_ui.visible = false    # Hide dialog UI at game start
 	
 # Called every frame, with delta = elapsed time since last frame
 func _process(delta: float) -> void:

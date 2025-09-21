@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh8oixxu54w6s"]
+[gd_scene load_steps=9 format=3 uid="uid://bh8oixxu54w6s"]
 
 [ext_resource type="Script" uid="uid://brf04yuhteuvd" path="res://CoffeeCreationScreen/CoffeeCreationScripts/preparation_method.gd" id="1_b55sc"]
 [ext_resource type="Texture2D" uid="uid://d15hlsxirkgop" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_R.png" id="2_kc5vo"]
 [ext_resource type="Texture2D" uid="uid://cecsyohf0yrtc" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_D.png" id="3_n5dxa"]
+[ext_resource type="AudioStream" uid="uid://rlj6lqc8daon" path="res://GeneralAssets/SFX/Coffee - Pour.mp3" id="4_r7uwf"]
 [ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="4_rgkxt"]
 [ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="5_r7uwf"]
+[ext_resource type="AudioStream" uid="uid://bi11y0aai5epc" path="res://GeneralAssets/SFX/Coffee - Ingedient switch.mp3" id="6_ifv8p"]
 [ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_whh2d"]
 
 [node name="PreparationMethodSelection" type="Control"]
@@ -28,6 +30,9 @@ texture_normal = ExtResource("3_n5dxa")
 texture_pressed = ExtResource("3_n5dxa")
 texture_hover = ExtResource("3_n5dxa")
 
+[node name="Coffee-Pour" type="AudioStreamPlayer" parent="MethodPour"]
+stream = ExtResource("4_r7uwf")
+
 [node name="MethodBack" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 3.0
@@ -41,6 +46,9 @@ texture_normal = ExtResource("4_rgkxt")
 texture_pressed = ExtResource("4_rgkxt")
 texture_hover = ExtResource("4_rgkxt")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MethodBack"]
+stream = ExtResource("6_ifv8p")
+
 [node name="MethodForward" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 228.0
@@ -53,6 +61,9 @@ size_flags_vertical = 0
 texture_normal = ExtResource("5_r7uwf")
 texture_pressed = ExtResource("5_r7uwf")
 texture_hover = ExtResource("5_r7uwf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MethodForward"]
+stream = ExtResource("6_ifv8p")
 
 [node name="MethodLabel" type="Label" parent="."]
 layout_mode = 0

@@ -146,7 +146,7 @@ func get_current_customer_name(customer: String):
 	var temp_dialog: Array = pick_random_dialog(conversation_at_state_76_100)
 	
 	# Convert to Array[String] explicitly
-	var current_dialog: Array[String] = []
+	#var current_dialog: Array[String] = []
 	for line in temp_dialog:
 		if typeof(line) == TYPE_STRING:
 			current_dialog.append(line)

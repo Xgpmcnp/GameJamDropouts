@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=20 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://s0bvplxiuv3i" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_bkgd.png" id="2_nk5qd"]
 [ext_resource type="PackedScene" uid="uid://bh8oixxu54w6s" path="res://CoffeeCreationScreen/CoffeCreationScenes/preparation_method_selection.tscn" id="3_7ey1p"]
 [ext_resource type="PackedScene" uid="uid://ebncpslt0akj" path="res://CoffeeCreationScreen/CoffeCreationScenes/coffee_cup.tscn" id="4_d48ii"]
+[ext_resource type="AudioStream" uid="uid://b3j8prjl4xlwv" path="res://GeneralAssets/SFX/Main Menu - Move.mp3" id="6_1t7qx"]
 [ext_resource type="Texture2D" uid="uid://chhwpnl6ujoc5" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_portrait_back.png" id="6_2gil1"]
 [ext_resource type="Texture2D" uid="uid://bgx164jmnt5ki" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_portrait_frame.png" id="7_hye44"]
 [ext_resource type="Texture2D" uid="uid://b7gvmmkn10v10" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_back_button.png" id="8_hpjs6"]
@@ -85,6 +86,9 @@ scale = Vector2(0.23, 0.23)
 texture_normal = ExtResource("9_odjlt")
 texture_pressed = ExtResource("9_odjlt")
 texture_hover = ExtResource("9_odjlt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/Options"]
+stream = ExtResource("6_1t7qx")
 
 [node name="Node2D" type="Node2D" parent="."]
 
