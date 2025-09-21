@@ -11,6 +11,18 @@ extends Control
 @onready var interact_button_container: VBoxContainer = $InteractButtonContainer
 @onready var return_to_serve_customer: VBoxContainer = $ReturnToServeCustomer
 
+@onready var flavor_1: Label = $Shop/Flavors/Flavor1
+@onready var flavor_2: Label = $Shop/Flavors/Flavor2
+@onready var flavor_3: Label = $Shop/Flavors/Flavor3
+
+@onready var extra_1: Label = $Shop/Extras/Extra1
+@onready var extra_2: Label = $Shop/Extras/Extra2
+@onready var extra_3: Label = $Shop/Extras/Extra3
+
+@onready var preparation_1: Label = $Shop/Preparation/Preparation1
+@onready var preparation_2: Label = $Shop/Preparation/Preparation2
+@onready var preparation_3: Label = $Shop/Preparation/Preparation3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Node ready, _process will start running automatically")
@@ -18,6 +30,10 @@ func _ready() -> void:
 	menu_expansion.visible = false
 	shop.visible = false
 	return_to_serve_customer.visible = false
+	set_flavor_shop_options()
+	set_extras_shop_options()
+	set_preparation_method_shop_options()
+	
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,7 +45,45 @@ func _process(delta: float) -> void:
 		#money_value.text = str(current_score) + "$"
 		money_value.text = str(Global.get_funds())
 		_on_player_health_changed()
+
+func set_flavor_shop_options()-> void:
+	var options = Global.flavor_shop_options
+	var options_size = options.size()
+	
+	if options_size > 0:
+		flavor_1.text = options[0]
 		
+		if options_size > 1:
+			flavor_2.text = options[1]
+			
+			if options_size > 2:
+				flavor_3.text = options[2]
+
+func set_extras_shop_options()-> void:
+	var options = Global.extras_shop_options
+	var options_size = options.size()
+	
+	if options_size > 0:
+		extra_1.text = options[0]
+		
+		if options_size > 1:
+			extra_2.text = options[1]
+			
+			if options_size > 2:
+				extra_3.text = options[2]
+
+func set_preparation_method_shop_options()-> void:
+	var options = Global.prepartion_method_shop_options
+	var options_size = options.size()
+	
+	if options_size > 0:
+		preparation_1.text = options[0]
+		
+		if options_size > 1:
+			preparation_2.text = options[1]
+			
+			if options_size > 2:
+				preparation_3.text = options[2]
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
 	interact_button_container.visible = false
@@ -96,4 +150,51 @@ func _on_customer_pressed() -> void:
 		interact_button_container.visible = true
 		shop.visible = false
 		return_to_serve_customer.visible = false
+
+
+func _on_buy_flavor_1_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
 		
+		# Update flavors list
+		Global.update_flavors(flavor_1.text)
+		
+		# Update options list
+		flavor_1.text = flavor_2.text
+		flavor_2.text = flavor_3.text
+		if(Global.flavor_shop_options.size() > 2):
+			flavor_3.text = Global.flavor_shop_options[2]
+
+
+func _on_buy_flavor_2_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update flavors list
+		Global.update_flavors(flavor_2.text)
+		
+		# Update options list
+		flavor_2.text = flavor_3.text
+		if(Global.flavor_shop_options.size() > 2):
+			flavor_3.text = Global.flavor_shop_options[2]
+
+
+func _on_buy_flavor_3_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update flavors list
+		Global.update_flavors(flavor_3.text)
+		
+		# Update options list
+		if(Global.flavor_shop_options.size() > 2):
+			flavor_3.text = Global.flavor_shop_options[2]

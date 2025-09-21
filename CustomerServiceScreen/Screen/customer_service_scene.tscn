@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://th3nm1864cdr"]
+[gd_scene load_steps=8 format=3 uid="uid://th3nm1864cdr"]
 
 [ext_resource type="PackedScene" uid="uid://td5fxgjpepik" path="res://CustomerServiceScreen/Screen/customer_service_GUI.tscn" id="1_0m4uw"]
 [ext_resource type="Script" uid="uid://ds2q6bg1vdsu2" path="res://CustomerServiceScreen/Script/customer_service_scene.gd" id="1_baqgh"]
 [ext_resource type="PackedScene" uid="uid://cc5yeg5hcdljh" path="res://CustomerServiceScreen/Screen/world.tscn" id="2_xb8ma"]
 [ext_resource type="PackedScene" uid="uid://d0cr12y0504x2" path="res://CustomerServiceScreen/Screen/player.tscn" id="3_f065v"]
-[ext_resource type="Texture2D" uid="uid://dwfrn2y3027va" path="res://CustomerServiceScreen/texture/table_placeholder.png" id="3_pkgll"]
 [ext_resource type="PackedScene" uid="uid://cl13143eonr01" path="res://CustomerServiceScreen/Screen/customer.tscn" id="4_pkgll"]
 [ext_resource type="Texture2D" uid="uid://b626okiyslj3n" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_orchid.png" id="8_xr8xy"]
 [ext_resource type="PackedScene" uid="uid://cgrie3xb0bya5" path="res://CustomerServiceScreen/Screen/dialog_ui.tscn" id="13_pshui"]
@@ -22,7 +21,6 @@ unique_name_in_owner = true
 [node name="Table" type="Sprite2D" parent="Character"]
 position = Vector2(577, 559.25)
 scale = Vector2(5.76, 0.933862)
-texture = ExtResource("3_pkgll")
 
 [node name="Player" parent="Character" instance=ExtResource("3_f065v")]
 unique_name_in_owner = true
