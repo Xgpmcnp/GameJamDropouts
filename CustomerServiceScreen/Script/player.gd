@@ -1,10 +1,23 @@
 extends Node2D
-@onready var player_sprite: AnimatedSprite2D = $%AvatarFrame
+@onready var saigon_happy: Sprite2D = $AvatarBG/SaigonHappy
+@onready var saigon_content: Sprite2D = $AvatarBG/SaigonContent
+@onready var saigon_annoyed: Sprite2D = $AvatarBG/SaigonAnnoyed
+@onready var saigon_stressed: Sprite2D = $AvatarBG/SaigonStressed
+@onready var saigon_depressed: Sprite2D = $AvatarBG/SaigonDepressed
+@onready var saigon_dead: Sprite2D = $AvatarBG/SaigonDead
+
+@onready var composure
 signal health_changed(new_value)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	composure = Global.get_composure()
+	saigon_content.visible = false
+	saigon_annoyed.visible = false
+	saigon_stressed.visible = false
+	saigon_depressed.visible = false
+	saigon_dead.visible = false
+	_update_sprite()
 
 func _process(delta: float) -> void:
 	pass
@@ -15,16 +28,40 @@ func take_damage(amount):
 	_update_sprite()
 	
 func _update_sprite() -> void:
-	match Global.health:
-		_ when Global.health >= 75:
-			print("Healthy")
-			player_sprite.play("happy")
-		_ when Global.health >= 50:
+	composure = Global.get_composure()
+	match composure:
+		_ when composure <= 100 && composure >= 76:
+			print("Happy")
+			
+		_ when composure <= 75 && composure >= 51:
+			print("Content")
+			saigon_happy.visible = false
+			saigon_content.visible = true
+			saigon_annoyed.visible = false
+			saigon_stressed.visible = false
+			saigon_depressed.visible = false
+			saigon_dead.visible = false
+		_ when composure <= 50 && composure >= 26:
 			print("Annoyed")
-			player_sprite.play("annoyed")
-		_ when Global.health >= 25:
+			saigon_happy.visible = false
+			saigon_content.visible = false
+			saigon_annoyed.visible = true
+			saigon_stressed.visible = false
+			saigon_depressed.visible = false
+			saigon_dead.visible = false
+		_ when composure <= 25:
 			print("Stress")
-			player_sprite.play("stress")
-		_ when Global.health < 25:
-			print("Depress")
-			player_sprite.play("depress")
+			saigon_happy.visible = false
+			saigon_content.visible = false
+			saigon_annoyed.visible = false
+			saigon_stressed.visible = true
+			saigon_depressed.visible = false
+			saigon_dead.visible = false
+		_ when composure == 0:
+			print("Dead")
+			saigon_happy.visible = false
+			saigon_content.visible = false
+			saigon_annoyed.visible = false
+			saigon_stressed.visible = false
+			saigon_depressed.visible = true
+			saigon_dead.visible = false
