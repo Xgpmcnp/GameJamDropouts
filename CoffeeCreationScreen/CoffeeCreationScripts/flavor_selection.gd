@@ -3,6 +3,10 @@ extends Control
 @onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var flavor_label: Label = $FlavorLabel
 @onready var extras_selection: Control = $"../ExtrasSelection"
+@onready var flavor_pour: TextureButton = $FlavorPour
+@onready var flavor_back: TextureButton = $FlavorBack
+@onready var flavor_forward: TextureButton = $FlavorForward
+@onready var method_pour: TextureButton = $MethodPour
 
 # If true, the player can no longer select the buttons on this scree
 var lock_machine: bool
@@ -58,6 +62,13 @@ func _on_flavor_pour_pressed() -> void:
 		
 		# Lock this machine
 		lock_machine = true
+		hide_options()
 		# Unlock the extras machine
 		extras_selection.lock_machine = false
+		extras_selection.unhide_options()
 	$"../../Coffee-Conveyor".play()
+
+func hide_options() -> void:
+	flavor_back.hide()
+	flavor_forward.hide()
+	flavor_pour.hide()

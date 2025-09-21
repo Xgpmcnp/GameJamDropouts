@@ -2,6 +2,7 @@ extends Node2D
 @onready var player: Node2D = %Player
 @onready var dialog_ui: Control = %DialogUI
 @onready var customer: Node2D = %Customer
+@onready var transition_screen: CanvasLayer = $TransitionScreen
 
 # === State variables ===
 var customer_active := false     # True if a customer is currently in dialog
@@ -64,28 +65,43 @@ func resume_dialog():
 			
 # End dialog with the customer
 func end_dialog():
-	customer_active = false
-	#dialog_ui.visible = false       # (commented: hide dialog UI when ending)
-	#has_customer = false            # (commented: reset customer presence flag)
-	dialog_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Ignore mouse input once dialog ends
+	if Global.curr_composure <= 0:
+		dialog_ui.visible = false
+		# Play transition
+		transition_screen.transition()
+		# Wait until it's finished
+		await transition_screen.transitioned
+		Global.curr_composure = 51
+		Global.current_funds = int(Global.current_funds / 2)
+		get_tree().call_deferred("reload_current_scene")
+	else:
+		customer_active = false
+		#dialog_ui.visible = false       # (commented: hide dialog UI when ending)
+		#has_customer = false            # (commented: reset customer presence flag)
+		dialog_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Ignore mouse input once dialog ends
 	
 # End the order (customer leaves the scene)
 func end_order():
-	print("end order get called")
-	# Reset state for local variable
-	has_customer = false
-	customer_active = false
-	
-	#Hide the UI for customer sprite and dialog 
-	customer.hide_sprite()
-	dialog_ui.visible = false
-	
-	# Reset state for global varialbe
-	DialogueSystem.drink_ready = false
-	DialogueSystem.current_has_customer = false
-	
-	# Reset timer for the next spawn
-	_reset_customer_timer()  
+	Global.curr_composure = 0
+	if Global.curr_composure <= 0:
+		DialogueSystem.state_reset()
+		DialogueSystem.get_gameover_dialog()
+		start_dialog()
+	else:
+		# Reset state for local variable
+		has_customer = false
+		customer_active = false
+		
+		#Hide the UI for customer sprite and dialog 
+		customer.hide_sprite()
+		dialog_ui.visible = false
+		
+		# Reset state for global varialbe
+		DialogueSystem.drink_ready = false
+		DialogueSystem.current_has_customer = false
+		
+		# Reset timer for the next spawn
+		_reset_customer_timer()  
 
 # Handle player input for dialog progression
 func check_dialog_input():

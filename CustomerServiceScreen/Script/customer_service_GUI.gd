@@ -146,7 +146,8 @@ func _on_setting_pressed() -> void:
 	print("You clicked the Setting Button")
 	
 func _on_player_health_changed() -> void:
-	var curr_composure = Global.get_composure()
+	var curr_composure = round(Global.get_composure())
+	
 	sanity_label.text = "Composure " + str(curr_composure)
 	sanity_bar.value = curr_composure
 

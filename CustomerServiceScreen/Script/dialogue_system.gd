@@ -459,6 +459,11 @@ const bad_drink_1_25: Array = [
 ]
 #endregion
 
+const game_over_dialog: Array[String] = [
+	"Narration: The shop's window clinks once more, not so gently this time, as Saigon closes shop early",
+	"Saigon: This.. okay, this is NOT happening! I don't care what penalties I get, I NEED A BREAK!!"
+]
+
 # Extract SpeakerName, Dialogue from the {customer} and Player
 func extract_line(line: String) -> Dictionary:
 	var line_info := line.split(":", false, 2) # split into max 2 parts
@@ -489,6 +494,10 @@ func get_current_dialog_speaker_and_dialog() -> Dictionary:
 	var current_line = current_dialog[dialog_index]
 	var current_speaker_and_dialog = extract_line(current_line)
 	return current_speaker_and_dialog
+
+# Get the dialog for game over
+func get_gameover_dialog():
+	current_dialog = game_over_dialog
 	
 # Selects a random dialog set for a given customer, 
 # replaces placeholders (like {customer}) with actual values, 
@@ -513,24 +522,35 @@ func get_conversation_dialog():
 # Determine which set of dialog to be use, those array of hardcode dialogs.
 func pick_from_set() -> Array:
 	if drink_ready:
-		match Global.health:
-			_ when Global.health >= 75:
-				return good_drink_76_100
-			_ when Global.health >= 50:
-				return good_drink_51_75
-			_ when Global.health >= 25:
-				return good_drink_26_50
-			_ when Global.health < 25:
-				return good_drink_1_25
+		if Global.assess_drink():
+			match Global.curr_composure:
+				_ when Global.curr_composure >= 75:
+					return good_drink_76_100
+				_ when Global.curr_composure >= 50:
+					return good_drink_51_75
+				_ when Global.curr_composure >= 25:
+					return good_drink_26_50
+				_ when Global.curr_composure < 25:
+					return good_drink_1_25
+		else:
+			match Global.curr_composure:
+				_ when Global.curr_composure >= 75:
+					return bad_drink_76_100
+				_ when Global.curr_composure >= 50:
+					return bad_drink_51_75
+				_ when Global.curr_composure >= 25:
+					return bad_drink_26_50
+				_ when Global.curr_composure < 25:
+					return bad_drink_1_25
 	else:
-		match Global.health:
-			_ when Global.health >= 75:
+		match Global.curr_composure:
+			_ when Global.curr_composure >= 75:
 				return conversation_at_state_76_100
-			_ when Global.health >= 50:
+			_ when Global.curr_composure >= 50:
 				return conversation_at_state_51_75
-			_ when Global.health >= 25:
+			_ when Global.curr_composure >= 25:
 				return conversation_at_state_26_50
-			_ when Global.health < 25:
+			_ when Global.curr_composure < 25:
 				return conversation_at_state_1_25
 	return default_dialog
 	
@@ -552,4 +572,13 @@ func pick_random_dialog(dialog_sets: Array) -> Array:
 	# Get a random index and return that dialog set
 	var random_index = randi() % dialog_sets.size()
 	return dialog_sets[random_index]
+	
+func state_reset() -> void:
+		dialog_index = 0
+		customer_index = 0
+		customer_name = "default"
+		current_dialog = []
+		drink_ready = false
+		current_has_customer = false
+		default_dialog = []	
 	

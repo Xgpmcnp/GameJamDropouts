@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd0bc0b4bl2kw"]
+
+[ext_resource type="Script" uid="uid://4u2w32bjn73o" path="res://GlobalAudio/main_game_audio.gd" id="1_2sc72"]
+
+[node name="MainGameAudio" type="Node"]
+script = ExtResource("1_2sc72")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
