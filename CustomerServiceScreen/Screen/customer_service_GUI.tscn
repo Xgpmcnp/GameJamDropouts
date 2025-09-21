@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://td5fxgjpepik"]
+[gd_scene load_steps=97 format=3 uid="uid://td5fxgjpepik"]
 
 [ext_resource type="Script" uid="uid://dt2j1cx2lk35g" path="res://CustomerServiceScreen/Script/customer_service_GUI.gd" id="1_bgrba"]
 [ext_resource type="Texture2D" uid="uid://blhwquxfbkg77" path="res://CustomerServiceScreen/texture/heart_frame-placeholder.png" id="2_ifaw8"]
@@ -17,6 +17,14 @@
 [ext_resource type="Texture2D" uid="uid://csrx23kce3bv6" path="res://CustomerServiceScreen/FioAssets/shop_menu.png" id="14_v6lls"]
 [ext_resource type="Texture2D" uid="uid://dl5mikyrv5hib" path="res://CustomerServiceScreen/Assets/IMG_5571.jpg" id="15_vvr7b"]
 [ext_resource type="Texture2D" uid="uid://cjeaj32olmfo2" path="res://CustomerServiceScreen/Assets/IMG_8021.jpg" id="16_thite"]
+[ext_resource type="AudioStream" uid="uid://d2inv881wm0tx" path="res://GeneralAssets/SFX/Shop - Purchase.mp3" id="18_thite"]
+[ext_resource type="AudioStream" uid="uid://boru4lq6jrbv" path="res://GeneralAssets/SFX/Shop - Open Door.mp3" id="19_lcloh"]
+[ext_resource type="AudioStream" uid="uid://cpntjual1obqu" path="res://GeneralAssets/SFX/EX Menu - Open.mp3" id="20_8ha44"]
+[ext_resource type="AudioStream" uid="uid://k4tt58x4n0mr" path="res://GeneralAssets/SFX/EX Menu - Close.mp3" id="21_clsx2"]
+[ext_resource type="AudioStream" uid="uid://c0q34f5u74ss8" path="res://GeneralAssets/SFX/EX Menu - Select Ingredient.mp3" id="22_57eyi"]
+[ext_resource type="AudioStream" uid="uid://c5rwame8j7nxj" path="res://GeneralAssets/SFX/EX Menu - Confirm Ingredient.mp3" id="23_jqkhu"]
+[ext_resource type="AudioStream" uid="uid://cj31yn74bstw7" path="res://GeneralAssets/SFX/Main Menu - Select.mp3" id="24_8ha44"]
+[ext_resource type="AudioStream" uid="uid://c6q26u01082je" path="res://GeneralAssets/SFX/Shop - Close Door.mp3" id="25_clsx2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvr7b"]
 texture = ExtResource("2_vvr7b")
@@ -421,6 +429,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_re0fu")
 text = "Brew coffee"
 
 [node name="ReturnToServeCustomer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.719
@@ -1120,6 +1129,30 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_ykh0p")
 theme_override_font_sizes/font_size = 120
 text = "ALL ITEMS $20"
+
+[node name="Shop-Purchase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_thite")
+
+[node name="Shop-OpenDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_lcloh")
+
+[node name="ExMenu-Open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_8ha44")
+
+[node name="ExMenu-Close" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_clsx2")
+
+[node name="ExMenu-SelectIngredient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_57eyi")
+
+[node name="ExMenu-ConfirmIngredient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_jqkhu")
+
+[node name="MainMenu-Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_8ha44")
+
+[node name="Shop-CloseDoor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_clsx2")
 
 [connection signal="pressed" from="InteractButtonContainer/MenuEditing" to="." method="_on_menu_editing_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/Shop" to="." method="_on_shop_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=21 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://g7pkr8acl55d" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_serve_button.png" id="10_letru"]
 [ext_resource type="Texture2D" uid="uid://dpudbwijs0gb3" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_frame.png" id="11_jj17i"]
 [ext_resource type="Script" uid="uid://ctio8av5k5yb2" path="res://CoffeeCreationScreen/CoffeCreationScenes/path_follow_2d.gd" id="15_okhig"]
+[ext_resource type="AudioStream" uid="uid://drk7jdd3pklyg" path="res://GeneralAssets/SFX/Coffee - Conveyor.mp3" id="17_2gil1"]
+[ext_resource type="AudioStream" uid="uid://u0gljc22pc0r" path="res://GeneralAssets/SFX/Coffee - On Table.mp3" id="18_hye44"]
 [ext_resource type="FontFile" uid="uid://dgb7xatipfjbu" path="res://CoffeeCreationScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="19_hye44"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxlfk"]
@@ -35,6 +37,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_63yc2")
+
+[node name="Coffee-Conveyor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_2gil1")
+
+[node name="Coffee-OnTable" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_hye44")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

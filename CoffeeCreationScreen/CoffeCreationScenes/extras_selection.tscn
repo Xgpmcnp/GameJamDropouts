@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://optt72fc6d1s"]
+[gd_scene load_steps=9 format=3 uid="uid://optt72fc6d1s"]
 
 [ext_resource type="Script" uid="uid://ddg3tqvn4r2o1" path="res://CoffeeCreationScreen/CoffeeCreationScripts/extras_selection.gd" id="1_deu8v"]
 [ext_resource type="Texture2D" uid="uid://crb2pcpnt0rwl" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_M.png" id="2_ov5jx"]
 [ext_resource type="Texture2D" uid="uid://cecsyohf0yrtc" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_D.png" id="5_n14a1"]
 [ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="6_dmajq"]
 [ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_n14a1"]
+[ext_resource type="AudioStream" uid="uid://ouia2t7pqe2f" path="res://GeneralAssets/SFX/Coffee - Ingedient dispense.mp3" id="7_dmajq"]
 [ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="7_stox6"]
+[ext_resource type="AudioStream" uid="uid://bi11y0aai5epc" path="res://GeneralAssets/SFX/Coffee - Ingedient switch.mp3" id="8_stox6"]
 
 [node name="ExtrasSelection" type="Control"]
 layout_mode = 3
@@ -68,6 +70,12 @@ theme_override_font_sizes/font_size = 36
 text = "Spice
 "
 horizontal_alignment = 1
+
+[node name="Coffee-IngedientDispense" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dmajq")
+
+[node name="Coffee-IngedientSwitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_stox6")
 
 [connection signal="pressed" from="ExtrasPour" to="." method="_on_extras_pour_pressed"]
 [connection signal="pressed" from="ExtrasBack" to="." method="_on_extras_back_pressed"]

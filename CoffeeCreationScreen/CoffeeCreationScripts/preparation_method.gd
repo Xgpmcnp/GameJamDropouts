@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 
 # Go back to previous coffee type, pass if the type is already "Latte"
 func _on_method_back_pressed() -> void:
+	$"Coffee-IngedientSwitch".play()
 	# Only does anything if player has not selected an options
 	if lock_machine == true:
 		pass
@@ -30,6 +31,7 @@ func _on_method_back_pressed() -> void:
 
 # Go to next coffee type, pass if already at the last flavor
 func _on_method_forward_pressed() -> void:
+	$"Coffee-IngedientSwitch".play()
 	# Only does anything if player has not selected an options
 	if lock_machine == true:
 		pass
@@ -41,6 +43,7 @@ func _on_method_forward_pressed() -> void:
 			method_label.text = Global.get_curr_preparation_method()
 
 func _on_method_pour_pressed() -> void:
+	$"Coffee-Pour".play()
 	# Only does anything if player has not selected an options
 	if lock_machine == true:
 		pass
@@ -48,5 +51,5 @@ func _on_method_pour_pressed() -> void:
 		# Lock this machine
 		lock_machine = true
 		coffee_cup.set_preparation_method(method_label.text)
-		
+	$"../../Coffee-OnTable".play()
 	

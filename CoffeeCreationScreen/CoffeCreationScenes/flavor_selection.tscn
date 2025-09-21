@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6kgf03wtfwmf"]
+[gd_scene load_steps=9 format=3 uid="uid://b6kgf03wtfwmf"]
 
 [ext_resource type="Script" uid="uid://b0nnxsjwfgjqs" path="res://CoffeeCreationScreen/CoffeeCreationScripts/flavor_selection.gd" id="1_kiscm"]
 [ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="2_djvuu"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="4_djvuu"]
 [ext_resource type="Texture2D" uid="uid://h6ko5ll1nimy" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_L.png" id="5_djvuu"]
 [ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_x4qaj"]
+[ext_resource type="AudioStream" uid="uid://ouia2t7pqe2f" path="res://GeneralAssets/SFX/Coffee - Ingedient dispense.mp3" id="7_obacl"]
+[ext_resource type="AudioStream" uid="uid://bi11y0aai5epc" path="res://GeneralAssets/SFX/Coffee - Ingedient switch.mp3" id="8_tnbcf"]
 
 [node name="FlavorSelection" type="Control"]
 layout_mode = 3
@@ -70,6 +72,12 @@ theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("6_x4qaj")
 theme_override_font_sizes/font_size = 36
 text = "Pumpkin"
+
+[node name="Coffee-IngedientDispense" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_obacl")
+
+[node name="Coffee-IngedientSwitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tnbcf")
 
 [connection signal="pressed" from="FlavorPour" to="." method="_on_flavor_pour_pressed"]
 [connection signal="pressed" from="FlavorBack" to="." method="_on_flavor_back_pressed"]
