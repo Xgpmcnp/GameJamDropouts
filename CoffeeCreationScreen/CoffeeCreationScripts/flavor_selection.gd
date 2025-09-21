@@ -1,8 +1,8 @@
 extends Control
 
-@onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var flavor_label: Label = $FlavorLabel
 @onready var extras_selection: Control = $"../ExtrasSelection"
+@onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 
 # If true, the player can no longer select the buttons on this scree
 var lock_machine: bool
@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 # Move to the previous flavor option, pass through if already on "Pumpkin"
 func _on_flavor_back_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$FlavorBack/AudioStreamPlayer.play()
 	if lock_machine == true:
 		pass
 	else:
@@ -35,6 +36,7 @@ func _on_flavor_back_pressed() -> void:
 # Move to next flavor option, pass through if already on last flavor.
 func _on_flavor_forward_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$FlavorForward/AudioStreamPlayer.play()
 	if lock_machine == true:
 		pass
 	else:
@@ -47,6 +49,7 @@ func _on_flavor_forward_pressed() -> void:
 # Triggers pouring animation and moves to next step
 func _on_flavor_pour_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$"FlavorPour/Coffee-IngedientDispense".play()
 	if lock_machine == true:
 		pass
 	else:

@@ -52,6 +52,7 @@ func _on_drink_creation_pressed() -> void:
 #	print("You clicked the Skill Tree Button")
 	
 func _on_setting_pressed() -> void:
+	$"Setting/MainMenu-Select".play()
 	print("You clicked the Setting Button")
 	
 func _on_player_health_changed() -> void:

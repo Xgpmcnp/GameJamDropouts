@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://td5fxgjpepik"]
+[gd_scene load_steps=97 format=3 uid="uid://td5fxgjpepik"]
 
 [ext_resource type="Script" uid="uid://dt2j1cx2lk35g" path="res://CustomerServiceScreen/Script/customer_service_GUI.gd" id="1_bgrba"]
 [ext_resource type="Texture2D" uid="uid://blhwquxfbkg77" path="res://CustomerServiceScreen/texture/heart_frame-placeholder.png" id="2_ifaw8"]
@@ -16,11 +16,15 @@
 [ext_resource type="AudioStream" uid="uid://k4tt58x4n0mr" path="res://GeneralAssets/SFX/EX Menu - Close.mp3" id="9_thite"]
 [ext_resource type="AudioStream" uid="uid://c6q26u01082je" path="res://GeneralAssets/SFX/Shop - Close Door.mp3" id="10_lcloh"]
 [ext_resource type="Texture2D" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_main_menu_box.png" id="11_clsx2"]
+[ext_resource type="AudioStream" uid="uid://cj31yn74bstw7" path="res://GeneralAssets/SFX/Main Menu - Select.mp3" id="12_vvr7b"]
 [ext_resource type="FontFile" path="res://CustomerServiceScreen/Font/choco-chici-font/ChocoChici-2OMyW.ttf" id="13_udyap"]
 [ext_resource type="Texture2D" path="res://CustomerServiceScreen/Assets/IMG_0526.jpg" id="14_27i7e"]
 [ext_resource type="Texture2D" path="res://CustomerServiceScreen/FioAssets/shop_menu.png" id="14_v6lls"]
 [ext_resource type="Texture2D" path="res://CustomerServiceScreen/Assets/IMG_5571.jpg" id="15_vvr7b"]
 [ext_resource type="Texture2D" path="res://CustomerServiceScreen/Assets/IMG_8021.jpg" id="16_thite"]
+[ext_resource type="AudioStream" uid="uid://c0q34f5u74ss8" path="res://GeneralAssets/SFX/EX Menu - Select Ingredient.mp3" id="17_8ha44"]
+[ext_resource type="AudioStream" uid="uid://c5rwame8j7nxj" path="res://GeneralAssets/SFX/EX Menu - Confirm Ingredient.mp3" id="19_clsx2"]
+[ext_resource type="AudioStream" uid="uid://d2inv881wm0tx" path="res://GeneralAssets/SFX/Shop - Purchase.mp3" id="25_57eyi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvr7b"]
 texture = ExtResource("2_vvr7b")
@@ -524,6 +528,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_b1oyt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6jdjv")
 text = "Settings"
 
+[node name="MainMenu-Select" type="AudioStreamPlayer" parent="Setting"]
+stream = ExtResource("12_vvr7b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Setting"]
+
 [node name="StatusContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -649,7 +658,7 @@ to use below!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ShopDropDown" type="HBoxContainer" parent="MenuExpansion"]
+[node name="MenuDropDown" type="HBoxContainer" parent="MenuExpansion"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -664,7 +673,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 6
 
-[node name="Flavors" type="OptionButton" parent="MenuExpansion/ShopDropDown"]
+[node name="Flavors" type="OptionButton" parent="MenuExpansion/MenuDropDown"]
 layout_mode = 2
 size_flags_horizontal = 3
 fit_to_longest_item = false
@@ -690,7 +699,7 @@ popup/item_8/id = 8
 popup/item_9/text = "Toffee"
 popup/item_9/id = 9
 
-[node name="Extra" type="OptionButton" parent="MenuExpansion/ShopDropDown"]
+[node name="Extra" type="OptionButton" parent="MenuExpansion/MenuDropDown"]
 layout_mode = 2
 size_flags_horizontal = 3
 fit_to_longest_item = false
@@ -716,7 +725,7 @@ popup/item_8/id = 8
 popup/item_9/text = "Basil"
 popup/item_9/id = 9
 
-[node name="Preparation" type="OptionButton" parent="MenuExpansion/ShopDropDown"]
+[node name="Preparation" type="OptionButton" parent="MenuExpansion/MenuDropDown"]
 layout_mode = 2
 size_flags_horizontal = 3
 fit_to_longest_item = false
@@ -742,6 +751,9 @@ popup/item_8/id = 8
 popup/item_9/text = "Milkshake"
 popup/item_9/id = 9
 
+[node name="ExMenu-SelectIngredient" type="AudioStreamPlayer" parent="MenuExpansion/MenuDropDown"]
+stream = ExtResource("17_8ha44")
+
 [node name="AddToMenu" type="Button" parent="MenuExpansion"]
 layout_mode = 1
 anchors_preset = 8
@@ -764,6 +776,9 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_7uvnv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_543ip")
 theme_override_styles/normal = SubResource("StyleBoxTexture_r8gyq")
 text = "Add To Menu"
+
+[node name="ExMenu-ConfirmIngredient" type="AudioStreamPlayer" parent="MenuExpansion/AddToMenu"]
+stream = ExtResource("19_clsx2")
 
 [node name="Menu" type="ScrollContainer" parent="MenuExpansion"]
 layout_mode = 0
@@ -804,7 +819,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Shop" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 7.0
 offset_top = 5.0
@@ -1216,6 +1230,9 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_ykh0p")
 theme_override_font_sizes/font_size = 120
 text = "ALL ITEMS $20"
+
+[node name="Shop-Purchase" type="AudioStreamPlayer" parent="Shop"]
+stream = ExtResource("25_57eyi")
 
 [connection signal="pressed" from="InteractButtonContainer/MenuEditing" to="." method="_on_menu_editing_pressed"]
 [connection signal="pressed" from="InteractButtonContainer/Shop" to="." method="_on_shop_pressed"]

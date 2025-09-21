@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=21 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://g7pkr8acl55d" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_serve_button.png" id="10_letru"]
 [ext_resource type="Texture2D" uid="uid://dpudbwijs0gb3" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_frame.png" id="11_jj17i"]
 [ext_resource type="Script" uid="uid://ctio8av5k5yb2" path="res://CoffeeCreationScreen/CoffeCreationScenes/path_follow_2d.gd" id="15_okhig"]
+[ext_resource type="AudioStream" uid="uid://drk7jdd3pklyg" path="res://GeneralAssets/SFX/Coffee - Conveyor.mp3" id="18_2gil1"]
 [ext_resource type="FontFile" uid="uid://dgb7xatipfjbu" path="res://CoffeeCreationScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="19_hye44"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxlfk"]
@@ -170,12 +171,6 @@ text = "Serve"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CoffeeCup" parent="Node2D" instance=ExtResource("4_d48ii")]
-visible = false
-z_as_relative = false
-position = Vector2(148, 488)
-scale = Vector2(0.217598, 0.207203)
-
 [node name="Path2D" type="Path2D" parent="Node2D"]
 position = Vector2(148, 488)
 scale = Vector2(0.217598, 0.207203)
@@ -191,6 +186,9 @@ z_as_relative = false
 position = Vector2(-4.56262, -9.66772)
 rotation = 0.00342072
 scale = Vector2(1, 1)
+
+[node name="Coffee-Conveyor" type="AudioStreamPlayer" parent="Node2D/Path2D"]
+stream = ExtResource("18_2gil1")
 
 [connection signal="pressed" from="Control/ServeButton" to="." method="_on_serve_button_pressed"]
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

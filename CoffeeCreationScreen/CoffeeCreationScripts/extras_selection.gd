@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 # Move to previous flavor option, pass through if already on "Spice"
 func _on_extras_back_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$ExtrasBack/AudioStreamPlayer.play()
 	if lock_machine == true:
 		pass
 	else:
@@ -37,6 +38,7 @@ func _on_extras_back_pressed() -> void:
 # Move to next flavor option, pass through if already at last option
 func _on_extras_forward_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$ExtrasForward/AudioStreamPlayer.play()
 	if lock_machine == true:
 		pass
 	else:
@@ -49,6 +51,7 @@ func _on_extras_forward_pressed() -> void:
 # Triggers pouring animation and moves to next step
 func _on_extras_pour_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$"ExtrasPour/Coffee-IngedientDispense".play()
 	if lock_machine == true:
 		pass
 	else:

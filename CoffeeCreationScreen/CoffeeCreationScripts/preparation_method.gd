@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 # Go back to previous coffee type, pass if the type is already "Latte"
 func _on_method_back_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$MethodBack/AudioStreamPlayer.play()
 	if lock_machine == true:
 		pass
 	else:
@@ -31,6 +32,7 @@ func _on_method_back_pressed() -> void:
 # Go to next coffee type, pass if already at the last flavor
 func _on_method_forward_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$MethodForward/AudioStreamPlayer.play()
 	if lock_machine == true:
 		pass
 	else:
@@ -42,6 +44,7 @@ func _on_method_forward_pressed() -> void:
 
 func _on_method_pour_pressed() -> void:
 	# Only does anything if player has not selected an options
+	$"MethodPour/Coffee-Pour".play()
 	if lock_machine == true:
 		pass
 	else:
