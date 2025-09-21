@@ -13,11 +13,15 @@ var current_customer_name: String  # Stores the name of the current customer
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
 	if DialogueSystem.drink_ready:
-		_reset_customer_timer()      # Initialize first customer spawn timer
-		customer.hide_sprite()       # Hide the customer by default
-		dialog_ui.visible = false    # Hide dialog UI at game start	
+		has_customer = true
+		customer_active = true
+		DialogueSystem.get_conversation_dialog()
+		start_dialog()
 	else:
-		_reinitiate_customer_state()
+		if DialogueSystem.current_has_customer :
+			_reinitiate_customer_state()
+		else:
+			set_timer()
 		
 # Called every frame, with delta = elapsed time since last frame
 func _process(delta: float) -> void:
@@ -27,7 +31,7 @@ func _process(delta: float) -> void:
 		if customer_timer >= next_customer_time:  # The condition for spawn new customer
 			_on_customer_enter()  # Trigger customer enter
 			has_customer = true   # Mark customer as present
-			_reset_customer_timer()  # Reset timer for the next spawn
+			DialogueSystem.current_has_customer = true # Remember the state
 				
 	# Handle dialog input if a customer is active
 	if customer_active:
@@ -35,6 +39,12 @@ func _process(delta: float) -> void:
 
 # === DIALOG MANAGEMENT ===
 
+# Waiting for the customer to spawn
+func set_timer():
+	_reset_customer_timer()      # Initialize first customer spawn timer
+	customer.hide_sprite()       # Hide the customer by default
+	dialog_ui.visible = false    # Hide dialog UI at game start	
+	
 # Start dialog with the customer
 func start_dialog():
 	customer_active = true
@@ -61,8 +71,22 @@ func end_dialog():
 	
 # End the order (customer leaves the scene)
 func end_order():
-	customer.hide_sprite()
+	print("end order get called")
+	# Reset state for local variable
+	has_customer = false
+	customer_active = false
 	
+	#Hide the UI for customer sprite and dialog 
+	customer.hide_sprite()
+	dialog_ui.visible = false
+	
+	# Reset state for global varialbe
+	DialogueSystem.drink_ready = false
+	DialogueSystem.current_has_customer = false
+	
+	# Reset timer for the next spawn
+	_reset_customer_timer()  
+
 # Handle player input for dialog progression
 func check_dialog_input():
 	if Input.is_action_just_pressed("new_line"):  # If player presses Enter, Space, or Click
@@ -73,7 +97,10 @@ func check_dialog_input():
 				DialogueSystem.dialog_index += 1  # Move to next line
 				process_current_line()
 			else:
-				end_dialog()  # End dialog if no more lines
+				if DialogueSystem.drink_ready:
+					end_order()
+				else:
+					end_dialog()  # End dialog if no more lines
 
 # Process the current dialog line (determine speaker, text, etc.)
 func process_current_line():
@@ -94,7 +121,9 @@ func _on_customer_enter():
 	DialogueSystem.get_current_customer_index(random_key)
 	# Store the readable name (like "CustomerA")
 	current_customer_name = Character.CHARACTER_DETAILS[random_key]["name"]
+	print(current_customer_name)
 	DialogueSystem.get_current_customer_name(current_customer_name)
+	DialogueSystem.get_conversation_dialog()
 	# Load their sprite/animation
 	customer.load_character(random_key)
 	customer.display_sprite()
@@ -103,7 +132,7 @@ func _on_customer_enter():
 # Reset the customer spawn timer to a new random interval
 func _reset_customer_timer() -> void:
 	customer_timer = 0.0
-	next_customer_time = randf_range(1.0, 3.0)  # Random delay 5–10 seconds
+	next_customer_time = randf_range(3.0, 5.0)  # Random delay 5–10 seconds
 	print(next_customer_time)  # Debug: print chosen time
 
 func _reinitiate_customer_state() -> void:

@@ -3,6 +3,9 @@ extends Node
 # A variable to contain the current scene
 var current_scene = null
 
+# A variable to checking the player health
+var health: float = 100
+
 # Arrays containing the player's flavor, extras, and preparation method options
 # NOTE: current values are placeholders
 var flavor_options = ["Pumpkin"]
@@ -176,7 +179,7 @@ func goto_customer_service_menu(isGoingBack: bool, isAssessing: bool):
 		DialogueSystem.drink_ready = false
 	if isAssessing:
 		self.assess_drink()
-	
+		DialogueSystem.drink_ready = true
 	self.goto_screen("res://CustomerServiceScreen/Screen/customer_service_scene.tscn")
 
 # Go to coffee creation menu
