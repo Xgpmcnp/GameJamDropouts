@@ -63,6 +63,7 @@ func _on_extras_pour_pressed() -> void:
 	else:
 		# Lock this machine
 		lock_machine = true
+		hide_options()
 		
 		# Unlock next machine
 		preparation_method_selection.lock_machine = false
@@ -74,3 +75,8 @@ func unhide_options()->void:
 	extras_back.visible = true
 	extras_forward.visible = true
 	extras_pour.visible = true
+
+func hide_options() -> void:
+	extras_back.hide()
+	extras_forward.hide()
+	extras_pour.hide()

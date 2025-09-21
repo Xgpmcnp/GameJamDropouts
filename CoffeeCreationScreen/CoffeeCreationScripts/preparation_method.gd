@@ -56,6 +56,7 @@ func _on_method_pour_pressed() -> void:
 	else:
 		# Lock this machine
 		lock_machine = true
+		hide_options()
 		coffee_cup.set_preparation_method(method_label.text)
 	$"../../Coffee-OnTable".play()
 	
@@ -63,3 +64,8 @@ func unhide_options() -> void:
 	method_back.visible = true
 	method_forward.visible = true
 	method_pour.visible = true
+
+func hide_options() -> void:
+	method_back.hide()
+	method_forward.hide()
+	method_pour.hide()

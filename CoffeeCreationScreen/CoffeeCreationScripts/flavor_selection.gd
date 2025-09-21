@@ -72,4 +72,3 @@ func hide_options() -> void:
 	flavor_back.hide()
 	flavor_forward.hide()
 	flavor_pour.hide()
-	
