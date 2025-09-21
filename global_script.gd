@@ -18,6 +18,7 @@ var flavor_shop_options = ["Strawberry", "Matcha", "Grape", "Coconut", "Almond",
 var extras_shop_options = ["Lavender", "Mint", "Ginger", "Cinnamon", "Boba", "Milk", "Honey", "Cardamom", "Lemon", "Basil"]
 var prepartion_method_shop_options = ["Iced", "Mocha", "Instant Coffee", "Soda", "Frappé", "Doppio", "Cappuccino", "Cortado", "Decaff", "Milkshake"]
 
+var is_good_drink = true
 
 
 
@@ -101,7 +102,7 @@ func get_curr_preparation_method() -> String:
 
 # Updates funds and composure when player serves a drink
 # returns a bool to indicate if its a PSL or not(for purposes of customer reaction_
-func assess_drink()-> bool:
+func assess_drink()-> void:
 	print("Player currently has " + str(current_funds) + " in funds and " + str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
 	# Check if the player is serving a PSL
 	if (flavor_options[curr_flavor_idx] == "Pumpkin" and 
@@ -120,7 +121,7 @@ func assess_drink()-> bool:
 		# Print to terminal all values to ensure things are behaving right:
 		print("Player now has " + str(current_funds) + " in funds and "
 		+ str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
-		return true
+		is_good_drink = true
 	else:
 		# Update funds
 		current_funds += fund_decrement
@@ -137,7 +138,7 @@ func assess_drink()-> bool:
 		# Print to terminal all values to ensure things are behaving right:
 		print("Player now has " + str(current_funds) + " in funds and "
 		+ str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
-		return false
+		is_good_drink = false
 
 #-------------------------------------------------------------------
 #  FUNCTIONS FOR SCENE TRANSITIONS BELOW

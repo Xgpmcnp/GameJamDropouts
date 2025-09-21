@@ -521,8 +521,9 @@ func get_conversation_dialog():
 	
 # Determine which set of dialog to be use, those array of hardcode dialogs.
 func pick_from_set() -> Array:
+	var is_good_drink = Global.is_good_drink
 	if drink_ready:
-		if Global.assess_drink():
+		if is_good_drink:
 			match Global.curr_composure:
 				_ when Global.curr_composure >= 75:
 					return good_drink_76_100
