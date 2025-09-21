@@ -3002,6 +3002,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("12_04kd7")
 
 [node name="Autumnal" type="TextureRect" parent="."]
+z_index = -1
 layout_mode = 0
 offset_left = -576.0
 offset_top = -273.0
@@ -3011,6 +3012,8 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("11_dsriq")
 
 [node name="Single Location" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
 offset_left = -576.0
 offset_top = -19.0
 offset_right = 284.0
