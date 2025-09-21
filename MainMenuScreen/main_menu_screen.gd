@@ -10,6 +10,7 @@ func _ready():
 
 func _on_Start_Shift_pressed():
 	Global.goto_customer_service_menu(false, false)
+	MainMusic.game_started = true
 
 
 func _on_Options_pressed():
