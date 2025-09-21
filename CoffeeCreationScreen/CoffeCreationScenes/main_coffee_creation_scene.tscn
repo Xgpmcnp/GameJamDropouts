@@ -17,7 +17,6 @@
 [ext_resource type="Script" uid="uid://ctio8av5k5yb2" path="res://CoffeeCreationScreen/CoffeCreationScenes/path_follow_2d.gd" id="15_okhig"]
 [ext_resource type="FontFile" uid="uid://dgb7xatipfjbu" path="res://CoffeeCreationScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="19_hye44"]
 
-<<<<<<< HEAD
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qxlfk"]
 texture = ExtResource("2_nk5qd")
 
@@ -35,10 +34,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-=======
-[node name="MainCoffeeCreationScene" type="Node2D"]
-visible = false
->>>>>>> FrontEndMenuExpansion
 script = ExtResource("1_63yc2")
 
 [node name="Control" type="Control" parent="."]

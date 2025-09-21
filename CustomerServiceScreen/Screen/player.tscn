@@ -1,14 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0cr12y0504x2"]
+[gd_scene load_steps=12 format=3 uid="uid://bhue144ad88xe"]
 
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://7ag8xgn8apos" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
 [ext_resource type="Texture2D" uid="uid://b6nicruaiq5op" path="res://CustomerServiceScreen/texture/customer_service_saigon_portrait_bkgd.png" id="2_10wag"]
-=======
-[ext_resource type="Script" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
-[ext_resource type="Texture2D" uid="uid://bpnx4c51m7dbt" path="res://CustomerServiceScreen/FioAssets/customer_service_saigon_portrait_bkgd.png" id="2_xkx15"]
->>>>>>> 8339ab82ea82a1d7ea3558a9aa1d65c0aa12401f
 [ext_resource type="Texture2D" uid="uid://dj7ldvstp2x48" path="res://CustomerServiceScreen/texture/annoyed_placeholder1.png" id="3_5ldr3"]
-[ext_resource type="Texture2D" uid="uid://bymye1wage1yf" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_saigon_portrait_frame.png" id="3_8uf8m"]
 [ext_resource type="Texture2D" uid="uid://bb4c6rwjnklow" path="res://CustomerServiceScreen/texture/annoyed_placeholder2.png" id="4_8uf8m"]
 [ext_resource type="Texture2D" uid="uid://u3yfl17vt1ek" path="res://CustomerServiceScreen/texture/depressplaceholder1.png" id="5_vflnw"]
 [ext_resource type="Texture2D" uid="uid://bcpjgr8pjjco6" path="res://CustomerServiceScreen/texture/depressplaceholder2.png" id="6_3jni1"]
@@ -73,24 +67,13 @@ animations = [{
 script = ExtResource("1_10wag")
 
 [node name="AvatarBG" type="Sprite2D" parent="."]
-<<<<<<< HEAD
 position = Vector2(1038, 583)
 scale = Vector2(0.18, 0.178)
 texture = ExtResource("2_10wag")
-=======
-position = Vector2(1051.3, 555.02)
-scale = Vector2(0.27, 0.265)
-texture = ExtResource("2_xkx15")
->>>>>>> 8339ab82ea82a1d7ea3558a9aa1d65c0aa12401f
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1052.3, 555.02)
-scale = Vector2(0.27, 0.27)
-texture = ExtResource("3_8uf8m")
 
 [node name="AvatarFrame" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1054.3, 559.02)
+position = Vector2(1040, 565)
 scale = Vector2(1.80282, 1.77612)
 sprite_frames = SubResource("SpriteFrames_pg8p4")
 animation = &"depress"

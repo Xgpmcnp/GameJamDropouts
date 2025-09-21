@@ -1,24 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgrie3xb0bya5"]
+[gd_scene load_steps=2 format=3 uid="uid://cgrie3xb0bya5"]
 
 [ext_resource type="Script" uid="uid://b4wf4pks57xs5" path="res://CustomerServiceScreen/Script/dialog_ui.gd" id="1_l5l4d"]
-[ext_resource type="Texture2D" uid="uid://bc2visw2d41br" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_dialogue_box.png" id="2_rc7vb"]
-[ext_resource type="FontFile" uid="uid://ds23j7gk67tdi" path="res://CustomerServiceScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="3_syy75"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syy75"]
-texture = ExtResource("2_rc7vb")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sl3j6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7iiw6"]
-texture = ExtResource("2_rc7vb")
 
 [node name="DialogUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 14.0
-offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l5l4d")
@@ -34,16 +22,12 @@ offset_left = -575.544
 offset_top = -147.0
 offset_right = 358.456
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_syy75")
+grow_vertical = 0
 
 [node name="DialogLine" type="RichTextLabel" parent="DialogBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_syy75")
-theme_override_styles/normal = SubResource("StyleBoxTexture_sl3j6")
-text = "This is some dialog to test"
+text = "This is some dialog to testing"
 
 [node name="SpeakerBox" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -55,13 +39,10 @@ offset_top = -27.0
 offset_right = 161.0
 offset_bottom = 27.0
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_7iiw6")
 
 [node name="SpeakerName" type="RichTextLabel" parent="SpeakerBox"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_syy75")
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
