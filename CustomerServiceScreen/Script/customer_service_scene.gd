@@ -87,6 +87,7 @@ func end_dialog():
 		DialogueSystem.state_reset()
 		Global.curr_composure = 51
 		Global.current_funds = int(Global.current_funds / 2)
+		Global.curr_psl_combo = 0
 		Global.goto_screen("res://CustomerServiceScreen/Screen/customer_service_scene.tscn")
 	else:
 		customer_active = false
