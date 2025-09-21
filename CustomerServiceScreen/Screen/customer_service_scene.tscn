@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://td5fxgjpepik" path="res://CustomerServiceScreen/Screen/customer_service_GUI.tscn" id="1_0m4uw"]
 [ext_resource type="Script" uid="uid://ds2q6bg1vdsu2" path="res://CustomerServiceScreen/Script/customer_service_scene.gd" id="1_baqgh"]
-[ext_resource type="PackedScene" uid="uid://50awwxxpauv4" path="res://CustomerServiceScreen/Screen/transition_screen.tscn" id="2_pkgll"]
+[ext_resource type="PackedScene" uid="uid://b4etu4jnaq1it" path="res://CustomerServiceScreen/Screen/transition_screen.tscn" id="2_pkgll"]
 [ext_resource type="PackedScene" uid="uid://cc5yeg5hcdljh" path="res://CustomerServiceScreen/Screen/background.tscn" id="2_xb8ma"]
 [ext_resource type="PackedScene" uid="uid://d0cr12y0504x2" path="res://CustomerServiceScreen/Screen/player.tscn" id="3_f065v"]
 [ext_resource type="PackedScene" uid="uid://2qijxm7ohmfc" path="res://CustomerServiceScreen/Screen/flower.tscn" id="3_pkgll"]

@@ -23,7 +23,7 @@ func _ready() -> void:
 			_reinitiate_customer_state()
 		else:
 			set_timer()
-		
+
 # Called every frame, with delta = elapsed time since last frame
 func _process(delta: float) -> void:
 	# Handle customer spawning logic if there are no customer present atm
@@ -71,9 +71,10 @@ func end_dialog():
 		transition_screen.transition()
 		# Wait until it's finished
 		await transition_screen.transitioned
+		DialogueSystem.state_reset()
 		Global.curr_composure = 51
 		Global.current_funds = int(Global.current_funds / 2)
-		get_tree().call_deferred("reload_current_scene")
+		Global.goto_screen("res://CustomerServiceScreen/Screen/customer_service_scene.tscn")
 	else:
 		customer_active = false
 		#dialog_ui.visible = false       # (commented: hide dialog UI when ending)
@@ -84,6 +85,7 @@ func end_dialog():
 func end_order():
 	Global.curr_composure = 0
 	if Global.curr_composure <= 0:
+		customer.hide_sprite()
 		DialogueSystem.state_reset()
 		DialogueSystem.get_gameover_dialog()
 		start_dialog()
