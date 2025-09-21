@@ -636,79 +636,16 @@ theme_override_constants/separation = 6
 layout_mode = 2
 size_flags_horizontal = 3
 fit_to_longest_item = false
-item_count = 10
-popup/item_0/text = "Strawberry"
-popup/item_0/id = 0
-popup/item_1/text = "Caramel"
-popup/item_1/id = 1
-popup/item_2/text = "Matcha"
-popup/item_2/id = 2
-popup/item_3/text = "Grape"
-popup/item_3/id = 3
-popup/item_4/text = "Coconut"
-popup/item_4/id = 4
-popup/item_5/text = "Almond"
-popup/item_5/id = 5
-popup/item_6/text = "Chocolate"
-popup/item_6/id = 6
-popup/item_7/text = "Maple"
-popup/item_7/id = 7
-popup/item_8/text = "Peppermint"
-popup/item_8/id = 8
-popup/item_9/text = "Toffee"
-popup/item_9/id = 9
 
 [node name="Extra" type="OptionButton" parent="MenuExpansion/ShopDropDown"]
 layout_mode = 2
 size_flags_horizontal = 3
 fit_to_longest_item = false
-item_count = 10
-popup/item_0/text = "Lavender"
-popup/item_0/id = 0
-popup/item_1/text = "Mint"
-popup/item_1/id = 1
-popup/item_2/text = "Ginger"
-popup/item_2/id = 2
-popup/item_3/text = "Cinnamon"
-popup/item_3/id = 3
-popup/item_4/text = "Boba"
-popup/item_4/id = 4
-popup/item_5/text = "Milk"
-popup/item_5/id = 5
-popup/item_6/text = "Honey"
-popup/item_6/id = 6
-popup/item_7/text = "Cardamom"
-popup/item_7/id = 7
-popup/item_8/text = "Lemon"
-popup/item_8/id = 8
-popup/item_9/text = "Basil"
-popup/item_9/id = 9
 
 [node name="Preparation" type="OptionButton" parent="MenuExpansion/ShopDropDown"]
 layout_mode = 2
 size_flags_horizontal = 3
 fit_to_longest_item = false
-item_count = 10
-popup/item_0/text = "Iced"
-popup/item_0/id = 0
-popup/item_1/text = "Mocha"
-popup/item_1/id = 1
-popup/item_2/text = "Instant Coffee "
-popup/item_2/id = 2
-popup/item_3/text = "Soda"
-popup/item_3/id = 3
-popup/item_4/text = "Frappé"
-popup/item_4/id = 4
-popup/item_5/text = "Doppio"
-popup/item_5/id = 5
-popup/item_6/text = "Cappuccino"
-popup/item_6/id = 6
-popup/item_7/text = "Cortado"
-popup/item_7/id = 7
-popup/item_8/text = "Decaff"
-popup/item_8/id = 8
-popup/item_9/text = "Milkshake"
-popup/item_9/id = 9
 
 [node name="AddToMenu" type="Button" parent="MenuExpansion"]
 layout_mode = 1
@@ -1192,3 +1129,13 @@ text = "ALL ITEMS $20"
 [connection signal="pressed" from="ReturnToServeCustomer/TO" to="." method="_on_serve_pressed"]
 [connection signal="pressed" from="ReturnToServeCustomer/CUSTOMER" to="." method="_on_customer_pressed"]
 [connection signal="pressed" from="Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="MenuExpansion/AddToMenu" to="." method="_on_add_to_menu_pressed"]
+[connection signal="pressed" from="Shop/Flavors/Flavor1/BuyFlavor1" to="." method="_on_buy_flavor_1_pressed"]
+[connection signal="pressed" from="Shop/Flavors/Flavor2/BuyFlavor2" to="." method="_on_buy_flavor_2_pressed"]
+[connection signal="pressed" from="Shop/Flavors/Flavor3/BuyFlavor3" to="." method="_on_buy_flavor_3_pressed"]
+[connection signal="pressed" from="Shop/Extras/Extra1/BuyExtra1" to="." method="_on_buy_extra_1_pressed"]
+[connection signal="pressed" from="Shop/Extras/Extra2/BuyExtra2" to="." method="_on_buy_extra_2_pressed"]
+[connection signal="pressed" from="Shop/Extras/Extra3/BuyExtra3" to="." method="_on_buy_extra_3_pressed"]
+[connection signal="pressed" from="Shop/Preparation/Preparation1/BuyPreparation1" to="." method="_on_buy_preparation_1_pressed"]
+[connection signal="pressed" from="Shop/Preparation/Preparation2/BuyPreparation2" to="." method="_on_buy_preparation_2_pressed"]
+[connection signal="pressed" from="Shop/Preparation/Preparation3/BuyPreparation3" to="." method="_on_buy_preparation_3_pressed"]
