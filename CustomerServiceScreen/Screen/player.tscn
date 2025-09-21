@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://d0cr12y0504x2"]
 
-[ext_resource type="Script" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
+[ext_resource type="Script" uid="uid://7ag8xgn8apos" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
 [ext_resource type="Texture2D" uid="uid://bpnx4c51m7dbt" path="res://CustomerServiceScreen/FioAssets/customer_service_saigon_portrait_bkgd.png" id="2_xkx15"]
 [ext_resource type="Texture2D" uid="uid://dj7ldvstp2x48" path="res://CustomerServiceScreen/texture/annoyed_placeholder1.png" id="3_5ldr3"]
 [ext_resource type="Texture2D" uid="uid://bymye1wage1yf" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_saigon_portrait_frame.png" id="3_8uf8m"]
