@@ -1,50 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl13143eonr01"]
+[gd_scene load_steps=3 format=3 uid="uid://cl13143eonr01"]
 
 [ext_resource type="Script" uid="uid://rm21076x70uf" path="res://CustomerServiceScreen/Script/customer.gd" id="1_u5kxn"]
-[ext_resource type="Texture2D" uid="uid://ba0uqaputylmf" path="res://CustomerServiceScreen/texture/playerGrey_up1.png" id="2_8pb8o"]
-[ext_resource type="Texture2D" uid="uid://rh3fsfra4vkb" path="res://CustomerServiceScreen/texture/playerGrey_up2.png" id="3_1tkbs"]
-[ext_resource type="Texture2D" uid="uid://6hdiohfq4fwi" path="res://CustomerServiceScreen/texture/playerGrey_walk1.png" id="4_t7ldx"]
-[ext_resource type="Texture2D" uid="uid://b16bpk33q551e" path="res://CustomerServiceScreen/texture/playerGrey_walk2.png" id="5_wc7hm"]
-[ext_resource type="Texture2D" uid="uid://cewl2o3ulei4n" path="res://CustomerServiceScreen/FioAssets/customer_service_npc.png" id="6_onkde"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_86rfm"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_8pb8o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1tkbs")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_t7ldx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_wc7hm")
-}],
-"loop": true,
-"name": &"talking",
-"speed": 5.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://dgvpjsccfeuxh" path="res://CustomerServiceScreen/texture/CustomerA.tres" id="2_qy2le"]
 
 [node name="Customer" type="Node2D"]
 script = ExtResource("1_u5kxn")
 
 [node name="CustomerSprites" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(558, 397)
-scale = Vector2(0.25, 0.25)
-sprite_frames = SubResource("SpriteFrames_86rfm")
+sprite_frames = ExtResource("2_qy2le")
 animation = &"talking"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(429, 351)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_onkde")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc5yeg5hcdljh"]
+[gd_scene load_steps=2 format=3 uid="uid://b05rtcd60rmmo"]
 
-[ext_resource type="Texture2D" uid="uid://dwrbvpdnxhco1" path="res://CustomerServiceScreen/FioAssets/customer_service_bkgd.png" id="1_ml6up"]
+[ext_resource type="Texture2D" uid="uid://bogq7ovb6pk10" path="res://CustomerServiceScreen/texture/customer_service_bkgd.png" id="1_ml6up"]
 
 [node name="World" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576, 369.5)
-scale = Vector2(0.288, 0.246333)
+position = Vector2(575.5, 323.5)
+scale = Vector2(0.28825, 0.215)
 texture = ExtResource("1_ml6up")

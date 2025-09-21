@@ -14,11 +14,6 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Node ready, _process will start running automatically")
-	interact_button_container.visible = true
-	menu_expansion.visible = false
-	shop.visible = false
-	return_to_serve_customer.visible = false
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,14 +27,9 @@ func _process(delta: float) -> void:
 		
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
-	interact_button_container.visible = false
-	menu_expansion.visible = true
-	return_to_serve_customer.visible = true
 
 func _on_shop_pressed() -> void:
-	interact_button_container.visible = false
-	shop.visible = true
-	return_to_serve_customer.visible = true
+	print("You clicked the Shop Button")
 
 func _on_drink_creation_pressed() -> void:
 	Global.goto_coffee_creation()
