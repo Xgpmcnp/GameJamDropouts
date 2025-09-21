@@ -29,7 +29,7 @@ var curr_preparation_method_idx = 0
 
 
 # Variable to keep track of current funds
-var current_funds = 1000.0
+var current_funds = 50.0
 
 # Constants for when a PSL is served(increment) vs anything else being served(decrement)
 const fund_increment = 10.0
