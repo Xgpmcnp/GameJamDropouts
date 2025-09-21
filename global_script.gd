@@ -114,6 +114,9 @@ func assess_drink()-> bool:
 		curr_composure -= pow(2, curr_psl_combo)
 		curr_psl_combo += 1
 		
+		if (curr_composure) < 0:
+			curr_composure = 0
+		
 		# Print to terminal all values to ensure things are behaving right:
 		print("Player now has " + str(current_funds) + " in funds and "
 		+ str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
