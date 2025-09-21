@@ -1,7 +1,6 @@
 extends Node2D
 @onready var player_sprite: AnimatedSprite2D = $%AvatarFrame
 var health: float = 100
-var timer := 0.0
 signal health_changed(new_value)
 
 # Called when the node enters the scene tree for the first time.
@@ -9,10 +8,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	timer += delta
-	if timer >= 1.0:
-		timer = 0.0
-		take_damage(10)
+	pass
 
 func take_damage(amount):
 	health -= amount

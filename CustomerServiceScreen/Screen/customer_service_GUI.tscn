@@ -421,6 +421,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_re0fu")
 text = "Brew coffee"
 
 [node name="ReturnToServeCustomer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.719
@@ -501,8 +502,10 @@ anchor_left = 0.01
 anchor_top = 0.046
 anchor_right = 0.065
 anchor_bottom = 0.046
-offset_right = 409.0
-offset_bottom = 87.0
+offset_left = 692.48
+offset_top = 342.192
+offset_right = 1113.12
+offset_bottom = 870.192
 
 [node name="SanityContainer" type="HBoxContainer" parent="StatusContainer"]
 layout_mode = 2
@@ -512,7 +515,8 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
-text = "Composure"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Composure: 100"
 fit_content = true
 vertical_alignment = 1
 
@@ -533,6 +537,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Fund: "
 fit_content = true
 
@@ -541,8 +546,10 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="MenuExpansion" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

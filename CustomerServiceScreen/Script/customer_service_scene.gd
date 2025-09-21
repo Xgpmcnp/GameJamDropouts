@@ -52,7 +52,7 @@ func end_order():
 	
 # Handle player input for dialog progression
 func check_dialog_input():
-	if Input.is_action_just_pressed("next_line"):  # If player presses Enter, Space, or Click
+	if Input.is_action_just_pressed("ui_text_newline"):  # If player presses Enter, Space, or Click
 		if dialog_ui.animate_text:
 			dialog_ui.skip_text_animation()  # Skip ongoing text animation
 		else:
@@ -80,7 +80,6 @@ func _on_customer_enter():
 	var random_key = keys[randi() % keys.size()]
 	# Store the readable name (like "CustomerA")
 	current_customer_name = Character.CHARACTER_DETAILS[random_key]["name"]
-	print(current_customer_name)
 	DialogueSystem.get_current_customer_name(current_customer_name)
 	start_dialog()              # Start dialog sequence
 

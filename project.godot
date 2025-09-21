@@ -16,7 +16,6 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
-<<<<<<< HEAD
 
 buses/default_bus_layout=""
 
@@ -26,7 +25,5 @@ DialogueSystem="*res://CustomerServiceScreen/Script/dialogue_system.gd"
 Global="*res://global_script.gd"
 
 [display]
-=======
->>>>>>> ImplementAssetsCoffeeCreation
 
 buses/default_bus_layout=""
