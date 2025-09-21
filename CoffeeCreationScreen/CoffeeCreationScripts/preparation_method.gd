@@ -1,6 +1,6 @@
 extends Control
 
-@onready var coffee_cup: Sprite2D = $"../CoffeeCup"
+@onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var method_label: Label = $MethodLabel
 
 # If true, buttons can't be pressed

@@ -1,8 +1,8 @@
 extends Control
 
-@onready var coffee_cup: Sprite2D = $"../CoffeeCup"
+@onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var flavor_label: Label = $FlavorLabel
-@onready var extras_selection: Node2D = $"../ExtrasSelection"
+@onready var extras_selection: Control = $"../ExtrasSelection"
 
 # If true, the player can no longer select the buttons on this scree
 var lock_machine: bool

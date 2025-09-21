@@ -41,4 +41,5 @@ func set_extra(extra: String) -> void:
 func set_preparation_method(preparation_method: String) -> void:
 	curr_preparation_method = preparation_method
 	fill_level = 3
+	print("current fill level is " + str(fill_level))
 	print(curr_flavor + " " + curr_extra + " " + curr_preparation_method)

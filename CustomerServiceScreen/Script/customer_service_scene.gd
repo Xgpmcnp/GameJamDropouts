@@ -52,7 +52,7 @@ func end_order():
 	
 # Handle player input for dialog progression
 func check_dialog_input():
-	if Input.is_action_just_pressed("next_line"):  # If player presses Enter, Space, or Click
+	if Input.is_action_just_pressed("ui_text_newline"):  # If player presses Enter, Space, or Click
 		if dialog_ui.animate_text:
 			dialog_ui.skip_text_animation()  # Skip ongoing text animation
 		else:

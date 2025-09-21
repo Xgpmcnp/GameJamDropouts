@@ -9,9 +9,11 @@ var flavor_options = ["Pumpkin"]
 var extras_options = ["Spice"]
 var preparation_method_options = ["Latte"]
 
-var flavor_shop_options = []
-var extras_shop_options = []
-var prepartion_method_shop_options = []
+var new_items_from_player = []
+
+var flavor_shop_options = ["Strawberry", "Matcha", "Grape", "Coconut", "Almond", "Chocolate", "Maple", "Peppermint", "Toffee"]
+var extras_shop_options = ["Lavender", "Mint", "Ginger", "Cinnamon", "Boba", "Milk", "Honey", "Cardamom", "Lemon", "Basil"]
+var prepartion_method_shop_options = ["Iced", "Mocha", "Instant Coffee", "Soda", "Frappé", "Doppio", "Cappuccino", "Cortado", "Decaff", "Milkshake"]
 
 
 
@@ -23,7 +25,7 @@ var curr_preparation_method_idx = 0
 
 
 # Variable to keep track of current funds
-var current_funds = 0.0
+var current_funds = 1000.0
 
 # Constants for when a PSL is served(increment) vs anything else being served(decrement)
 const fund_increment = 10.0
@@ -97,6 +99,7 @@ func get_curr_preparation_method() -> String:
 # Updates funds and composure when player serves a drink
 # returns a bool to indicate if its a PSL or not(for purposes of customer reaction_
 func assess_drink()-> bool:
+	print("Player currently has " + str(current_funds) + " in funds and " + str(curr_composure) + " composure and the psl combo is " + str(curr_psl_combo))
 	# Check if the player is serving a PSL
 	if (flavor_options[curr_flavor_idx] == "Pumpkin" and 
 	extras_options[curr_extras_idx] == "Spice" and 
@@ -167,10 +170,13 @@ func goto_main_menu():
 
 # Go to customer service menu, isGoingBack determines if we need to clear current choices
 # or not
-func goto_customer_service_menu(isGoingBack: bool):
+func goto_customer_service_menu(isGoingBack: bool, isAssessing: bool):
 	if isGoingBack:
 		self.reset_selected_options()
-	self.goto_screen("res://CustomerServiceScreen/Screen/customer_service_GUI.tscn")
+	if isAssessing:
+		self.assess_drink()
+	
+	self.goto_screen("res://CustomerServiceScreen/Screen/customer_service_scene.tscn")
 
 # Go to coffee creation menu
 func goto_coffee_creation():
@@ -184,8 +190,14 @@ func open_main_menu_creation():
 	print("open main menu creation")
 
 #-------------------------------------------------------------------
-#  FUNCTIONS FOR UPDATING VARIABLES
+#  FUNCTIONS FOR UPDATING VARIABLES/getting their values
 #-------------------------------------------------------------------
+
+func get_funds()->float:
+	return current_funds
+
+func get_composure()->float:
+	return curr_composure
 
 func update_composure_on_item_buy():
 	curr_composure += ((100-curr_composure)/2) + 1
@@ -196,33 +208,19 @@ func update_composure_on_item_buy():
 
 func update_funds(amount: float):
 	current_funds += amount
-	
-#-------------------------------------------------------------------
-#  SHOP-SPECIFIC ITEMS BELOW
-#-------------------------------------------------------------------
-func fill_shop_flavor_slot()->String:
-	var option = flavor_shop_options[0]
-	flavor_shop_options.remove_at(0)
-	return option
 
-func fill_shop_extras_slot()->String:
-	var option = extras_shop_options[0]
-	extras_shop_options.remove_at(0)
-	return option
+func update_flavors(new_flavor: String): 
+	flavor_options.append(new_flavor)
+	flavor_shop_options.erase(new_flavor)
 
-func fill_shop_method_slot()->String:
-	var option = preparation_method_options[0]
-	preparation_method_options.remove_at(0)
-	return option
+func update_extras(new_extra: String): 
+	extras_options.append(new_extra)
+	extras_shop_options.erase(new_extra)
 
-func update_current_flavor_options(option:String):
-	flavor_options.append(option)
+func update_preparation_methods(new_method: String): 
+	preparation_method_options.append(new_method)
+	prepartion_method_shop_options.erase(new_method)
 
-func update_current_extras_options(option:String):
-	extras_options.append(option)
-
-func update_current_preparation_method_options(option:String):
-	preparation_method_options.append(option)
 
 #-------------------------------------------------------------------
 #  FUNCTIONS FOR CONTROLLING AUDIO BELOW
