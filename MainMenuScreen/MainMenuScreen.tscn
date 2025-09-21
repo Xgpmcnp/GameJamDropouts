@@ -252,63 +252,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -441.5
-offset_top = 36.5
-offset_right = 441.5
-offset_bottom = 76.5
+offset_left = -438.0
+offset_top = 6.5
+offset_right = 445.0
+offset_bottom = 52.5
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_vc4ah")
 theme_override_font_sizes/font_size = 45
 text = "Credits"
 horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -450.0
-offset_top = -153.5
-offset_right = 442.0
-offset_bottom = 164.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 17
-
-[node name="Label3" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_vc4ah")
-theme_override_font_sizes/font_size = 38
-text = "Project Lead: Xgpmcnp"
-vertical_alignment = 1
-
-[node name="Label6" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_vc4ah")
-theme_override_font_sizes/font_size = 38
-text = " Programming - RoseTea, BasilQuesadilla, Mai Kiên"
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_vc4ah")
-theme_override_font_sizes/font_size = 38
-text = " Art: Fio"
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="Credits/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_vc4ah")
-theme_override_font_sizes/font_size = 38
-text = " Music & SFX: Sashraan"
 vertical_alignment = 1
 
 [node name="Back" type="Button" parent="Credits"]
@@ -318,10 +271,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -90.5
-offset_right = 40.0
-offset_bottom = -54.5
+offset_left = -45.0
+offset_top = -37.5
+offset_right = 35.0
+offset_bottom = -1.5
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -335,6 +288,62 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_04kd7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
 text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits"]
+layout_mode = 0
+offset_top = 49.0
+offset_right = 933.0
+offset_bottom = 472.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="Label3" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = "Project Lead: Xgpmcnp"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Programming - RoseTea, BasilQuesadilla, Mai Kiên"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Art: Fio"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vc4ah")
+theme_override_font_sizes/font_size = 38
+text = " Music & SFX: Sashraan"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Credits/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Additional SFX:
+Purchase :
+Bell, Counter, A.wav by InspectorJ -- https://freesound.org/s/415510/ -- License: Attribution 4.0
+
+Customer Service - Doorbell :
+door_chime3.mp3 by https://taira-komori.net/freesounden.html
+
+Main Menu :
+sh_shop_door_bell_openclose.wav by shall555 -- https://freesound.org/s/72197/ -- License: Attribution 4.0
+
+Various sounds from : https://ad-sounds.itch.io/dialog-text-sound-effects"
 
 [node name="PlainCoffeeMug" type="Sprite2D" parent="."]
 z_index = -1
