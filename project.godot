@@ -24,6 +24,7 @@ general/default_playback_type.web=0
 
 DialogueSystem="*res://CustomerServiceScreen/Script/dialogue_system.gd"
 Global="*res://global_script.gd"
+MainMusic="*res://GlobalAudio/MainGameAudio.tscn"
 
 [display]
 
