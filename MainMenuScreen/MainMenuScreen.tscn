@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://drx6jwawafnq4"]
+[gd_scene load_steps=30 format=3 uid="uid://drx6jwawafnq4"]
 
 [ext_resource type="Script" uid="uid://40cgmmjlu8l4" path="res://MainMenuScreen/main_menu_screen.gd" id="1_vc4ah"]
 [ext_resource type="FontFile" uid="uid://djqkmj83inw0t" path="res://MainMenuScreen/Fonts/Sabaling-6Rv2v.otf" id="2_vc4ah"]
@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://c3trp7xfwok0a" path="res://MainMenuScreen/Assets/plain_coffee_mug.PNG" id="8_k43q4"]
 [ext_resource type="Texture2D" uid="uid://ch3qsg4ww6rxw" path="res://MainMenuScreen/Assets/psl_png.png" id="10_dsriq"]
 [ext_resource type="Texture2D" uid="uid://b8myupwn2jjgt" path="res://MainMenuScreen/Assets/CoffeeBean.png" id="11_04kd7"]
+[ext_resource type="AudioStream" uid="uid://dlv62snxv051b" path="res://GeneralAssets/SFX/Main Menu - Start Shift Door Chime.mp3" id="11_aeynl"]
 [ext_resource type="Texture2D" uid="uid://cn2g4k0lyr5th" path="res://MainMenuScreen/Assets/Saigon.png" id="12_04kd7"]
+[ext_resource type="AudioStream" uid="uid://b3j8prjl4xlwv" path="res://GeneralAssets/SFX/Main Menu - Move.mp3" id="12_tu360"]
+[ext_resource type="AudioStream" uid="uid://c6ut5etcba0gt" path="res://GeneralAssets/SFX/Main Menu - Volume Up.mp3" id="13_aeynl"]
 
 [sub_resource type="Gradient" id="Gradient_gv8ib"]
 colors = PackedColorArray(0.61045, 0.344818, 0.0332173, 1, 0.642971, 0.461664, 0.0205553, 1)
@@ -96,6 +99,9 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_kj861")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_k43q4")
 text = "Start Shift"
 
+[node name="MainMenu-StartShiftDoorChime" type="AudioStreamPlayer" parent="MainButtons/Start Shift"]
+stream = ExtResource("11_aeynl")
+
 [node name="Options" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -110,6 +116,9 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_h0cs0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dsriq")
 text = "Options"
 
+[node name="MainMenu-Select" type="AudioStreamPlayer" parent="MainButtons/Options"]
+stream = ExtResource("12_tu360")
+
 [node name="Credits" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -123,6 +132,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_04kd7")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
 text = "Credits"
+
+[node name="MainMenu-Select" type="AudioStreamPlayer" parent="MainButtons/Credits"]
+stream = ExtResource("12_tu360")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -200,6 +212,9 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
 text = "Back"
 
+[node name="MainMenu-Move" type="AudioStreamPlayer" parent="Options/Back"]
+stream = ExtResource("12_tu360")
+
 [node name="Audio control" type="HSlider" parent="Options"]
 layout_mode = 1
 anchors_preset = 8
@@ -221,6 +236,9 @@ step = 0.05
 value = 1.0
 script = ExtResource("7_kj861")
 audio_bus_name = "Master"
+
+[node name="MainMenu-VolumeUp" type="AudioStreamPlayer" parent="Options/Audio control"]
+stream = ExtResource("13_aeynl")
 
 [node name="Label2" type="Label" parent="Options"]
 layout_mode = 0

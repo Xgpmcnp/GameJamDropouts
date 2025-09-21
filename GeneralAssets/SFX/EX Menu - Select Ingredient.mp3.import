@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c0q34f5u74ss8"
+path="res://.godot/imported/EX Menu - Select Ingredient.mp3-bcba850f67ad902ee63d9bcf67dcda37.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/EX Menu - Select Ingredient.mp3"
+dest_files=["res://.godot/imported/EX Menu - Select Ingredient.mp3-bcba850f67ad902ee63d9bcf67dcda37.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

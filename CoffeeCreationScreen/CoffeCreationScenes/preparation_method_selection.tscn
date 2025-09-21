@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh8oixxu54w6s"]
+[gd_scene load_steps=9 format=3 uid="uid://bh8oixxu54w6s"]
 
 [ext_resource type="Script" uid="uid://brf04yuhteuvd" path="res://CoffeeCreationScreen/CoffeeCreationScripts/preparation_method.gd" id="1_b55sc"]
 [ext_resource type="Texture2D" uid="uid://d15hlsxirkgop" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_drink_machine_R.png" id="2_kc5vo"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://2b1frjx1rut7" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_L.png" id="4_rgkxt"]
 [ext_resource type="Texture2D" uid="uid://36r73qmyuhha" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_arrow_R.png" id="5_r7uwf"]
 [ext_resource type="FontFile" uid="uid://bfc282aryiiys" path="res://CoffeeCreationScreen/Font/fall-is-coming-font/FallIsComingRegular-Mx9B.ttf" id="6_whh2d"]
+[ext_resource type="AudioStream" uid="uid://bi11y0aai5epc" path="res://GeneralAssets/SFX/Coffee - Ingedient switch.mp3" id="7_rgkxt"]
+[ext_resource type="AudioStream" uid="uid://rlj6lqc8daon" path="res://GeneralAssets/SFX/Coffee - Pour.mp3" id="8_r7uwf"]
 
 [node name="PreparationMethodSelection" type="Control"]
 layout_mode = 3
@@ -65,6 +67,12 @@ theme_override_fonts/font = ExtResource("6_whh2d")
 theme_override_font_sizes/font_size = 36
 text = "Latte"
 horizontal_alignment = 1
+
+[node name="Coffee-IngedientSwitch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rgkxt")
+
+[node name="Coffee-Pour" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_r7uwf")
 
 [connection signal="pressed" from="MethodPour" to="." method="_on_method_pour_pressed"]
 [connection signal="pressed" from="MethodBack" to="." method="_on_method_back_pressed"]

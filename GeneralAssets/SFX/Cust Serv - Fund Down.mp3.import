@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu5el03rh57tw"
+path="res://.godot/imported/Cust Serv - Fund Down.mp3-ce8a271b3b8215338abf9644c2471bfd.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Cust Serv - Fund Down.mp3"
+dest_files=["res://.godot/imported/Cust Serv - Fund Down.mp3-ce8a271b3b8215338abf9644c2471bfd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

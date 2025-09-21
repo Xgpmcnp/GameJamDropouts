@@ -16,6 +16,7 @@ script = ExtResource("1_baqgh")
 [node name="BackGround" parent="World" instance=ExtResource("2_xb8ma")]
 
 [node name="Flower" parent="World" instance=ExtResource("3_pkgll")]
+visible = false
 
 [node name="Character" type="Node2D" parent="."]
 
