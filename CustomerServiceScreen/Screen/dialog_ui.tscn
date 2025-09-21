@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4wf4pks57xs5" path="res://CustomerServiceScreen/Script/dialog_ui.gd" id="1_l5l4d"]
 [ext_resource type="Texture2D" uid="uid://bc2visw2d41br" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_dialogue_box.png" id="2_rc7vb"]
-[ext_resource type="FontFile" uid="uid://ds23j7gk67tdi" path="res://CustomerServiceScreen/Font/rusty-hooks-font/RustyHooksRegular-nROER.ttf" id="3_syy75"]
+[ext_resource type="FontFile" uid="uid://cegk1he73dnvi" path="res://CustomerServiceScreen/Font/mochibop/Mochibop-Demo.ttf" id="3_syy75"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syy75"]
 texture = ExtResource("2_rc7vb")
@@ -49,6 +49,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_syy75")
+theme_override_font_sizes/normal_font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_sl3j6")
 
 [node name="SpeakerBox" type="PanelContainer" parent="."]
@@ -68,6 +69,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_syy75")
+theme_override_font_sizes/normal_font_size = 40
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -35,7 +35,7 @@ const tutorial_dialog: Array[String] = [
 		"Tutorial: Once the ingredients are purchased, you can change the contents of the drink during the coffee creation process, and if it's anything else than a pumpkin spice latte, Saigon will be happy!",
 		"Tutorial: But the customers will notice something off, and will complain to head office for free coupons! Head office will then penalize Saigon's funds, so make sure not to sabotage too many drinks!",
 		"Tutorial: You can also expand the coffee shop's menu through the menu expansion screen!",
-		"Saigon: Yeah! I'll make that menu so big, nobody will even see those stinky pumpking BLEGH lattes on there!!",
+		"Saigon: Yeah! I'll make that menu so big, nobody will even see those stinky pumpkin BLEGH lattes on there!!",
 		"Tutorial: Great enthusiam Saigon!",
 		"Tutorial: We didn't implement a win condition yet, so menu expansion is just for fun, despite being the whole theme and goal of the jam. Sorry!",
 		"Tutorial: Please enjoy our game!",
@@ -308,7 +308,7 @@ const good_drink_76_100: Array = [
 		"{customer}: Aw, thank you miss! I will!",		
 	],
 	[
-		"Saigon: Here you go, pumpking spice latte! Please enjoy the love I've poured for you today!",
+		"Saigon: Here you go, pumpkin spice latte! Please enjoy the love I've poured for you today!",
 		"{customer}: Uh, sure I will. Good day.",		
 	],
 	[

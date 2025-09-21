@@ -3,9 +3,7 @@ extends Control
 @onready var coffee_cup: Sprite2D = $Node2D/Path2D/PathFollow2D/CoffeeCup2
 # Saigon sprites
 @onready var saigon_happy: Sprite2D = $Node2D/Portrait/SaigonHappy
-@onready var saigon_content: Sprite2D = $Node2D/Portrait/SaigonContent
 @onready var saigon_annoyed: Sprite2D = $Node2D/Portrait/SaigonAnnoyed
-@onready var saigon_stressed: Sprite2D = $Node2D/Portrait/SaigonStressed
 @onready var saigon_depressed: Sprite2D = $Node2D/Portrait/SaigonDepressed
 @onready var saigon_dead: Sprite2D = $Node2D/Portrait/SaigonDead
 
@@ -18,9 +16,7 @@ func _ready() -> void:
 	Global.reset_selected_options()
 
 	composure = Global.get_composure()
-	saigon_content.visible = false
 	saigon_annoyed.visible = false
-	saigon_stressed.visible = false
 	saigon_depressed.visible = false
 	saigon_dead.visible = false
 	_update_sprite()
@@ -57,34 +53,20 @@ func _update_sprite() -> void:
 			print("Happy")
 			
 		_ when composure <= 75 && composure >= 51:
-			print("Content")
+			print("Annoyed")
 			saigon_happy.visible = false
-			saigon_content.visible = true
-			saigon_annoyed.visible = false
-			saigon_stressed.visible = false
+			saigon_annoyed.visible = true
 			saigon_depressed.visible = false
 			saigon_dead.visible = false
 		_ when composure <= 50 && composure >= 26:
 			print("Annoyed")
 			saigon_happy.visible = false
-			saigon_content.visible = false
 			saigon_annoyed.visible = true
-			saigon_stressed.visible = false
-			saigon_depressed.visible = false
-			saigon_dead.visible = false
-		_ when composure <= 25:
-			print("Stress")
-			saigon_happy.visible = false
-			saigon_content.visible = false
-			saigon_annoyed.visible = false
-			saigon_stressed.visible = true
-			saigon_depressed.visible = false
-			saigon_dead.visible = false
-		_ when composure == 0:
-			print("Dead")
-			saigon_happy.visible = false
-			saigon_content.visible = false
-			saigon_annoyed.visible = false
-			saigon_stressed.visible = false
 			saigon_depressed.visible = true
 			saigon_dead.visible = false
+		_ when composure <= 25:
+			print("Dead")
+			saigon_happy.visible = false
+			saigon_annoyed.visible = false
+			saigon_depressed.visible = false
+			saigon_dead.visible = true
