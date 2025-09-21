@@ -13,7 +13,11 @@ var current_customer_name: String  # Stores the name of the current customer
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	if DialogueSystem.drink_ready:
+	if DialogueSystem.tutorial_has_played == false:
+		DialogueSystem.get_tutorial_dialog()
+		start_tutorial_dialog()
+		DialogueSystem.tutorial_has_played = true
+	elif DialogueSystem.drink_ready:
 		has_customer = true
 		customer_active = true
 		DialogueSystem.get_conversation_dialog()
@@ -27,16 +31,20 @@ func _ready() -> void:
 # Called every frame, with delta = elapsed time since last frame
 func _process(delta: float) -> void:
 	# Handle customer spawning logic if there are no customer present atm
-	if not has_customer:
-		customer_timer += delta   # Count up time
-		if customer_timer >= next_customer_time:  # The condition for spawn new customer
-			_on_customer_enter()  # Trigger customer enter
-			has_customer = true   # Mark customer as present
-			DialogueSystem.current_has_customer = true # Remember the state
-				
-	# Handle dialog input if a customer is active
-	if customer_active:
-		check_dialog_input()
+	match DialogueSystem.tutorial_has_played:
+		_ when false:
+			pass
+		_ when true:
+			if not has_customer:
+				customer_timer += delta   # Count up time
+				if customer_timer >= next_customer_time:  # The condition for spawn new customer
+					_on_customer_enter()  # Trigger customer enter
+					has_customer = true   # Mark customer as present
+					DialogueSystem.current_has_customer = true # Remember the state
+						
+			# Handle dialog input if a customer is active
+			if customer_active:
+				check_dialog_input()
 
 # === DIALOG MANAGEMENT ===
 
@@ -52,6 +60,11 @@ func start_dialog():
 	dialog_ui.visible = true
 	DialogueSystem.dialog_index = 0  # Reset dialog index to the first line
 	process_current_line()           # Show the first line
+	
+func start_tutorial_dialog():
+	dialog_ui.visible = true
+	DialogueSystem.dialog_index = 0  # Reset dialog index to the first line
+	process_tutorial_line()
 
 # Resume dialog with the current customer
 func resume_dialog():
@@ -126,6 +139,12 @@ func process_current_line():
 	var character_name = Character.get_enum_from_string(line_info["speaker_name"])  # Get enum ID
 	dialog_ui.change_line(line_info["speaker_name"], character_name, line_info["dialog"])  # Update UI
 	customer.load_character(character_name)  # Update customer appearance/animation
+	
+func process_tutorial_line():
+	var line = DialogueSystem.current_dialog[DialogueSystem.dialog_index]
+	var line_info: Dictionary = DialogueSystem.extract_line(line)  # Extract speaker + text
+	var character_name = Character.get_enum_from_string(line_info["speaker_name"])  # Get enum ID
+	dialog_ui.change_line(line_info["speaker_name"], character_name, line_info["dialog"])  # Update UI
 
 # === CUSTOMER HANDLING ===
 

@@ -14,7 +14,37 @@ var drink_ready: bool = false
 var current_has_customer: bool = false
 # default set of dialog
 var default_dialog: Array = []
+
+var tutorial_has_played = false
 #region tutorial_dialog
+const tutorial_dialog: Array[String] = [
+		"Tutorial: Hello, and welcome to Pour Some Love!",
+		"Tutorial: We already have a customer, but let's ignore him for a moment as we introduce you to our game!",
+		"Tutorial: Saigon, our main character, has recently purchased a coffee shop to fulfill her dreams of being a barista!",
+		"Tutorial: It was a great deal, mostly because it's not entirely hers; the *$ corporation owns the Pour Some Love franchise!",
+		"Tutorial: Now we were supposed to have a tutorial section showing this story, but I'm writing this 3 hours before submission deadline, so please, bear with me!",
+		"Tutorial: Saigon quickly realized that Head Office has no care for the quality of their drinks, just profit and advertisements!",
+		"Tutorial: As such, the shop's menu is only one drink, a Pumpkin Spice Latte!",
+		"Saigon: Yeah, that's horrible! Horrible horrible drink!",
+		"Tutorial: Please, wait for your turn Saigon, you've plenty of dialogue soon.",
+		"Tutorial: ..Anyway! Rebellious Saigon wasn't going to let things be this way, of course!",
+		"Tutorial: In this game, customers only want pumpkin spice lattes! But Saigon doesn't want to serve them that, and her composure takes a hit when she does!",
+		"Tutorial: Serve too many pumpkin spice lattes in a row, and poor Saigon is liable to have a mental breakdown!",
+		"Tutorial: To avoid that, Saigon can sabotage customer's drinks and make them actually taste good! Or so she says, anyway...",
+		"Tutorial: For that purpose, you can earn some funds serving the pumpkin spice lattes, then go to the shop and buy new ingredients!",
+		"Tutorial: Once the ingredients are purchased, you can change the contents of the drink during the coffee creation process, and if it's anything else than a pumpkin spice latte, Saigon will be happy!",
+		"Tutorial: But the customers will notice something off, and will complain to head office for free coupons! Head office will then penalize Saigon's funds, so make sure not to sabotage too many drinks!",
+		"Tutorial: You can also expand the coffee shop's menu through the menu expansion screen!",
+		"Saigon: Yeah! I'll make that menu so big, nobody will even see those stinky pumpking BLEGH lattes on there!!",
+		"Tutorial: Great enthusiam Saigon!",
+		"Tutorial: We didn't implement a win condition yet, so menu expansion is just for fun, despite being the whole theme and goal of the jam. Sorry!",
+		"Tutorial: Please enjoy our game!",
+		"Tutorial: ...",
+		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
+		"Customer: I'll have your finest pumpkin spice latte, please.",
+		"Saigon: Of course, coming right up!",
+]
+
 const introduction_dialog: Array = [
 		"Narration: The shop's window clinks gently as Saigon turns the \"Open!\" side of the panel to face outside.",
 		"Saigon: Aaaaand done! We're finally ready for our opening day!",
@@ -495,6 +525,20 @@ func get_current_dialog_speaker_and_dialog() -> Dictionary:
 	var current_speaker_and_dialog = extract_line(current_line)
 	return current_speaker_and_dialog
 
+func get_tutorial_dialog():
+	current_dialog = tutorial_dialog 
+	#var temp_dialog: Array = tutorial_dialog
+	# Convert to Array[String] explicitly
+	#current_dialog.clear()
+	#for line in temp_dialog:
+	#	if typeof(line) == TYPE_STRING:
+	#		current_dialog.append(line)
+	# Dictionary of variables to replace inside dialog lines
+	#var variables: Dictionary = {
+	#	"customer": customer_name
+	#}
+	#format_dialog(current_dialog, variables)
+	
 # Get the dialog for game over
 func get_gameover_dialog():
 	current_dialog = game_over_dialog
@@ -504,6 +548,7 @@ func get_gameover_dialog():
 # and stores the result in `current_dialog`.
 func get_current_customer_name(customer: String):
 	customer_name = customer
+
 
 # Selects what dialog to use for conversation
 func get_conversation_dialog():
