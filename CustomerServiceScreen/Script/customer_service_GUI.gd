@@ -23,6 +23,10 @@ extends Control
 @onready var preparation_2: Label = $Shop/Preparation/Preparation2
 @onready var preparation_3: Label = $Shop/Preparation/Preparation3
 
+@onready var flavors: OptionButton = $MenuExpansion/ShopDropDown/Flavors
+@onready var extra: OptionButton = $MenuExpansion/ShopDropDown/Extra
+@onready var preparation: OptionButton = $MenuExpansion/ShopDropDown/Preparation
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Node ready, _process will start running automatically")
@@ -33,6 +37,10 @@ func _ready() -> void:
 	set_flavor_shop_options()
 	set_extras_shop_options()
 	set_preparation_method_shop_options()
+	
+	set_flavors_dropdown()
+	set_extras_dropdown()
+	set_preparation_dropdown()
 	
 	
 
@@ -84,6 +92,27 @@ func set_preparation_method_shop_options()-> void:
 			
 			if options_size > 2:
 				preparation_3.text = options[2]
+
+
+func set_flavors_dropdown()-> void:
+	var i = 0
+	for flavor_option in Global.flavor_options:
+		flavors.add_item(flavor_option, i)
+		i += 1
+		
+func set_extras_dropdown()-> void:
+	var i = 0
+	for extra_option in Global.extras_options:
+		print(extra_option)
+		extra.add_item(extra_option, i)
+		i += 1
+		
+func set_preparation_dropdown() -> void:
+	var i = 0
+	for method_option in Global.preparation_method_options:
+		preparation.add_item(method_option, i)
+		i += 1
+	
 func _on_menu_editing_pressed() -> void:
 	print("You clicked the Menu Editing Button")
 	interact_button_container.visible = false
@@ -169,6 +198,9 @@ func _on_buy_flavor_1_pressed() -> void:
 			flavor_3.text = Global.flavor_shop_options[2]
 		else:
 			flavor_3.text = "OUT OF STOCK"
+		
+		# Update flavors dropdown
+		set_flavors_dropdown()
 
 
 func _on_buy_flavor_2_pressed() -> void:
@@ -187,6 +219,10 @@ func _on_buy_flavor_2_pressed() -> void:
 			flavor_3.text = Global.flavor_shop_options[2]
 		else:
 			flavor_3.text = "OUT OF STOCK"
+		
+		# Update flavors dropdown
+		set_flavors_dropdown()
+	
 
 func _on_buy_flavor_3_pressed() -> void:
 	# Check if player has funds to buy
@@ -203,6 +239,9 @@ func _on_buy_flavor_3_pressed() -> void:
 			flavor_3.text = Global.flavor_shop_options[2]
 		else:
 			flavor_3.text = "OUT OF STOCK"
+		
+		# Update flavors dropdown
+		set_flavors_dropdown()
 
 
 func _on_buy_extra_1_pressed() -> void:
@@ -222,6 +261,9 @@ func _on_buy_extra_1_pressed() -> void:
 			extra_3.text = Global.extras_shop_options[2]
 		else:
 			extra_3.text = "OUT OF STOCK"
+		
+		# Update extras dropdown
+		set_extras_dropdown()
 
 
 func _on_buy_extra_2_pressed() -> void:
@@ -240,6 +282,9 @@ func _on_buy_extra_2_pressed() -> void:
 			extra_3.text = Global.extras_shop_options[2]
 		else:
 			extra_3.text = "OUT OF STOCK"
+		
+		# Update extras dropdown
+		set_extras_dropdown()
 
 
 func _on_buy_extra_3_pressed() -> void:
@@ -257,6 +302,9 @@ func _on_buy_extra_3_pressed() -> void:
 			extra_3.text = Global.extras_shop_options[2]
 		else:
 			extra_3.text = "OUT OF STOCK"
+		
+		# Update extras dropdown
+		set_extras_dropdown()
 
 
 func _on_buy_preparation_1_pressed() -> void:
@@ -276,6 +324,9 @@ func _on_buy_preparation_1_pressed() -> void:
 			preparation_3.text = Global.prepartion_method_shop_options[2]
 		else:
 			preparation_3.text = "OUT OF STOCK"
+		
+		# Update preparation dropdown
+		set_preparation_dropdown()
 
 
 func _on_buy_preparation_2_pressed() -> void:
@@ -294,7 +345,9 @@ func _on_buy_preparation_2_pressed() -> void:
 			preparation_3.text = Global.prepartion_method_shop_options[2]
 		else:
 			preparation_3.text = "OUT OF STOCK"
-
+	
+		# Update preparation dropdown
+		set_preparation_dropdown()
 
 
 func _on_buy_preparation_3_pressed() -> void:
@@ -314,3 +367,9 @@ func _on_buy_preparation_3_pressed() -> void:
 			preparation_3.text = Global.prepartion_method_shop_options[2]
 		else:
 			preparation_3.text = "OUT OF STOCK"
+		
+		# Update preparation dropdown
+		set_preparation_dropdown()
+
+func _on_add_to_menu_pressed() -> void:
+	pass # Replace with function body.
