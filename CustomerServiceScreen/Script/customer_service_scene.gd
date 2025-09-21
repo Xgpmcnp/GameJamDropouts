@@ -83,7 +83,6 @@ func end_dialog():
 	
 # End the order (customer leaves the scene)
 func end_order():
-	Global.curr_composure = 0
 	if Global.curr_composure <= 0:
 		customer.hide_sprite()
 		DialogueSystem.state_reset()
