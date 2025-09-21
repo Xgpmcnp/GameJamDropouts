@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://40cgmmjlu8l4" path="res://MainMenuScreen/main_menu_screen.gd" id="1_vc4ah"]
 [ext_resource type="FontFile" uid="uid://djqkmj83inw0t" path="res://MainMenuScreen/Fonts/Sabaling-6Rv2v.otf" id="2_vc4ah"]
 [ext_resource type="AudioStream" uid="uid://dphdkjh33qq3o" path="res://MainMenuScreen/Audio/Pour Some Love - Main Theme FINAL.mp3" id="4_04kd7"]
+[ext_resource type="Texture2D" uid="uid://baxv3oai86h0o" path="res://MainMenuScreen/Assets/PSLCup.png" id="5_04kd7"]
 [ext_resource type="Script" uid="uid://bb1nu00bsei63" path="res://MainMenuScreen/AudioSlider.gd" id="7_kj861"]
 [ext_resource type="Script" uid="uid://bp5hx8umqx3ge" path="res://MainMenuScreen/moving_effects.gd" id="8_04kd7"]
-[ext_resource type="Texture2D" uid="uid://c3trp7xfwok0a" path="res://MainMenuScreen/Assets/plain_coffee_mug.PNG" id="8_k43q4"]
 [ext_resource type="Texture2D" uid="uid://ch3qsg4ww6rxw" path="res://MainMenuScreen/Assets/psl_png.png" id="10_dsriq"]
 [ext_resource type="Texture2D" uid="uid://b8myupwn2jjgt" path="res://MainMenuScreen/Assets/CoffeeBean.png" id="11_04kd7"]
 [ext_resource type="Texture2D" uid="uid://dwgnh54mvc36c" path="res://MainMenuScreen/Assets/Wildcard_1.png" id="11_dsriq"]
 [ext_resource type="Texture2D" uid="uid://cn2g4k0lyr5th" path="res://MainMenuScreen/Assets/Saigon.png" id="12_04kd7"]
 [ext_resource type="Texture2D" uid="uid://03lh5tmnrnwu" path="res://MainMenuScreen/Assets/Wildcard_2.png" id="12_aeynl"]
-[ext_resource type="Texture2D" uid="uid://7ni3mqv3ibrw" path="res://MainMenuScreen/Assets/PSL_LOGO.png" id="12_tu360"]
+[ext_resource type="Texture2D" uid="uid://bar041v0phogn" path="res://MainMenuScreen/Assets/PSL_LOGO.png" id="12_tu360"]
 
 [sub_resource type="Gradient" id="Gradient_gv8ib"]
 colors = PackedColorArray(0.61045, 0.344818, 0.0332173, 1, 0.642971, 0.461664, 0.0205553, 1)
@@ -214,6 +214,7 @@ offset_bottom = 201.5
 text = "Global Volume"
 
 [node name="Credits" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -337,7 +338,7 @@ https://www.1001fonts.com/mochibop-font.html"
 z_index = -1
 position = Vector2(-163, 170)
 scale = Vector2(0.636137, 0.616359)
-texture = ExtResource("8_k43q4")
+texture = ExtResource("5_04kd7")
 
 [node name="MovingEffects" type="Control" parent="."]
 layout_mode = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3trp7xfwok0a"
-path="res://.godot/imported/plain_coffee_mug.PNG-e03e55118fa5f9bee982a15888dd3a2e.ctex"
+uid="uid://baxv3oai86h0o"
+path="res://.godot/imported/PSLCup.png-d17989eb7c8e20d967ae307a40846b2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MainMenuScreen/Assets/plain_coffee_mug.PNG"
-dest_files=["res://.godot/imported/plain_coffee_mug.PNG-e03e55118fa5f9bee982a15888dd3a2e.ctex"]
+source_file="res://MainMenuScreen/Assets/PSLCup.png"
+dest_files=["res://.godot/imported/PSLCup.png-d17989eb7c8e20d967ae307a40846b2b.ctex"]
 
 [params]
 
