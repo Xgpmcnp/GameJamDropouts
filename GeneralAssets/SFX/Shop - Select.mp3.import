@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjvgoldgcn6cc"
+path="res://.godot/imported/Shop - Select.mp3-e79ae72ab59614cbb079f65d3aa76801.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Shop - Select.mp3"
+dest_files=["res://.godot/imported/Shop - Select.mp3-e79ae72ab59614cbb079f65d3aa76801.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

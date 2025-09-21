@@ -12,6 +12,7 @@ var lock_machine: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Player can interact with forward/backward/pour buttons
+	$"../../Coffee-OnTable".play()
 	lock_machine = false
 
 
@@ -22,6 +23,7 @@ func _process(delta: float) -> void:
 
 # Move to the previous flavor option, pass through if already on "Pumpkin"
 func _on_flavor_back_pressed() -> void:
+	$"Coffee-IngedientSwitch".play()
 	# Only does anything if player has not selected an options
 	if lock_machine == true:
 		pass
@@ -34,6 +36,7 @@ func _on_flavor_back_pressed() -> void:
 		
 # Move to next flavor option, pass through if already on last flavor.
 func _on_flavor_forward_pressed() -> void:
+	$"Coffee-IngedientSwitch".play()
 	# Only does anything if player has not selected an options
 	if lock_machine == true:
 		pass
@@ -46,6 +49,7 @@ func _on_flavor_forward_pressed() -> void:
 		
 # Triggers pouring animation and moves to next step
 func _on_flavor_pour_pressed() -> void:
+	$"Coffee-IngedientDispense".play()
 	# Only does anything if player has not selected an options
 	if lock_machine == true:
 		pass
@@ -56,3 +60,4 @@ func _on_flavor_pour_pressed() -> void:
 		lock_machine = true
 		# Unlock the extras machine
 		extras_selection.lock_machine = false
+	$"../../Coffee-Conveyor".play()

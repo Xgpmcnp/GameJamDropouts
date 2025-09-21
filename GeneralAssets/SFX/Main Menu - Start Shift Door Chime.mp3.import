@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlv62snxv051b"
+path="res://.godot/imported/Main Menu - Start Shift Door Chime.mp3-d15c4f5888af42e79adbc2ae595b823a.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Main Menu - Start Shift Door Chime.mp3"
+dest_files=["res://.godot/imported/Main Menu - Start Shift Door Chime.mp3-d15c4f5888af42e79adbc2ae595b823a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

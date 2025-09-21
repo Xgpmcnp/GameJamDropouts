@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj31yn74bstw7"
+path="res://.godot/imported/Main Menu - Select.mp3-1f98f0525e129f942d3fae41f7f83112.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Main Menu - Select.mp3"
+dest_files=["res://.godot/imported/Main Menu - Select.mp3-1f98f0525e129f942d3fae41f7f83112.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

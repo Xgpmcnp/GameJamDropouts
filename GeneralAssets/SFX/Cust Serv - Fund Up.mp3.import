@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq4w7h77ccet6"
+path="res://.godot/imported/Cust Serv - Fund Up.mp3-edb9d8ec2dce8eacb5f42643e1840598.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Cust Serv - Fund Up.mp3"
+dest_files=["res://.godot/imported/Cust Serv - Fund Up.mp3-edb9d8ec2dce8eacb5f42643e1840598.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

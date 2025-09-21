@@ -122,12 +122,14 @@ func initialize_main_menu()-> void:
 		menu_price_list.text = menu_price_list.text + "n" + "$10"
 
 func _on_menu_editing_pressed() -> void:
+	$"ExMenu-Open".play()
 	print("You clicked the Menu Editing Button")
 	interact_button_container.visible = false
 	menu_expansion.visible = true
 	return_to_serve_customer.visible = true
 
 func _on_shop_pressed() -> void:
+	$"Shop-OpenDoor".play()
 	interact_button_container.visible = false
 	shop.visible = true
 	return_to_serve_customer.visible = true
@@ -140,6 +142,7 @@ func _on_skill_tree_pressed() -> void:
 	print("You clicked the Skill Tree Button")
 	
 func _on_setting_pressed() -> void:
+	$"MainMenu-Select".play()
 	print("You clicked the Setting Button")
 	
 func _on_player_health_changed() -> void:
@@ -150,40 +153,48 @@ func _on_player_health_changed() -> void:
 
 func _on_return_pressed() -> void:
 	if menu_expansion.visible:
+		$"ExMenu-Close".play()
 		interact_button_container.visible = true
 		menu_expansion.visible = false
 		return_to_serve_customer.visible = false
 	if shop.visible:
+		$"Shop-CloseDoor".play()
 		interact_button_container.visible = true
 		shop.visible = false
 		return_to_serve_customer.visible = false
 
 func _on_to_pressed() -> void:
 	if menu_expansion.visible:
+		$"ExMenu-Close".play()
 		interact_button_container.visible = true
 		menu_expansion.visible = false
 		return_to_serve_customer.visible = false
 	if shop.visible:
+		$"Shop-CloseDoor".play()
 		interact_button_container.visible = true
 		shop.visible = false
 		return_to_serve_customer.visible = false
 		
 func _on_serve_pressed() -> void:
 	if menu_expansion.visible:
+		$"ExMenu-Close".play()
 		interact_button_container.visible = true
 		menu_expansion.visible = false
 		return_to_serve_customer.visible = false
 	if shop.visible:
+		$"Shop-CloseDoor".play()
 		interact_button_container.visible = true
 		shop.visible = false
 		return_to_serve_customer.visible = false
 		
 func _on_customer_pressed() -> void:
 	if menu_expansion.visible:
+		$"ExMenu-Close".play()
 		interact_button_container.visible = true
 		menu_expansion.visible = false
 		return_to_serve_customer.visible = false
 	if shop.visible:
+		$"Shop-CloseDoor".play()
 		interact_button_container.visible = true
 		shop.visible = false
 		return_to_serve_customer.visible = false
@@ -192,6 +203,7 @@ func _on_customer_pressed() -> void:
 func _on_buy_flavor_1_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (flavor_1.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -216,6 +228,7 @@ func _on_buy_flavor_1_pressed() -> void:
 func _on_buy_flavor_2_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (flavor_2.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -239,6 +252,7 @@ func _on_buy_flavor_2_pressed() -> void:
 func _on_buy_flavor_3_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (flavor_3.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -261,6 +275,7 @@ func _on_buy_flavor_3_pressed() -> void:
 func _on_buy_extra_1_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (extra_1.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -283,6 +298,7 @@ func _on_buy_extra_1_pressed() -> void:
 func _on_buy_extra_2_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (extra_2.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -306,6 +322,7 @@ func _on_buy_extra_2_pressed() -> void:
 func _on_buy_extra_3_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (extra_3.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -326,6 +343,7 @@ func _on_buy_extra_3_pressed() -> void:
 func _on_buy_preparation_1_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (preparation_1.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -349,6 +367,7 @@ func _on_buy_preparation_1_pressed() -> void:
 func _on_buy_preparation_2_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (preparation_2.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -372,6 +391,7 @@ func _on_buy_preparation_2_pressed() -> void:
 func _on_buy_preparation_3_pressed() -> void:
 	# Check if player has funds to buy
 	if(Global.get_funds() >= 20.0) and (preparation_3.text != "OUT OF STOCK"):
+		$"Shop-Purchase".play()
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -394,7 +414,7 @@ func _on_add_to_menu_pressed() -> void:
 
 	if !(flavors.get_selected_id() <= 0 and extra.get_selected_id() <= 0 and preparation.get_selected_id() <= 0):
 		var new_item = flavors.get_item_text(flavors.selected) + " " + extra.get_item_text(extra.selected) + " " + preparation.get_item_text(preparation.selected)
-		
+		$"ExMenu-ConfirmIngredient".play()
 		if !(Global.new_items_from_player.has(new_item)):
 			Global.new_items_from_player.append(new_item)
 			menu_item_list.text = menu_item_list.text + "\n" + new_item
