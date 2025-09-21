@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8o48fu8plv7j"
+path="res://.godot/imported/Cust Serv - Talk High.mp3-98b021b06cb9a9ac04e03ba92539d74e.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Cust Serv - Talk High.mp3"
+dest_files=["res://.godot/imported/Cust Serv - Talk High.mp3-98b021b06cb9a9ac04e03ba92539d74e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

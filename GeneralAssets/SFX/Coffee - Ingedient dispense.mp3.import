@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ouia2t7pqe2f"
+path="res://.godot/imported/Coffee - Ingedient dispense.mp3-f90aeb7a92cd8218e529e3532c101901.mp3str"
+
+[deps]
+
+source_file="res://GeneralAssets/SFX/Coffee - Ingedient dispense.mp3"
+dest_files=["res://.godot/imported/Coffee - Ingedient dispense.mp3-f90aeb7a92cd8218e529e3532c101901.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
