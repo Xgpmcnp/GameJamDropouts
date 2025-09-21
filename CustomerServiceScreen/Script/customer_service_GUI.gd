@@ -154,7 +154,7 @@ func _on_customer_pressed() -> void:
 
 func _on_buy_flavor_1_pressed() -> void:
 	# Check if player has funds to buy
-	if(Global.get_funds() >= 20.0):
+	if(Global.get_funds() >= 20.0) and (flavor_1.text != "OUT OF STOCK"):
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -167,11 +167,13 @@ func _on_buy_flavor_1_pressed() -> void:
 		flavor_2.text = flavor_3.text
 		if(Global.flavor_shop_options.size() > 2):
 			flavor_3.text = Global.flavor_shop_options[2]
+		else:
+			flavor_3.text = "OUT OF STOCK"
 
 
 func _on_buy_flavor_2_pressed() -> void:
 	# Check if player has funds to buy
-	if(Global.get_funds() >= 20.0):
+	if(Global.get_funds() >= 20.0) and (flavor_2.text != "OUT OF STOCK"):
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -183,11 +185,12 @@ func _on_buy_flavor_2_pressed() -> void:
 		flavor_2.text = flavor_3.text
 		if(Global.flavor_shop_options.size() > 2):
 			flavor_3.text = Global.flavor_shop_options[2]
-
+		else:
+			flavor_3.text = "OUT OF STOCK"
 
 func _on_buy_flavor_3_pressed() -> void:
 	# Check if player has funds to buy
-	if(Global.get_funds() >= 20.0):
+	if(Global.get_funds() >= 20.0) and (flavor_3.text != "OUT OF STOCK"):
 		# Update funds and composure
 		Global.update_funds(-20)
 		Global.update_composure_on_item_buy()
@@ -198,3 +201,116 @@ func _on_buy_flavor_3_pressed() -> void:
 		# Update options list
 		if(Global.flavor_shop_options.size() > 2):
 			flavor_3.text = Global.flavor_shop_options[2]
+		else:
+			flavor_3.text = "OUT OF STOCK"
+
+
+func _on_buy_extra_1_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0) and (extra_1.text != "OUT OF STOCK"):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update extras list
+		Global.update_extras(extra_1.text)
+		
+		# Update options list
+		extra_1.text = extra_2.text
+		extra_2.text = extra_3.text
+		if(Global.extras_shop_options.size() > 2):
+			extra_3.text = Global.extras_shop_options[2]
+		else:
+			extra_3.text = "OUT OF STOCK"
+
+
+func _on_buy_extra_2_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0) and (extra_2.text != "OUT OF STOCK"):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update extras list
+		Global.update_extras(extra_2.text)
+		
+		# Update options list
+		extra_2.text = extra_3.text
+		if(Global.extras_shop_options.size() > 2):
+			extra_3.text = Global.extras_shop_options[2]
+		else:
+			extra_3.text = "OUT OF STOCK"
+
+
+func _on_buy_extra_3_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0) and (extra_3.text != "OUT OF STOCK"):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update extras list
+		Global.update_extras(extra_3.text)
+		
+		# Update options list
+		if(Global.extras_shop_options.size() > 2):
+			extra_3.text = Global.extras_shop_options[2]
+		else:
+			extra_3.text = "OUT OF STOCK"
+
+
+func _on_buy_preparation_1_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0) and (preparation_1.text != "OUT OF STOCK"):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update extras list
+		Global.update_preparation_methods(preparation_1.text)
+		
+		# Update options list
+		preparation_1.text = preparation_2.text
+		preparation_2.text = preparation_3.text
+		if(Global.prepartion_method_shop_options.size() > 2):
+			preparation_3.text = Global.prepartion_method_shop_options[2]
+		else:
+			preparation_3.text = "OUT OF STOCK"
+
+
+func _on_buy_preparation_2_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0) and (preparation_2.text != "OUT OF STOCK"):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update extras list
+		Global.update_preparation_methods(preparation_2.text)
+		
+		# Update options list
+		preparation_2.text = preparation_3.text
+		if(Global.prepartion_method_shop_options.size() > 2):
+			preparation_3.text = Global.prepartion_method_shop_options[2]
+		else:
+			preparation_3.text = "OUT OF STOCK"
+
+
+
+func _on_buy_preparation_3_pressed() -> void:
+	# Check if player has funds to buy
+	if(Global.get_funds() >= 20.0) and (preparation_3.text != "OUT OF STOCK"):
+		# Update funds and composure
+		Global.update_funds(-20)
+		Global.update_composure_on_item_buy()
+		
+		# Update extras list
+		Global.update_preparation_methods(preparation_1.text)
+		
+		# Update options list
+		preparation_1.text = preparation_2.text
+		preparation_2.text = preparation_3.text
+		if(Global.prepartion_method_shop_options.size() > 2):
+			preparation_3.text = Global.prepartion_method_shop_options[2]
+		else:
+			preparation_3.text = "OUT OF STOCK"
