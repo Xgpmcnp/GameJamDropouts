@@ -12,10 +12,13 @@ var current_customer_name: String  # Stores the name of the current customer
 
 # Called when the node enters the scene tree for the first time
 func _ready() -> void:
-	_reset_customer_timer()      # Initialize first customer spawn timer
-	customer.hide_sprite()       # Hide the customer by default
-	dialog_ui.visible = false    # Hide dialog UI at game start	
-	
+	if DialogueSystem.drink_ready:
+		_reset_customer_timer()      # Initialize first customer spawn timer
+		customer.hide_sprite()       # Hide the customer by default
+		dialog_ui.visible = false    # Hide dialog UI at game start	
+	else:
+		_reinitiate_customer_state()
+		
 # Called every frame, with delta = elapsed time since last frame
 func _process(delta: float) -> void:
 	# Handle customer spawning logic if there are no customer present atm
@@ -38,7 +41,17 @@ func start_dialog():
 	dialog_ui.visible = true
 	DialogueSystem.dialog_index = 0  # Reset dialog index to the first line
 	process_current_line()           # Show the first line
-		
+
+# Resume dialog with the current customer
+func resume_dialog():
+	if DialogueSystem.current_dialog.is_empty():
+		push_warning("No dialog to resume!")
+		return
+	var retrieve_line_info: Dictionary = DialogueSystem.get_current_dialog_speaker_and_dialog()
+	var character_name = Character.get_enum_from_string(retrieve_line_info["speaker_name"])  # Get enum ID
+	dialog_ui.resume_line(retrieve_line_info["speaker_name"], character_name, retrieve_line_info["dialog"])  # Update UI
+	dialog_ui.visible = true
+			
 # End dialog with the customer
 func end_dialog():
 	customer_active = false
@@ -74,13 +87,17 @@ func process_current_line():
 
 # Called when a new customer arrives
 func _on_customer_enter():
-	customer.display_sprite()   # Show the customer
 	# Pick a random enum key from CHARACTER_DETAILS
 	var keys = Character.CHARACTER_DETAILS.keys()
 	var random_key = keys[randi() % keys.size()]
+	#Store the customer index
+	DialogueSystem.get_current_customer_index(random_key)
 	# Store the readable name (like "CustomerA")
 	current_customer_name = Character.CHARACTER_DETAILS[random_key]["name"]
 	DialogueSystem.get_current_customer_name(current_customer_name)
+	# Load their sprite/animation
+	customer.load_character(random_key)
+	customer.display_sprite()
 	start_dialog()              # Start dialog sequence
 
 # Reset the customer spawn timer to a new random interval
@@ -88,3 +105,10 @@ func _reset_customer_timer() -> void:
 	customer_timer = 0.0
 	next_customer_time = randf_range(1.0, 3.0)  # Random delay 5–10 seconds
 	print(next_customer_time)  # Debug: print chosen time
+
+func _reinitiate_customer_state() -> void:
+	has_customer = true
+	current_customer_name = DialogueSystem.customer_name
+	customer.load_character(DialogueSystem.customer_index)
+	customer.display_sprite()
+	resume_dialog()

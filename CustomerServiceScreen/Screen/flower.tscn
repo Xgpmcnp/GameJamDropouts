@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2qijxm7ohmfc"]
+
+[ext_resource type="Texture2D" uid="uid://b626okiyslj3n" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_orchid.png" id="1_2pd8c"]
+
+[node name="Flower" type="Node2D"]
+
+[node name="FlowerImg" type="Sprite2D" parent="."]
+position = Vector2(139, 399)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("1_2pd8c")

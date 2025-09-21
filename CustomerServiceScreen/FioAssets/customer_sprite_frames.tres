@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bs1ka67pad0wl"]
+
+[ext_resource type="Texture2D" uid="uid://cewl2o3ulei4n" path="res://CustomerServiceScreen/FioAssets/customer_service_npc.png" id="1_2c0yk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2c0yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2c0yk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2c0yk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2c0yk")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
+}]

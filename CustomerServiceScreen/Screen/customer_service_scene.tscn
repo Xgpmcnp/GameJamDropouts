@@ -2,16 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://td5fxgjpepik" path="res://CustomerServiceScreen/Screen/customer_service_GUI.tscn" id="1_0m4uw"]
 [ext_resource type="Script" uid="uid://ds2q6bg1vdsu2" path="res://CustomerServiceScreen/Script/customer_service_scene.gd" id="1_baqgh"]
-[ext_resource type="PackedScene" uid="uid://cc5yeg5hcdljh" path="res://CustomerServiceScreen/Screen/world.tscn" id="2_xb8ma"]
+[ext_resource type="PackedScene" uid="uid://cc5yeg5hcdljh" path="res://CustomerServiceScreen/Screen/background.tscn" id="2_xb8ma"]
 [ext_resource type="PackedScene" uid="uid://d0cr12y0504x2" path="res://CustomerServiceScreen/Screen/player.tscn" id="3_f065v"]
+[ext_resource type="PackedScene" uid="uid://2qijxm7ohmfc" path="res://CustomerServiceScreen/Screen/flower.tscn" id="3_pkgll"]
 [ext_resource type="PackedScene" uid="uid://cl13143eonr01" path="res://CustomerServiceScreen/Screen/customer.tscn" id="4_pkgll"]
-[ext_resource type="Texture2D" uid="uid://b626okiyslj3n" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_orchid.png" id="8_xr8xy"]
 [ext_resource type="PackedScene" uid="uid://cgrie3xb0bya5" path="res://CustomerServiceScreen/Screen/dialog_ui.tscn" id="13_pshui"]
 
 [node name="CustomerServiceScene" type="Node2D"]
 script = ExtResource("1_baqgh")
 
-[node name="World" parent="." instance=ExtResource("2_xb8ma")]
+[node name="World" type="Node2D" parent="."]
+
+[node name="BackGround" parent="World" instance=ExtResource("2_xb8ma")]
+
+[node name="Flower" parent="World" instance=ExtResource("3_pkgll")]
 
 [node name="Character" type="Node2D" parent="."]
 
@@ -19,6 +23,7 @@ script = ExtResource("1_baqgh")
 unique_name_in_owner = true
 
 [node name="Table" type="Sprite2D" parent="Character"]
+visible = false
 position = Vector2(577, 559.25)
 scale = Vector2(5.76, 0.933862)
 
@@ -28,17 +33,12 @@ position = Vector2(2, 5)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="CustomerServiceGUI" parent="GUI" instance=ExtResource("1_0m4uw")]
-
 [node name="DialogUI" parent="GUI" instance=ExtResource("13_pshui")]
 unique_name_in_owner = true
 offset_left = 19.0
 offset_right = -19.0
 offset_bottom = -1.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(139, 399)
-scale = Vector2(0.28, 0.28)
-texture = ExtResource("8_xr8xy")
+[node name="CustomerServiceGUI" parent="GUI" instance=ExtResource("1_0m4uw")]
 
 [connection signal="health_changed" from="Character/Player" to="GUI/CustomerServiceGUI" method="_on_player_health_changed"]

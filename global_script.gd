@@ -173,6 +173,7 @@ func goto_main_menu():
 func goto_customer_service_menu(isGoingBack: bool, isAssessing: bool):
 	if isGoingBack:
 		self.reset_selected_options()
+		DialogueSystem.drink_ready = false
 	if isAssessing:
 		self.assess_drink()
 	

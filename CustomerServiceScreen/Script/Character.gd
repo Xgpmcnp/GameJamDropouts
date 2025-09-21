@@ -9,11 +9,11 @@ enum Name{
 const CHARACTER_DETAILS: Dictionary = {
 	Name.CUSTOMERA:{
 		"name": "CustomerA",
-		"sprite_frames": preload("res://CustomerServiceScreen/texture/CustomerA.tres")
+		"sprite_frames": preload("res://CustomerServiceScreen/FioAssets/customer_sprite_frames.tres")
 	},
 		Name.CUSTOMERB:{
 		"name": "CustomerB",
-		"sprite_frames": preload("res://CustomerServiceScreen/texture/CustomerB.tres")
+		"sprite_frames": preload("res://CustomerServiceScreen/FioAssets/customer_sprite_frames.tres")
 	},
 	
 }
