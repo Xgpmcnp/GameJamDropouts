@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0cr12y0504x2"]
+[gd_scene load_steps=8 format=3 uid="uid://d0cr12y0504x2"]
 
 [ext_resource type="Script" uid="uid://7ag8xgn8apos" path="res://CustomerServiceScreen/Script/player.gd" id="1_10wag"]
 [ext_resource type="Texture2D" uid="uid://bpnx4c51m7dbt" path="res://CustomerServiceScreen/FioAssets/customer_service_saigon_portrait_bkgd.png" id="2_xkx15"]
 [ext_resource type="Texture2D" uid="uid://bymye1wage1yf" path="res://CustomerServiceScreen/FioAssets/customer_service_screen_saigon_portrait_frame.png" id="3_8uf8m"]
 [ext_resource type="Texture2D" uid="uid://47prxkiimgti" path="res://GeneralAssets/SaigonPortraits/saigon_100_flats.png" id="3_lk26q"]
+[ext_resource type="Texture2D" uid="uid://crr6w5mu7oibt" path="res://GeneralAssets/SaigonPortraits/saigon_50_flats.png" id="4_lk26q"]
 [ext_resource type="Texture2D" uid="uid://cg1vbc3ve3k48" path="res://GeneralAssets/SaigonPortraits/saigon_25_flats.png" id="5_chlxd"]
 [ext_resource type="Texture2D" uid="uid://vjbumsiblglx" path="res://GeneralAssets/SaigonPortraits/saigon_0_flats.png" id="6_a0s8h"]
 
@@ -20,6 +21,8 @@ scale = Vector2(0.21, 0.21)
 texture = ExtResource("3_lk26q")
 
 [node name="SaigonAnnoyed" type="Sprite2D" parent="AvatarBG"]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("4_lk26q")
 
 [node name="SaigonDepressed" type="Sprite2D" parent="AvatarBG"]
 scale = Vector2(0.21, 0.21)

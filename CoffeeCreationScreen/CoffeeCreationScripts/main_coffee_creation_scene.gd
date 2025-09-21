@@ -59,7 +59,7 @@ func _update_sprite() -> void:
 			saigon_depressed.visible = false
 			saigon_dead.visible = false
 		_ when composure <= 50 && composure >= 26:
-			print("Annoyed")
+			print("Depressed")
 			saigon_happy.visible = false
 			saigon_annoyed.visible = true
 			saigon_depressed.visible = true

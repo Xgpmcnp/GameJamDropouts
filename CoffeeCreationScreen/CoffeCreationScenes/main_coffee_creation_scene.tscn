@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://drwqanvf6iry2"]
+[gd_scene load_steps=25 format=3 uid="uid://drwqanvf6iry2"]
 
 [ext_resource type="Script" uid="uid://bip8d3j1so577" path="res://CoffeeCreationScreen/CoffeeCreationScripts/main_coffee_creation_scene.gd" id="1_63yc2"]
 [ext_resource type="PackedScene" uid="uid://b6kgf03wtfwmf" path="res://CoffeeCreationScreen/CoffeCreationScenes/flavor_selection.tscn" id="1_o7735"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://47prxkiimgti" path="res://GeneralAssets/SaigonPortraits/saigon_100_flats.png" id="9_letru"]
 [ext_resource type="Texture2D" uid="uid://dwayd5rsiwurl" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_settings_button.png" id="9_odjlt"]
 [ext_resource type="Texture2D" uid="uid://d3n7wktxtcrwp" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_belt.png" id="10_ay4q3"]
+[ext_resource type="Texture2D" uid="uid://crr6w5mu7oibt" path="res://GeneralAssets/SaigonPortraits/saigon_50_flats.png" id="10_hmxkl"]
 [ext_resource type="Texture2D" uid="uid://g7pkr8acl55d" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_serve_button.png" id="10_letru"]
 [ext_resource type="Texture2D" uid="uid://cg1vbc3ve3k48" path="res://GeneralAssets/SaigonPortraits/saigon_25_flats.png" id="11_hmxkl"]
 [ext_resource type="Texture2D" uid="uid://dpudbwijs0gb3" path="res://CoffeeCreationScreen/FioAssets/coffee making scene/coffee_making_scene_conveyer_frame.png" id="11_jj17i"]
@@ -109,6 +110,8 @@ scale = Vector2(0.21, 0.21)
 texture = ExtResource("9_letru")
 
 [node name="SaigonAnnoyed" type="Sprite2D" parent="Node2D/Portrait"]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("10_hmxkl")
 
 [node name="SaigonDepressed" type="Sprite2D" parent="Node2D/Portrait"]
 scale = Vector2(0.21, 0.21)
