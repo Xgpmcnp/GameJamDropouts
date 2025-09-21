@@ -9,8 +9,11 @@ var customer_name: String = "default"
 # Stores the current dialog lines after formatting
 var current_dialog: Array[String] = []
 # Store the current state of serving
-var drink_ready: bool = true
-
+var drink_ready: bool = false
+# Store the state of having customer
+var current_has_customer: bool = false
+# default set of dialog
+var default_dialog: Array = []
 #region tutorial_dialog
 const introduction_dialog: Array = [
 		"Narration: The shop's window clinks gently as Saigon turns the \"Open!\" side of the panel to face outside.",
@@ -25,10 +28,10 @@ const introduction_dialog: Array = [
 const general_conversation_dialog: Array = [
 	[
 		"Saigon: Hi, welcome to Pour Some Love! What can we brew together today?",
-		"Customer: O-Oh... hello.. I saw the ad outside about a newly opened Pour Some Love location, is this it?",
+		"{customer}: O-Oh... hello.. I saw the ad outside about a newly opened Pour Some Love location, is this it?",
 		"Saigon: Yes ma'am! This is Pour Some Love, where there's no limits to the art of the brew! Together, we can explore new flavours and go where no taste bud has gone!",
 		"Saigon's thoughts: Hah... I did it, I said it perfectly! All that practice is paying off.. they're going to order something so creative for sure!",
-		"Customer: Err.. oooooookay.. well, do you think.. do you think I could get a pumpkin spice latte? Like the one in the ad! It seemed so delicious..",
+		"{customer}: Err.. oooooookay.. well, do you think.. do you think I could get a pumpkin spice latte? Like the one in the ad! It seemed so delicious..",
 		"Saigon: ...",
 		#*A -1 composure should happen here*
 		"Saigon: But of course, coming right up for you ma'am!",
@@ -38,28 +41,28 @@ const general_conversation_dialog: Array = [
 	[
 		#*Door bell chime, customer appears*
 		"Saigon: Oh! Welcome to Pour Some Love! What can I.. uh, what can we brew together today?",
-		"Customer: Oh, you must be new here.",
+		"{customer}: Oh, you must be new here.",
 		"Saigon: The entire shop is new, sir!",
-		"Customer: Oh really? I wouldn't have guessed, what with the fresh paint outside staining my boots!",
+		"{customer}: Oh really? I wouldn't have guessed, what with the fresh paint outside staining my boots!",
 		"Saigon: Oh, uh.. I'm sorry?",
-		"Customer: I bet you are. Anyway, get me a pumpkin spice latte, please and thank you.",
+		"{customer}: I bet you are. Anyway, get me a pumpkin spice latte, please and thank you.",
 		#*A -2 composure should happen here, and the combo meter raises to 2*
 		"Saigon: Right, yes, of course, just a minute!",
-		"Customer: Make it less than that, I've got places to be!",
+		"{customer}: Make it less than that, I've got places to be!",
 		#*A -4 composure should happen here, and the combo meter raises to 3*
 		"Saigon: R-Right....",
 	],
 	[
 		#*Door bell chime, customer appears*
 		"Saigon: Welcome to Pour Some Love, what can we brew together today?",
-		"Customer: Pumpkin Spice Latte.",
+		"{customer}: Pumpkin Spice Latte.",
 		#*A -16 composure should happen here, and the combo meter raises to 5*
 		"Saigon:... Yes, of course.",
 	],
 	[
 		#*Door bell chime, customer appears*
 		"Saigon: Welcome to Pour Some Love..",
-		"Customer: Oh, hello there young lady! I would love it if you could brew me one of those famous pumpkin spice lattes, I hear they're in season! Would you be so kind?",
+		"{customer}: Oh, hello there young lady! I would love it if you could brew me one of those famous pumpkin spice lattes, I hear they're in season! Would you be so kind?",
 		"Saigon: Certainly sir, coming right up.",
 		"Saigon's thoughts: At least this one is nice..",
 	]
@@ -68,15 +71,15 @@ const general_conversation_dialog: Array = [
 const serving_drink_dialog: Array = [
 	[
 		"Saigon: Coming right up, your pumpkin spice latte!",
-		"Customer: Oh wonderful, thank you miss!",
+		"{customer}: Oh wonderful, thank you miss!",
 		"Saigon: Of course! Please enjoy the love I've poured for you!",
-		"Customer: Uh.. sure..?",
+		"{customer}: Uh.. sure..?",
 		"Saigon's thoughts: Such a stupid tagline... but I have to say it..",
 		#*Door bell chime, customer leaves*
 	],
 	[
 		"Saigon: Here you go, pumpkin spice latte to go!",
-		"Customer: And not a second too soon. You should respect your customer's time more! The Pour Some Love branch in my hometown would've served it faster!",
+		"{customer}: And not a second too soon. You should respect your customer's time more! The Pour Some Love branch in my hometown would've served it faster!",
 		#*A -8 composure should happen here, and the combo meter raises to 4*
 		"Saigon: Apologies.. please enjoy the love I've poured.. he's gone..",
 		#*Door bell chime, customer leaves*
@@ -85,10 +88,10 @@ const serving_drink_dialog: Array = [
 	],
 	[
 		"Saigon: Here you are. Please enjoy the love I've poured for you today.",
-		"Customer: At this price? That's plain robbery. If you want me to enjoy it, it should really be half that price. Your competitors sell it cheaper!",
+		"{customer}: At this price? That's plain robbery. If you want me to enjoy it, it should really be half that price. Your competitors sell it cheaper!",
 		#*A -32 composure should happen here, and the combo meter raises to 6*
 		"Saigon: I'm sorry sir, all prices are set by head office. You can peruse the other items on the menu if you want, they're cheaper and I'll be happy to make you another dri-",
-		"Customer: No, I want a pumpkin spice latte. Ah, forget it, I'll just call head office, they always give me coupons when I complain! Better hope it doesn't come back down on you!",
+		"{customer}: No, I want a pumpkin spice latte. Ah, forget it, I'll just call head office, they always give me coupons when I complain! Better hope it doesn't come back down on you!",
 		#*Door bell chime, customer leaves*
 		"Saigon:...",
 		"Saigon:.....",
@@ -96,9 +99,9 @@ const serving_drink_dialog: Array = [
 	],
 	[
 		"Saigon: Here's your drink, please enjoy it!",
-		"Customer: I'll try! Sure would be easier if you smiled a little more, young lady. You'd be so much prettier!",
+		"{customer}: I'll try! Sure would be easier if you smiled a little more, young lady. You'd be so much prettier!",
 		#*A -64 composure should happen here, and the combo meter raises to 7*
-		"Customer: Anyway, goodbye!",
+		"{customer}: Anyway, goodbye!",
 		#*door bell chimes, customer leaves*
 	]
 ]
@@ -160,23 +163,23 @@ const tutorial_game_over_dialog = [
 const conversation_at_state_76_100: Array = [
 	[
 		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
-		"Customer: I'll have your finest pumpkin spice latte, please.",
+		"{customer}: I'll have your finest pumpkin spice latte, please.",
 		"Saigon: Of course, coming right up!"
 	],
 	[
 		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
-		"Customer: Pumpkin Spice Latte.",
+		"{customer}: Pumpkin Spice Latte.",
 		"Saigon: ..Certainly, I'm on it!"
 	],
 	[
 		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
-		"Customer: Oh, love the menu! I'll have something different today.. How about a pumpkin spice latte?",
+		"{customer}: Oh, love the menu! I'll have something different today.. How about a pumpkin spice latte?",
 		"Saigon: Of course!",
 		"Saigon's thoughts: ...THAT'S DIFFERENT? Where are you the other days!"
 	],
 	[
 		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
-		"Customer: I'll have the usual.",
+		"{customer}: I'll have the usual.",
 		"Saigon: Certainly, pumpkin spice latte, on its way",
 		"Saigon's thoughts: ..I have never met this man."
 	]
@@ -185,24 +188,24 @@ const conversation_at_state_76_100: Array = [
 const conversation_at_state_51_75: Array = [
 	[
 		"Saigon: Welcome to Pour Some Love! How can I help?",
-		"Customer: I'll have your finest pumpkin spice latte, please.",
+		"{customer}: I'll have your finest pumpkin spice latte, please.",
 		"Saigon: Of course, right away."
 	],
 	[
 		"Saigon: Welcome to Pour Some Love! What would you like to drink?",
-		"Customer: Pumpkin Spice Latte.",
+		"{customer}: Pumpkin Spice Latte.",
 		"Saigon: ..Sure, it's on its way."
 	],
 	[
 		"Saigon: Welcome to Pour Some Love! What can I get you?",
-		"Customer: I'll have the usual.",
+		"{customer}: I'll have the usual.",
 		"Saigon: Ah, yes, the usual. Of course."
 	],
 	[
 		"Saigon: Welcome to Pour Some Love! What do you want?",
-		"Customer: What do I want? What kind of question is that? Bit rude..",
+		"{customer}: What do I want? What kind of question is that? Bit rude..",
 		"Saigon: O-oh, sorry, slip of the tongue. What can we brew together today?",
-		"Customer: That's better. How about a pumpkin spice latte?",
+		"{customer}: That's better. How about a pumpkin spice latte?",
 		"Saigon: ..Certainly.",
 		"Saigon's thoughts: Why so rude?"
 	]
@@ -211,26 +214,26 @@ const conversation_at_state_51_75: Array = [
 const conversation_at_state_26_50: Array = [
 	[
 		"Saigon: Welcome, how can I help you..?",
-		"Customer: Oh, I'll have a uh, pumpkin spice latte?",
+		"{customer}: Oh, I'll have a uh, pumpkin spice latte?",
 		"Saigon: Sounds about right."
 	],
 	[
 		"Saigon: Hello and welcome..",
-		"Customer: I'll have a pumpkin spice latte.. but maybe you need it more than me?",
+		"{customer}: I'll have a pumpkin spice latte.. but maybe you need it more than me?",
 		"Saigon: No, I'm good, thank you. Yours is coming up."
 	],
 	[
 		"Saigon: Hi, welcome to Pour Some Love.",
-		"Customer: Do you serve pumpkin spice lattes here?",
+		"{customer}: Do you serve pumpkin spice lattes here?",
 		"Saigon: What do you think?",
-		"Customer:..yes?",
+		"{customer}:..yes?",
 		"Saigon: It's.. on the way.."
 	],
 	[
 		"Saigon: Welcome to.. Pour Some Love.. What can we brew.. together today..",
-		"Customer: You don't seem okay.",
+		"{customer}: You don't seem okay.",
 		"Saigon: I assure you, I am doing.. awesome.",
-		"Customer: Oh, okay! I'll have a pumpkin spice latte, please!",
+		"{customer}: Oh, okay! I'll have a pumpkin spice latte, please!",
 		"Saigon's thoughts: I am not okay."
 	]
 ]
@@ -238,28 +241,28 @@ const conversation_at_state_26_50: Array = [
 const conversation_at_state_1_25: Array = [
 	[
 		"Saigon: Welcome..",
-		"Customer: Uhh, are you okay?",
+		"{customer}: Uhh, are you okay?",
 		"Saigon: Your order, please..",
-		"Customer: Oh, uh, a pumpkin sp-",
+		"{customer}: Oh, uh, a pumpkin sp-",
 		"Saigon: Pumpkin spice latte, coming right up.."
 	],
 	[
 		"Saigon: ...",
-		"Customer: Pumpkin.",
+		"{customer}: Pumpkin.",
 		"Saigon: ...",
-		"Customer: Spice.",
+		"{customer}: Spice.",
 		"Saigon: ...",
-		"Customer: Latte.",
+		"{customer}: Latte.",
 		"Saigon: ..."
 	],
 	[
 		"Saigon: Here's another..",
-		"Customer: Hello my good madam, I would be in your debt if you could serve me a simple pumpkin spice latte!",
+		"{customer}: Hello my good madam, I would be in your debt if you could serve me a simple pumpkin spice latte!",
 		"Saigon: ..yes, of course."
 	],
 	[
 		"Saigon: Welcome to Pumpkin Spice Latte..",
-		"Customer: Hi, yes, can I have a Pour Some Love please?",
+		"{customer}: Hi, yes, can I have a Pour Some Love please?",
 		"Saigon: PSL, coming right up"
 	]
 ]
@@ -269,63 +272,63 @@ const conversation_at_state_1_25: Array = [
 const good_drink_76_100: Array = [
 	[        
 		"Saigon: Here's your drink! Please enjoy the love I've poured for you today!",
-		"Customer: o..okay? Thank you..",],
+		"{customer}: o..okay? Thank you..",],
 	[
 		"Saigon: Your pumpkin spice latte, coming right up! Please enjoy the love I've poured for you today!",
-		"Customer: Aw, thank you miss! I will!",		
+		"{customer}: Aw, thank you miss! I will!",		
 	],
 	[
 		"Saigon: Here you go, pumpking spice latte! Please enjoy the love I've poured for you today!",
-		"Customer: Uh, sure I will. Good day.",		
+		"{customer}: Uh, sure I will. Good day.",		
 	],
 	[
 		"Saigon: Pumpkin spice latte, here and ready! Please enjoy the love I've poured for you today!",
-		"Customer: Oh, that was fast. And it smells great! Thank you!",		
+		"{customer}: Oh, that was fast. And it smells great! Thank you!",		
 	]
 ]
 
 const good_drink_51_75: Array = [
 	[        
 		"Saigon: Here's your latte, just what you ordered!",
-		"Customer: Perfect, thank you!",
+		"{customer}: Perfect, thank you!",
 	],
 	[
 		"Saigon: Pumpkin spice latte, as you wished!",
-		"Customer: About time!",		
+		"{customer}: About time!",		
 	],
 	[
 		"Saigon: The usual, coming right up!",
-		"Customer: Oh, this is my first time here actually. But this drink might become my usual, I love it!",
+		"{customer}: Oh, this is my first time here actually. But this drink might become my usual, I love it!",
 		"Saigon's thoughts: Oh, I sure hope it doesn't..",		
 	],
 	[
 		"Saigon: Your drink, ready to go.",
-		"Customer: Finally, a good drink. Thank you!",		
+		"{customer}: Finally, a good drink. Thank you!",		
 	]
 ]
 
 const good_drink_26_50: Array = [
 	[        
 		"Saigon: Here's your drink.",
-		"Customer: Just as I like it. Aren't these great?",
+		"{customer}: Just as I like it. Aren't these great?",
 		"Saigon: Yes.",
 		"Saigon's thoughts: No.",
 	],
 	[
 		"Saigon: Here's your order.",
-		"Customer: About time, I gotta bounce!",
+		"{customer}: About time, I gotta bounce!",
 		"Saigon's thoughts: ..please trip and spill the horrible concoction from hell..",		
 	],
 	[
 		"Saigon: Your coffee.",
-		"Customer: Thank you.",
+		"{customer}: Thank you.",
 		"Saigon: You're welcome.",
 	],
 	[
 		"Saigon: The drink you've ordered.",
-		"Customer: Are you sure that's what I ordered?",
+		"{customer}: Are you sure that's what I ordered?",
 		"Saigon: Yes.",
-		"Customer: Oh, okay, thank you!",
+		"{customer}: Oh, okay, thank you!",
 		"Saigon: ..I didn't do anything wrong with that one, did I? Maybe I should have.. Would've felt good, at least.",
 	]
 ]
@@ -333,22 +336,22 @@ const good_drink_26_50: Array = [
 const good_drink_1_25: Array = [
 	[        
 		"Saigon: Here you go..",
-		"Customer: Nice drink! A nice smile would be a great topping, however!",
+		"{customer}: Nice drink! A nice smile would be a great topping, however!",
 		"Saigon: You may leave.",
 	],
 	[
 		"Saigon: Here's your latte...",
-		"Customer: Are you fit to work?",
+		"{customer}: Are you fit to work?",
 		"Saigon: Of course.",
 		"Saigon's thoughts: Of course not.",	
 	],
 	[
 		"Saigon:...",
-		"Customer:...",
+		"{customer}:...",
 	],
 	[
 		"Saigon: Here it is..",
-		"Customer: Thank.. you?",
+		"{customer}: Thank.. you?",
 	]
 ]
 #endregion
@@ -357,23 +360,23 @@ const good_drink_1_25: Array = [
 const bad_drink_76_100: Array = [
 	[        
 		"Saigon: Here's a delicious drink for you! Please enjoy the love I've poured for you today!",
-		"Customer: Are you sure this is what I ordered..? Actually, nevermind, this tastes great, it's definitely what I ordered!",
+		"{customer}: Are you sure this is what I ordered..? Actually, nevermind, this tastes great, it's definitely what I ordered!",
 		"Saigon's thoughts: Of course it is.. hah! Get served!",
 	],
 	[
 		"Saigon: Here's the drink of your dreams! Please enjoy the love I've poured for you today!",
-		"Customer: Really? It smells off.. ah, it smells good though, so whatever. New blend?",
+		"{customer}: Really? It smells off.. ah, it smells good though, so whatever. New blend?",
 		"Saigon: You could call it that!",	
 	],
 	[
 		"Saigon: Perfect drink, just for you! Please enjoy the love I've poured for you today!",
-		"Customer: This.. is not what I ordered. Or, well, is it?",
+		"{customer}: This.. is not what I ordered. Or, well, is it?",
 		"Saigon: It's exactly what you ordered, good sir!",
-		"Customer: Well then. Alright!",
+		"{customer}: Well then. Alright!",
 	],
 	[
 		"Saigon: Just what you ordered! Please enjoy the love I've poured for you today!",
-		"Customer: Oh yeah, that smells exactly like a pumpkin spice latte! Thank you!",
+		"{customer}: Oh yeah, that smells exactly like a pumpkin spice latte! Thank you!",
 		"Saigon's thoughts: ..and the fell for it again award goes to..",
 	]
 ]
@@ -381,23 +384,23 @@ const bad_drink_76_100: Array = [
 const bad_drink_51_75: Array = [
 	[        
 		"Saigon: Your magnificient drink, ready to go.",
-		"Customer: Finally, someone who can do a good pumpkin spice latte. Truly tastes exactly like the best of $*'s classic pumpkin spice latte!",
+		"{customer}: Finally, someone who can do a good pumpkin spice latte. Truly tastes exactly like the best of $*'s classic pumpkin spice latte!",
 		"Saigon's thoughts: You.. you know NOTHING!!",
 	],
 	[
 		"Saigon: The drink of your dreams, just for you",
-		"Customer: This tastes nothing like a pumpkin spice latte.",
+		"{customer}: This tastes nothing like a pumpkin spice latte.",
 		"Saigon: Oh, but it does, as it is one!",
-		"Customer: Ah, no point arguing about it..",
+		"{customer}: Ah, no point arguing about it..",
 	],
 	[
 		"Saigon: The perfect concoction, here to please!",
-		"Customer: Oh, so you think pumpkin spice lattes are the perfect concoction, too? Twins!!",
+		"{customer}: Oh, so you think pumpkin spice lattes are the perfect concoction, too? Twins!!",
 		"Saigon's thoughts: I hate it here.",	
 	],
 	[
 		"Saigon: The tastiest pumpkin spice latte in town, coming right up!",
-		"Customer: Oh, this tastes different.. is there a special ingredient in here? I love it!",
+		"{customer}: Oh, this tastes different.. is there a special ingredient in here? I love it!",
 		"Saigon: You could call it that! You sure could..",	
 	]
 ]
@@ -405,24 +408,24 @@ const bad_drink_51_75: Array = [
 const bad_drink_26_50: Array = [
 	[        
 		"Saigon: Here comes your drink!",
-		"Customer: My drink? Well, must be, I'm the only one here. Thank you!",
+		"{customer}: My drink? Well, must be, I'm the only one here. Thank you!",
 		"Saigon's thoughts: You are.. just oh so welcome.",
 	],
 	[
 		"Saigon: Your order, blended to perfection!",
-		"Customer: I ordered this? I actually don't remember what I ordered. Do you have receipts?",
+		"{customer}: I ordered this? I actually don't remember what I ordered. Do you have receipts?",
 		"Saigon: No, they don't fit the corporation's environmental goals, I think",
-		"Customer: I don't know if that's legal..",
+		"{customer}: I don't know if that's legal..",
 		"Saigon's thoughts: It really isn't..",
 	],
 	[
 		"Saigon: Enjoy your beautiful drink!",
-		"Customer: Is there really beauty to be found in such a generic drink?",
+		"{customer}: Is there really beauty to be found in such a generic drink?",
 		"Saigon's thoughts: Why would you order it if you think that...",
 	],
 	[
 		"Saigon: Here's your drink!",
-		"Customer: Awesome, just what I ordered. Thank you!",
+		"{customer}: Awesome, just what I ordered. Thank you!",
 		"Saigon: You're welcome!",
 		"Saigon's thoughts: Oh, oh so welcome..",
 	]
@@ -431,32 +434,32 @@ const bad_drink_26_50: Array = [
 const bad_drink_1_25: Array = [
 	[        
 		"Saigon: Hope you enjoy the bestest drink eveeeeer!",
-		"Customer: Oh, you look cheery! Of course I will!",
+		"{customer}: Oh, you look cheery! Of course I will!",
 		"Saigon's thoughts: Of course you will! I'm a great barista! Way better than this place deserves!",
 	],
 	[
 		"Saigon: Here comes a legendary brew!",
-		"Customer: Oh, this.. doesn't smell like what I ordered.",
+		"{customer}: Oh, this.. doesn't smell like what I ordered.",
 		"Saigon's thoughts: SERVES YOU RIGHT!",
 	],
 	[
 		"Saigon: I finally did it! I made the ultimate pumpkin spice latte!",
-		"Customer: Is this what that tastes like?",
+		"{customer}: Is this what that tastes like?",
 		"Saigon's thoughts: NO! THIS TASTES WAY BETTER!",
 	],
 	[
 		"Saigon: Oh no, I messed up your order!",
-		"Customer: Oh, can you redo it?",
+		"{customer}: Oh, can you redo it?",
 		"Saigon: NO! But if you call head office to complain, ask for Francine and complain a looooooooooot, she'll give you a coupon!",
-		"Customer: w..what?",
+		"{customer}: w..what?",
 		"Saigon: Make sure to really vent to her, tell her how you feel, how HORRIBLE the service was!!",
-		"Customer: I'm.. just gonna go.. the drink tastes better than what I ordered anyway..",
+		"{customer}: I'm.. just gonna go.. the drink tastes better than what I ordered anyway..",
 		"Saigon: YOU BET IT DOES!",
 	]
 ]
 #endregion
 
-# Extract SpeakerName, Dialogue from the Customer and Player
+# Extract SpeakerName, Dialogue from the {customer} and Player
 func extract_line(line: String) -> Dictionary:
 	var line_info := line.split(":", false, 2) # split into max 2 parts
 	if line_info.size() < 2:
@@ -492,11 +495,12 @@ func get_current_dialog_speaker_and_dialog() -> Dictionary:
 # and stores the result in `current_dialog`.
 func get_current_customer_name(customer: String):
 	customer_name = customer
-	# Pick a random dialog set from the conversation pool
-	var temp_dialog: Array = pick_random_dialog(conversation_at_state_76_100)
-	
-	# Convert to Array[String] explicitly
-	var current_dialog: Array[String] = []
+
+# Selects what dialog to use for conversation
+func get_conversation_dialog():
+	var temp_dialog: Array = pick_random_dialog(pick_from_set())
+		# Convert to Array[String] explicitly
+	current_dialog.clear()
 	for line in temp_dialog:
 		if typeof(line) == TYPE_STRING:
 			current_dialog.append(line)
@@ -505,15 +509,39 @@ func get_current_customer_name(customer: String):
 		"customer": customer_name
 	}
 	format_dialog(current_dialog, variables)
-
+	
+# Determine which set of dialog to be use, those array of hardcode dialogs.
+func pick_from_set() -> Array:
+	if drink_ready:
+		match Global.health:
+			_ when Global.health >= 75:
+				return good_drink_76_100
+			_ when Global.health >= 50:
+				return good_drink_51_75
+			_ when Global.health >= 25:
+				return good_drink_26_50
+			_ when Global.health < 25:
+				return good_drink_1_25
+	else:
+		match Global.health:
+			_ when Global.health >= 75:
+				return conversation_at_state_76_100
+			_ when Global.health >= 50:
+				return conversation_at_state_51_75
+			_ when Global.health >= 25:
+				return conversation_at_state_26_50
+			_ when Global.health < 25:
+				return conversation_at_state_1_25
+	return default_dialog
+	
 # Formats a dialog set by replacing placeholders with variable values.
 # Example: "{customer}" → "CustomerA"
-func format_dialog(dialog: Array[String], variables: Dictionary) -> Array[String]:
+func format_dialog(dialog: Array[String], variables: Dictionary) -> void:
 	var result: Array[String] = []
 	for line in dialog:
 		result.append(line.format(variables)) # Replace placeholders
 		current_dialog = result
-	return result
+		print(current_dialog)
 
 # Picks a random set of dialog lines from a larger collection of dialog sets.
 # If `dialog_sets` is empty, return an empty array.
