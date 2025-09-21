@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://40cgmmjlu8l4" path="res://MainMenuScreen/main_menu_screen.gd" id="1_vc4ah"]
 [ext_resource type="FontFile" uid="uid://djqkmj83inw0t" path="res://MainMenuScreen/Fonts/Sabaling-6Rv2v.otf" id="2_vc4ah"]
-[ext_resource type="FontFile" uid="uid://db3faghk8qpul" path="res://MainMenuScreen/Fonts/ChocoChici-2OMyW.ttf" id="3_7f08v"]
 [ext_resource type="AudioStream" uid="uid://dphdkjh33qq3o" path="res://MainMenuScreen/Audio/Pour Some Love - Main Theme FINAL.mp3" id="4_04kd7"]
 [ext_resource type="Script" uid="uid://bb1nu00bsei63" path="res://MainMenuScreen/AudioSlider.gd" id="7_kj861"]
 [ext_resource type="Script" uid="uid://bp5hx8umqx3ge" path="res://MainMenuScreen/moving_effects.gd" id="8_04kd7"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dwgnh54mvc36c" path="res://MainMenuScreen/Assets/Wildcard_1.png" id="11_dsriq"]
 [ext_resource type="Texture2D" uid="uid://cn2g4k0lyr5th" path="res://MainMenuScreen/Assets/Saigon.png" id="12_04kd7"]
 [ext_resource type="Texture2D" uid="uid://03lh5tmnrnwu" path="res://MainMenuScreen/Assets/Wildcard_2.png" id="12_aeynl"]
+[ext_resource type="Texture2D" uid="uid://7ni3mqv3ibrw" path="res://MainMenuScreen/Assets/PSL_LOGO.png" id="12_tu360"]
 
 [sub_resource type="Gradient" id="Gradient_gv8ib"]
 colors = PackedColorArray(0.61045, 0.344818, 0.0332173, 1, 0.642971, 0.461664, 0.0205553, 1)
@@ -126,25 +126,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_aeynl")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tu360")
 text = "Credits"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -289.0
-offset_top = -292.0
-offset_right = 257.0
-offset_bottom = -178.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_7f08v")
-theme_override_font_sizes/font_size = 80
-text = "Pour Some Love"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MainMenuBackground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_04kd7")
 volume_db = -10.306
@@ -233,7 +214,6 @@ offset_bottom = 201.5
 text = "Global Volume"
 
 [node name="Credits" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -343,7 +323,15 @@ door_chime3.mp3 by https://taira-komori.net/freesounden.html
 Main Menu :
 sh_shop_door_bell_openclose.wav by shall555 -- https://freesound.org/s/72197/ -- License: Attribution 4.0
 
-Various sounds from : https://ad-sounds.itch.io/dialog-text-sound-effects"
+Various sounds from : https://ad-sounds.itch.io/dialog-text-sound-effects
+
+Fonts:
+http://fontspace.com/fall-is-coming-font-f30492
+https://www.1001fonts.com/rusty-hooks-font.html
+https://www.1001fonts.com/motion-control-font.html
+https://www.fontspace.com/sabaling-font-f128260
+https://www.fontspace.com/choco-chici-font-f78972
+https://www.1001fonts.com/mochibop-font.html"
 
 [node name="PlainCoffeeMug" type="Sprite2D" parent="."]
 z_index = -1
@@ -3029,6 +3017,16 @@ offset_right = 284.0
 offset_bottom = 1185.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("12_aeynl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -238.0
+offset_top = -325.0
+offset_right = 528.0
+offset_bottom = 487.0
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("12_tu360")
 
 [connection signal="pressed" from="MainButtons/Start Shift" to="." method="_on_Start_Shift_pressed"]
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
