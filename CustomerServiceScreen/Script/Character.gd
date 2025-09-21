@@ -2,16 +2,16 @@ class_name Character
 extends Node
 
 enum Name{
-	CUSTOMERA,
-	CUSTOMERB
+	jose,
+	john
 }
 
 const CHARACTER_DETAILS: Dictionary = {
-	Name.CUSTOMERA:{
+	Name.jose:{
 		"name": "jose",
 		"sprite_frames": preload("res://CustomerServiceScreen/FioAssets/customer_sprite_frames.tres")
 	},
-		Name.CUSTOMERB:{
+		Name.john:{
 		"name": "john",
 		"sprite_frames": preload("res://CustomerServiceScreen/FioAssets/customer_sprite_frames.tres")
 	},
