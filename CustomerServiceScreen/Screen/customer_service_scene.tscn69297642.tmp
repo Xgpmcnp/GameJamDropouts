@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://th3nm1864cdr"]
+[gd_scene load_steps=8 format=3 uid="uid://th3nm1864cdr"]
 
 [ext_resource type="PackedScene" uid="uid://td5fxgjpepik" path="res://CustomerServiceScreen/Screen/customer_service_GUI.tscn" id="1_0m4uw"]
 [ext_resource type="Script" uid="uid://ds2q6bg1vdsu2" path="res://CustomerServiceScreen/Script/customer_service_scene.gd" id="1_baqgh"]
-[ext_resource type="PackedScene" uid="uid://50awwxxpauv4" path="res://CustomerServiceScreen/Screen/transition_screen.tscn" id="2_pkgll"]
 [ext_resource type="PackedScene" uid="uid://cc5yeg5hcdljh" path="res://CustomerServiceScreen/Screen/background.tscn" id="2_xb8ma"]
 [ext_resource type="PackedScene" uid="uid://d0cr12y0504x2" path="res://CustomerServiceScreen/Screen/player.tscn" id="3_f065v"]
 [ext_resource type="PackedScene" uid="uid://2qijxm7ohmfc" path="res://CustomerServiceScreen/Screen/flower.tscn" id="3_pkgll"]
@@ -12,14 +11,11 @@
 [node name="CustomerServiceScene" type="Node2D"]
 script = ExtResource("1_baqgh")
 
-[node name="TransitionScreen" parent="." instance=ExtResource("2_pkgll")]
-
 [node name="World" type="Node2D" parent="."]
 
 [node name="BackGround" parent="World" instance=ExtResource("2_xb8ma")]
 
 [node name="Flower" parent="World" instance=ExtResource("3_pkgll")]
-visible = false
 
 [node name="Character" type="Node2D" parent="."]
 
