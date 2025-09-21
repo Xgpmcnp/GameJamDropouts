@@ -11,6 +11,152 @@ var current_dialog: Array[String] = []
 # Store the current state of serving
 var drink_ready: bool = true
 
+#region tutorial_dialog
+const introduction_dialog: Array = [
+		"Narration: The shop's window clinks gently as Saigon turns the \"Open!\" side of the panel to face outside.",
+		"Saigon: Aaaaand done! We're finally ready for our opening day!",
+		"Saigon: Once the customers start pouring in, I'll finally be able to share the joy of artisanal and experimental coffee!",
+		"Saigon: Whatever that head office lady says...",
+		"Nuttyraphale: Squeek squeeeeek squeek! (Don't worry Saigon, you'll definitely have hordes of coffee fans pouring in any minute now!)",
+		"Saigon: No ideas what you said buddy. As usual... but I appreciate the encouragement!",
+		#*The door bell chime should play at the end of above text, then a customer appears*		
+]
+
+const general_conversation_dialog: Array = [
+	[
+		"Saigon: Hi, welcome to Pour Some Love! What can we brew together today?",
+		"Customer: O-Oh... hello.. I saw the ad outside about a newly opened Pour Some Love location, is this it?",
+		"Saigon: Yes ma'am! This is Pour Some Love, where there's no limits to the art of the brew! Together, we can explore new flavours and go where no taste bud has gone!",
+		"Saigon's thoughts: Hah... I did it, I said it perfectly! All that practice is paying off.. they're going to order something so creative for sure!",
+		"Customer: Err.. oooooookay.. well, do you think.. do you think I could get a pumpkin spice latte? Like the one in the ad! It seemed so delicious..",
+		"Saigon: ...",
+		#*A -1 composure should happen here*
+		"Saigon: But of course, coming right up for you ma'am!",
+		"Nuttyraphale: Squeek, squeek squeeek? (Saigon, do you even remember how that machine works?)",
+		"Saigon: Shush Nutty, I have a.. pumpkin spice latte.. to make. Should be easy, I just need to pour the pumpkin, the spice, and the latte. Nothing's easier.. or more boring..",
+	],
+	[
+		#*Door bell chime, customer appears*
+		"Saigon: Oh! Welcome to Pour Some Love! What can I.. uh, what can we brew together today?",
+		"Customer: Oh, you must be new here.",
+		"Saigon: The entire shop is new, sir!",
+		"Customer: Oh really? I wouldn't have guessed, what with the fresh paint outside staining my boots!",
+		"Saigon: Oh, uh.. I'm sorry?",
+		"Customer: I bet you are. Anyway, get me a pumpkin spice latte, please and thank you.",
+		#*A -2 composure should happen here, and the combo meter raises to 2*
+		"Saigon: Right, yes, of course, just a minute!",
+		"Customer: Make it less than that, I've got places to be!",
+		#*A -4 composure should happen here, and the combo meter raises to 3*
+		"Saigon: R-Right....",
+	],
+	[
+		#*Door bell chime, customer appears*
+		"Saigon: Welcome to Pour Some Love, what can we brew together today?",
+		"Customer: Pumpkin Spice Latte.",
+		#*A -16 composure should happen here, and the combo meter raises to 5*
+		"Saigon:... Yes, of course.",
+	],
+	[
+		#*Door bell chime, customer appears*
+		"Saigon: Welcome to Pour Some Love..",
+		"Customer: Oh, hello there young lady! I would love it if you could brew me one of those famous pumpkin spice lattes, I hear they're in season! Would you be so kind?",
+		"Saigon: Certainly sir, coming right up.",
+		"Saigon's thoughts: At least this one is nice..",
+	]
+]
+
+const serving_drink_dialog: Array = [
+	[
+		"Saigon: Coming right up, your pumpkin spice latte!",
+		"Customer: Oh wonderful, thank you miss!",
+		"Saigon: Of course! Please enjoy the love I've poured for you!",
+		"Customer: Uh.. sure..?",
+		"Saigon's thoughts: Such a stupid tagline... but I have to say it..",
+		#*Door bell chime, customer leaves*
+	],
+	[
+		"Saigon: Here you go, pumpkin spice latte to go!",
+		"Customer: And not a second too soon. You should respect your customer's time more! The Pour Some Love branch in my hometown would've served it faster!",
+		#*A -8 composure should happen here, and the combo meter raises to 4*
+		"Saigon: Apologies.. please enjoy the love I've poured.. he's gone..",
+		#*Door bell chime, customer leaves*
+		"Saigon:..No, I'm okay. I can't let this get to me. I'll have great regulars in no time!",
+
+	],
+	[
+		"Saigon: Here you are. Please enjoy the love I've poured for you today.",
+		"Customer: At this price? That's plain robbery. If you want me to enjoy it, it should really be half that price. Your competitors sell it cheaper!",
+		#*A -32 composure should happen here, and the combo meter raises to 6*
+		"Saigon: I'm sorry sir, all prices are set by head office. You can peruse the other items on the menu if you want, they're cheaper and I'll be happy to make you another dri-",
+		"Customer: No, I want a pumpkin spice latte. Ah, forget it, I'll just call head office, they always give me coupons when I complain! Better hope it doesn't come back down on you!",
+		#*Door bell chime, customer leaves*
+		"Saigon:...",
+		"Saigon:.....",
+
+	],
+	[
+		"Saigon: Here's your drink, please enjoy it!",
+		"Customer: I'll try! Sure would be easier if you smiled a little more, young lady. You'd be so much prettier!",
+		#*A -64 composure should happen here, and the combo meter raises to 7*
+		"Customer: Anyway, goodbye!",
+		#*door bell chimes, customer leaves*
+	]
+]
+
+const tutorial_game_over_dialog = [
+		"Narration: *The shop's window clinks once more, not so gently this time, as Saigon closes shop early*",
+		"Saigon: Okay.. breathe in.. breathe out.. I need, I need a moment. This can't go on!",
+		"Saigon: I just.. I just don't get it. I spent so long on making an appealing menu, full of my perfectly hand-crafted drinks...",
+		"Saigon: And they just.. they keep ordering pumpkin spice lattes! The one drink on the menu forced by Head Office!",
+		"Saigon: Those drinks, they're.. they're HORRIBLE!! The taste is all off, it's like watered down pumpkin juice!",
+		"Saigon: Which wouldn't be so bad if it wasn't for the disgustingly thick whipped cream and the stupid amount of sugar!",
+		"Saigon: They're just drinking expensive sugar water with shaving cream! It doesn't make any sense!!",
+		"Saigon: It's.. it's even more expensive than my other drinks.. I thought by making them cheaper I could compete with the advertisements from head office.. but nobody even looked at the menu before ordering!",
+		"Saigon: I thought I had finally achieved my dream of owning a coffee shop, and being a franchised store in the *$ corporation was just a small hickup..",
+		#*A phone ringing sound happens here*
+		"Saigon: Oh, it's head office.. I better pick up..",
+		"Saigon: Hello?",
+		"Head Office Lady: Hello, this is Francine. Am I speaking to the manager of branch number 751?",
+		"Saigon: Y-Yes, that's me! Nice to meet you, Fra-",
+		"Francine: I have been informed that you have not met the required logged hour count for this period. Is this correct?",
+		"Saigon: Yes ma'am!",
+		"Francine: You are reminded that your franchise of the *$ corporation must remain open for the full twelve hour period it is mandated.",
+		"Saigon: Oh.. Yes, of course.. I'm sorry Francine, I just go so tired of everyone ordering the same drink, I needed a pause!",
+		"Francine: The *$ corporation finds the most value within our Pumpkin Spice Latte home blend of real pumpkin, signature espresso and spiced whipped cream. You would do well do take this to heart.",
+		"Francine: Furthermore, it has come to my attention that you have appended your provided menu with additional drinks underpricing the Pumpkin Spice Latte home blend. Is this correct?",
+		"Saigon: Oh, yeah, about that.. I wanted to offer some variety of my own home blends, and thought it could be nice options at a cheaper price, to bring in the people! But nobody ordered it...",
+		"Francine: And it will remain as such. Your menu has been updated to reflect proper corporate guideline, as you may not compete directly with the Pumpkin Spice Latte home blend.",
+		"Saigon: No! My.. my menu! Why would you remove my drinks from there? Nobody even ordered them!",
+		"Francine: It is corporate guideline. That is all.",
+		"Francine: This concludes my business with branch number 751's manager. May your day be full of love!",
+		#*A phone hanging up sound happens here*
+		"Saigon: ... ... ...",
+		"Saigon: *sigh*",
+		"Squeekly: Squeek. (Saigon.)",
+		"Squeekly: Squeeeeeeeek. (Saiiiigoooooooon.)",
+		"Saigon: What do you want, Squeekley?",
+		"Squeekly: The mean head office lady. You can take her on at her own game. Look at this..",
+		"Narration: *Squeekly leaves shortly and climbs back on the counter, holding in his mouth a suspiciously large stack of paper, bookmarked*",
+		"Saigon: What are you doing, what's this?",
+		"Narration: *Saigon grabs the stack of papers and turns it to the bookmarked page. On it, a section is circled in messy highliner*",
+		"Saigon: \"... head office reserves the right to remove any menu item in Direct Competition with the Pumpkin Spice Latte.. See section 52A on \"Direction Competition\"",
+		"Saigon: 52A, 52A, 52A... 51.. 52, 52A!",
+		"Saigon: \"any menu item advertised as a replacement for Pumpkin Spice Latte, priced lower than Pumpkin Spice Latte, or proposed instead of Pumpkin Spice Lattes are considered in Direct Competition\"",
+		"Squeekly: Squeek. (You know what that means, Saigon.)",
+		"Saigon: Hey, this gives me an idea..",
+		"Saigon: This doesn't say anything about putting items on the menu at the same price as a pumpkin spice latte! So now all I have to do..",
+		"Nuttyraphale: Squeek, squeek squeek! (You put some of your own items back, at the same price as a Pumpkin Spice Latte, and compete through your superior flavour!)",
+		"Saigon: ..is put some of my own items back.. so many of them, that the menu expands forever and ever and ever, and nobody can find the stupid pumpkin BLEGH latte on there!",
+		"Squeekly: Squeak, squeak.. (Yess... you're starting to see..)",
+		"Saigon: And, and, and.. in the meantime.. if people order those horrible drinks.. I'll sabotage them! With good tasting ingredients, for once!",
+		"Nuttyraphale: Squeeeek... (Oh, Saigon.. you shouldn't break the rules like that!)",
+		"Saigon: You're right, Nutty! It is a good idea! With your undecypherable but ever understood support, I'm certain I'm making the right call!",
+		"Saigon: Tomorrow, we brew!",
+		#*transition to a black screen, with the text "The next day...", then transition back to customer service screen*	
+]
+#endregion
+
+#region all_general_conversation_dialog (exclulde the one on tutorial)
 const conversation_at_state_76_100: Array = [
 	[
 		"Saigon: Welcome to Pour Some Love! What can we brew together today?",
@@ -35,7 +181,7 @@ const conversation_at_state_76_100: Array = [
 		"Saigon's thoughts: ..I have never met this man."
 	]
 ]
-
+	
 const conversation_at_state_51_75: Array = [
 	[
 		"Saigon: Welcome to Pour Some Love! How can I help?",
@@ -117,7 +263,198 @@ const conversation_at_state_1_25: Array = [
 		"Saigon: PSL, coming right up"
 	]
 ]
+#endregion
 
+#region all_good_drink_dialog (exclude the one on tutorial)
+const good_drink_76_100: Array = [
+	[        
+		"Saigon: Here's your drink! Please enjoy the love I've poured for you today!",
+		"Customer: o..okay? Thank you..",],
+	[
+		"Saigon: Your pumpkin spice latte, coming right up! Please enjoy the love I've poured for you today!",
+		"Customer: Aw, thank you miss! I will!",		
+	],
+	[
+		"Saigon: Here you go, pumpking spice latte! Please enjoy the love I've poured for you today!",
+		"Customer: Uh, sure I will. Good day.",		
+	],
+	[
+		"Saigon: Pumpkin spice latte, here and ready! Please enjoy the love I've poured for you today!",
+		"Customer: Oh, that was fast. And it smells great! Thank you!",		
+	]
+]
+
+const good_drink_51_75: Array = [
+	[        
+		"Saigon: Here's your latte, just what you ordered!",
+		"Customer: Perfect, thank you!",
+	],
+	[
+		"Saigon: Pumpkin spice latte, as you wished!",
+		"Customer: About time!",		
+	],
+	[
+		"Saigon: The usual, coming right up!",
+		"Customer: Oh, this is my first time here actually. But this drink might become my usual, I love it!",
+		"Saigon's thoughts: Oh, I sure hope it doesn't..",		
+	],
+	[
+		"Saigon: Your drink, ready to go.",
+		"Customer: Finally, a good drink. Thank you!",		
+	]
+]
+
+const good_drink_26_50: Array = [
+	[        
+		"Saigon: Here's your drink.",
+		"Customer: Just as I like it. Aren't these great?",
+		"Saigon: Yes.",
+		"Saigon's thoughts: No.",
+	],
+	[
+		"Saigon: Here's your order.",
+		"Customer: About time, I gotta bounce!",
+		"Saigon's thoughts: ..please trip and spill the horrible concoction from hell..",		
+	],
+	[
+		"Saigon: Your coffee.",
+		"Customer: Thank you.",
+		"Saigon: You're welcome.",
+	],
+	[
+		"Saigon: The drink you've ordered.",
+		"Customer: Are you sure that's what I ordered?",
+		"Saigon: Yes.",
+		"Customer: Oh, okay, thank you!",
+		"Saigon: ..I didn't do anything wrong with that one, did I? Maybe I should have.. Would've felt good, at least.",
+	]
+]
+
+const good_drink_1_25: Array = [
+	[        
+		"Saigon: Here you go..",
+		"Customer: Nice drink! A nice smile would be a great topping, however!",
+		"Saigon: You may leave.",
+	],
+	[
+		"Saigon: Here's your latte...",
+		"Customer: Are you fit to work?",
+		"Saigon: Of course.",
+		"Saigon's thoughts: Of course not.",	
+	],
+	[
+		"Saigon:...",
+		"Customer:...",
+	],
+	[
+		"Saigon: Here it is..",
+		"Customer: Thank.. you?",
+	]
+]
+#endregion
+
+#region all_bad_drink_dialog (exclude the one on tutorial)
+const bad_drink_76_100: Array = [
+	[        
+		"Saigon: Here's a delicious drink for you! Please enjoy the love I've poured for you today!",
+		"Customer: Are you sure this is what I ordered..? Actually, nevermind, this tastes great, it's definitely what I ordered!",
+		"Saigon's thoughts: Of course it is.. hah! Get served!",
+	],
+	[
+		"Saigon: Here's the drink of your dreams! Please enjoy the love I've poured for you today!",
+		"Customer: Really? It smells off.. ah, it smells good though, so whatever. New blend?",
+		"Saigon: You could call it that!",	
+	],
+	[
+		"Saigon: Perfect drink, just for you! Please enjoy the love I've poured for you today!",
+		"Customer: This.. is not what I ordered. Or, well, is it?",
+		"Saigon: It's exactly what you ordered, good sir!",
+		"Customer: Well then. Alright!",
+	],
+	[
+		"Saigon: Just what you ordered! Please enjoy the love I've poured for you today!",
+		"Customer: Oh yeah, that smells exactly like a pumpkin spice latte! Thank you!",
+		"Saigon's thoughts: ..and the fell for it again award goes to..",
+	]
+]
+
+const bad_drink_51_75: Array = [
+	[        
+		"Saigon: Your magnificient drink, ready to go.",
+		"Customer: Finally, someone who can do a good pumpkin spice latte. Truly tastes exactly like the best of $*'s classic pumpkin spice latte!",
+		"Saigon's thoughts: You.. you know NOTHING!!",
+	],
+	[
+		"Saigon: The drink of your dreams, just for you",
+		"Customer: This tastes nothing like a pumpkin spice latte.",
+		"Saigon: Oh, but it does, as it is one!",
+		"Customer: Ah, no point arguing about it..",
+	],
+	[
+		"Saigon: The perfect concoction, here to please!",
+		"Customer: Oh, so you think pumpkin spice lattes are the perfect concoction, too? Twins!!",
+		"Saigon's thoughts: I hate it here.",	
+	],
+	[
+		"Saigon: The tastiest pumpkin spice latte in town, coming right up!",
+		"Customer: Oh, this tastes different.. is there a special ingredient in here? I love it!",
+		"Saigon: You could call it that! You sure could..",	
+	]
+]
+
+const bad_drink_26_50: Array = [
+	[        
+		"Saigon: Here comes your drink!",
+		"Customer: My drink? Well, must be, I'm the only one here. Thank you!",
+		"Saigon's thoughts: You are.. just oh so welcome.",
+	],
+	[
+		"Saigon: Your order, blended to perfection!",
+		"Customer: I ordered this? I actually don't remember what I ordered. Do you have receipts?",
+		"Saigon: No, they don't fit the corporation's environmental goals, I think",
+		"Customer: I don't know if that's legal..",
+		"Saigon's thoughts: It really isn't..",
+	],
+	[
+		"Saigon: Enjoy your beautiful drink!",
+		"Customer: Is there really beauty to be found in such a generic drink?",
+		"Saigon's thoughts: Why would you order it if you think that...",
+	],
+	[
+		"Saigon: Here's your drink!",
+		"Customer: Awesome, just what I ordered. Thank you!",
+		"Saigon: You're welcome!",
+		"Saigon's thoughts: Oh, oh so welcome..",
+	]
+]
+
+const bad_drink_1_25: Array = [
+	[        
+		"Saigon: Hope you enjoy the bestest drink eveeeeer!",
+		"Customer: Oh, you look cheery! Of course I will!",
+		"Saigon's thoughts: Of course you will! I'm a great barista! Way better than this place deserves!",
+	],
+	[
+		"Saigon: Here comes a legendary brew!",
+		"Customer: Oh, this.. doesn't smell like what I ordered.",
+		"Saigon's thoughts: SERVES YOU RIGHT!",
+	],
+	[
+		"Saigon: I finally did it! I made the ultimate pumpkin spice latte!",
+		"Customer: Is this what that tastes like?",
+		"Saigon's thoughts: NO! THIS TASTES WAY BETTER!",
+	],
+	[
+		"Saigon: Oh no, I messed up your order!",
+		"Customer: Oh, can you redo it?",
+		"Saigon: NO! But if you call head office to complain, ask for Francine and complain a looooooooooot, she'll give you a coupon!",
+		"Customer: w..what?",
+		"Saigon: Make sure to really vent to her, tell her how you feel, how HORRIBLE the service was!!",
+		"Customer: I'm.. just gonna go.. the drink tastes better than what I ordered anyway..",
+		"Saigon: YOU BET IT DOES!",
+	]
+]
+#endregion
 
 # Extract SpeakerName, Dialogue from the Customer and Player
 func extract_line(line: String) -> Dictionary:

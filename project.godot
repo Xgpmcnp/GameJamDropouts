@@ -26,6 +26,7 @@ Global="*res://global_script.gd"
 
 [display]
 
+window/stretch/mode="viewport"
 buses/default_bus_layout=""
 
 [input]
