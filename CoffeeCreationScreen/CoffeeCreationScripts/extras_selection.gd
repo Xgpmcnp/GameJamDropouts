@@ -3,6 +3,9 @@ extends Control
 @onready var coffee_cup: Sprite2D = $"../Path2D/PathFollow2D/CoffeeCup2"
 @onready var extras_label: Label = $ExtrasLabel
 @onready var preparation_method_selection: Control = $"../PreparationMethodSelection"
+@onready var extras_back: TextureButton = $ExtrasBack
+@onready var extras_forward: TextureButton = $ExtrasForward
+@onready var extras_pour: TextureButton = $ExtrasPour
 
 # If true, buttons cannot be pressed anymore
 var lock_machine: bool
@@ -14,6 +17,9 @@ var curr_index = 0
 func _ready() -> void:
 	# Machine can't be interacted with by default
 	lock_machine = true
+	extras_back.hide()
+	extras_forward.hide()
+	extras_pour.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,6 +66,11 @@ func _on_extras_pour_pressed() -> void:
 		
 		# Unlock next machine
 		preparation_method_selection.lock_machine = false
+		preparation_method_selection.unhide_options()
 		coffee_cup.set_extra(extras_label.text)
 	$"../../Coffee-Conveyor".play()
 	
+func unhide_options()->void:
+	extras_back.visible = true
+	extras_forward.visible = true
+	extras_pour.visible = true
